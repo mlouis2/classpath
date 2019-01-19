@@ -1,3 +1,7 @@
+/* font-family: 'Coiny', cursive;
+font-family: 'Cuprum', sans-serif;
+font-family: 'Boogaloo', cursive; */
+
 * {
   box-sizing: border-box;
 }
@@ -28,5 +32,10 @@
 
 h1 {
   color:white;
+  text-align: center;
+  font-family: 'Boogaloo', cursive;
+}
+
+.entry {
   text-align: center;
 }
