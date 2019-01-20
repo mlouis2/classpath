@@ -2,6 +2,7 @@ const  widthValue = .7 - .02;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const widthFactor = 1.35;
+const borderWidth = 8;
 
 //Sets the canvas width and canvas height so that my circles are not ovals
 canvas.width = widthValue * document.body.clientWidth;
@@ -50,3 +51,9 @@ function drawValidVertices() {
 		});
 	}
 }
+
+ctx.fillStyle = "#ddaaca";
+ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
+ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
+ctx.fillRect(0, 0, canvas.width, borderWidth); //top
+ctx.fillRect(0, 0, borderWidth, canvas.height); //left
