@@ -11,10 +11,8 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='lsb'>Life Sciences Building</option>" +
                   "<option value='malone'>Malone</option>" +
                   "<option value='pereira'>Pereira</option>" +
-                  "<option value='seaver'>Seaver</option></select>";
                   "<option value='seaver'>Seaver</option></select>" +
-                  "</div>" +
-                  "<br></br>";
+                  "</div>";
 
 function addForm(id) {
 
