@@ -27,7 +27,7 @@ let entries = [];
 //Code to handle the update button--connected to the button
 document.getElementById("updateButton").addEventListener("click", function(){
 	entries = [];
-	let entriesFromHTML = document.getElementsByClassName("entry");
+	let entriesFromHTML = document.getElementsByClassName("testClass");
 	for (let i = 0; i < entriesFromHTML.length; i++){
 		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}

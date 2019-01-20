@@ -1,5 +1,6 @@
 var addid = 0;
-var selectBuildingsString = "<select name='buildings'>" +
+var selectBuildingsString = "<div class='testClass'>" +
+                  "<select name='buildings'>" +
                   "<option value='burnsRec'>Burns Rec Center</option>" +
                   "<option value='doolan'>Doolan</option>" +
                   "<option value='foley'>Foley</option>" +
@@ -9,6 +10,7 @@ var selectBuildingsString = "<select name='buildings'>" +
                   "<option value='malone'>Malone</option>" +
                   "<option value='pereira'>Pereira</option>" +
                   "<option value='seaver'>Seaver</option></select>" +
+                  "</div>" +
                   "<br></br>";
                   //"<a href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'>add more</a>"
 function addForm(id) {
@@ -20,7 +22,7 @@ function addForm(id) {
     addid++;
 
     var text = document.createElement('div');
-    text.id = 'additem_' + addid;
+    text.id = 'addItem' + addid;
     text.innerHTML = selectBuildingsString;
 
 
