@@ -18,6 +18,10 @@ canvas.height =  document.body.clientHeight;
 let mapImage = new Image();
 mapImage.src = "./LMUMap.png";
 
+//Creates the LMU Logo
+let lmuLogo = new Image();
+lmuLogo.src = "./LionDrawing.png";
+
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
 {
@@ -96,9 +100,21 @@ function addBuildings() {
 		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
 	});
 
+	addBuildingConnections();
+}
+
+function addBuildingConnections() {
 	addConnectionBetweenBuildings("lsb", "pereira");
 	addConnectionBetweenBuildings("pereira", "doolan");
 	addConnectionBetweenBuildings("seaver", "lsb");
+}
+
+function addPathNodes() {
+	//add invisible path nodes
+}
+
+function addPathNodeConnections() {
+	//draw edges between connected path nodes
 }
 
 function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
@@ -106,15 +122,20 @@ function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
 }
 
 function refreshBackground() {
+	//draws green background :)
 	ctx.fillStyle = "#a5d389";
-	ctx.fillRect(0, 0, canvas.width, canvas.height)
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	//draws map
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
+	//draws border
 	ctx.fillStyle = "#ddaaca";
 	ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
 	ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
 	ctx.fillRect(0, 0, canvas.width, borderWidth); //top
 	ctx.fillRect(0, 0, borderWidth, canvas.height); //left
+
+	//TODO insert lion logo
 }
 
 refreshBackground();

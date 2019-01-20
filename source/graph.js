@@ -1,3 +1,5 @@
+const PATH_WIDTH = 3;
+
 class Graph {
      constructor() {
           this.vertices = [];
@@ -14,7 +16,7 @@ class Graph {
      drawEdge(vertexA, vertexB) {
           ctx.strokeStyle = "white";
           ctx.beginPath();
-          ctx.lineWidth = 5;
+          ctx.lineWidth = PATH_WIDTH;
           ctx.moveTo(vertexA.x, vertexA.y);
           ctx.lineTo(vertexB.x, vertexB.y);
           ctx.stroke();
