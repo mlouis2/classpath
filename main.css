@@ -15,6 +15,24 @@
 
 }
 
+.sidebar .entry select {
+  color: white;
+  position: relative;
+  margin-left: 25%;
+  width: 50%;
+  background: #a5d389;
+  line-height: 1;
+  border: 0;
+  padding: 10;
+  border-radius: 0;
+  z-index: 10;
+  font-size: 1em;
+}
+
+.sidebar .entry {
+    padding: 25;
+}
+
 canvas {
      /* width: 70%;
      height: 100%; */
