@@ -1,4 +1,4 @@
-const  widthValue = .7 - .02;
+const widthValue = .7 - .02;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const widthFactor = 1.35;
@@ -31,16 +31,32 @@ document.getElementById("updateButton").addEventListener("click", function(){
 	for (let i = 0; i < entriesFromHTML.length; i++){
 		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}
-	drawValidVertices();
+	drawValidVerticesAndPaths();
 });
 
 //Draws the vertices after button has been pushed
-function drawValidVertices() {
+function drawValidVerticesAndPaths() {
+	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
 		let validVertices = classpath.returnVerticesWithName(entries[i].place);
 		validVertices.forEach((validVertex) => {
+			totalValidVertices.push(validVertex);
 			validVertex.draw();
 		});
+	}
+	drawValidPaths(totalValidVertices);
+}
+
+//Draws valid paths
+function drawValidPaths(totalValidVertices) {
+	//This will not work if there are buildings on campus that are not accessible from other buildings
+	for (let i = 0; i < totalValidVertices.length - 1; i++) {
+		//temp Code
+		let locationA = classpath.returnNonPathVertexWithName(totalValidVertices[i].name);
+		let locationB = classpath.returnNonPathVertexWithName(totalValidVertices[i + 1].name);
+		console.log("drawing from " + locationA.name + " to " + locationB.name);
+		classpath.drawPath(classpath.findPath(locationA, locationB));
+		// classpath.drawPath(classpath.findPath(classpath.returnNonPathVertexWithName(totalValidVertices[i].name), classpath.returnNonPathVertexWithName(totalValidVertices[i + 1].name)));
 	}
 }
 
@@ -65,10 +81,11 @@ function addBuildings() {
 
 	addConnectionBetweenBuildings("lsb", "pereira");
 	addConnectionBetweenBuildings("pereira", "doolan");
+	addConnectionBetweenBuildings("seaver", "lsb");
 }
 
 function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
-	classpath.addEdge(classpath.returnBuildingVertexWithName(buildingNameA), classpath.returnBuildingVertexWithName(buildingNameB));
+	classpath.addEdge(classpath.returnNonPathVertexWithName(buildingNameA), classpath.returnNonPathVertexWithName(buildingNameB));
 }
 
 ctx.fillStyle = "#ddaaca";
