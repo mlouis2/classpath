@@ -48,10 +48,15 @@ function drawValidVertices() {
 function addBuildings() {
 	//Creates the buildings array
 	let buildings = [];
-	buildings.push(new Building("seaver", 72.3, 49.36));
-	buildings.push(new Building("lsb", 78.3, 50.07));
-	buildings.push(new Building("pereira", 100, 100));
-	buildings.push(new Building("doolan", 100, 100));
+	buildings.push(new Building("seaver", 73.3, 49.29));
+	buildings.push(new Building("lsb", 79.3, 49.29));
+	buildings.push(new Building("foley", 76, 38.4));
+	buildings.push(new Building("pereira", 85.88, 49.29));
+	buildings.push(new Building("doolan", 90.56, 49.29));
+	buildings.push(new Building("foleyAnnex", 80.24, 38.4));
+	buildings.push(new Building("burnsRec", 79.3, 60.97));
+	buildings.push(new Building("gersten", 79.3, 69.66));
+	buildings.push(new Building("malone", 77.63, 30.49));
 
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
