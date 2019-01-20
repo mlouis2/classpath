@@ -1,7 +1,3 @@
-/* font-family: 'Coiny', cursive;
-font-family: 'Cuprum', sans-serif;
-font-family: 'Boogaloo', cursive; */
-
 * {
   box-sizing: border-box;
 }
@@ -18,8 +14,8 @@ font-family: 'Boogaloo', cursive; */
      height: 100%;
      background-color: blue;
 }
-.map {
-     width: 100%;
+canvas {
+     width: 70%;
      height: 100%;
      background-color: red;
 }
@@ -34,8 +30,4 @@ h1 {
   color:white;
   text-align: center;
   font-family: 'Boogaloo', cursive;
-}
-
-.entry {
-  text-align: center;
 }
