@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 const borderWidth = 8;
 const image_width_to_height= 21.68/16.43;
 const image_height_to_width =16.43/21.68;
+const ORDER_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 let imageHeight;
 let imageWidth;
 let imageX;
