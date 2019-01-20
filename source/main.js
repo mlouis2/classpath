@@ -22,6 +22,14 @@ mapImage.src = "./LMUMap.png";
 let lmuLogo = new Image();
 lmuLogo.src = "./LionDrawing.png";
 
+//Creates coffee, hamburger, and c-store images
+let coffeeImage = new Image();
+coffeeImage.src = "./Coffee.png";
+let hamburgerImage = new Image();
+hamburgerImage.src = "./Hamburger.png";
+let sodaImage = new Image();
+sodaImage.src = "./TheGrid.png";
+
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
 {
@@ -43,8 +51,6 @@ else if (canvas.height <= canvas.width)
 let classpath = new Graph();
 
 addBuildings();
-
-//TODO: add connections between buildings. also add path nodes! :)
 
 let entries = [];
 //Code to handle the update button--connected to the button
@@ -115,6 +121,22 @@ function addPathNodes() {
 
 function addPathNodeConnections() {
 	//draw edges between connected path nodes
+}
+
+function addFoodNodes() {
+
+}
+
+function addFoodNodeConnections() {
+
+}
+
+function addCoffeeNodes() {
+
+}
+
+function addCoffeeNodeConnections() {
+
 }
 
 function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {

@@ -13,6 +13,8 @@ class Vertex {
           this.color = color;
      }
      draw() {
+          //add support to draw them differently depending on if coffee, food, or building
+          //current code is for building
           ctx.beginPath();
           ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
           ctx.fillStyle = this.color;
