@@ -29,7 +29,7 @@ document.getElementById("updateButton").addEventListener("click", function(){
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("entry");
 	for (let i = 0; i < entriesFromHTML.length; i++){
-		entries.push(new Entry(entriesFromHTML[i].children[0].value, entriesFromHTML[i].children[1].value));
+		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}
 	drawValidVertices();
 });

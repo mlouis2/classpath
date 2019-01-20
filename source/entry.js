@@ -1,6 +1,5 @@
 class Entry {
-     constructor(place, time) {
+     constructor(place) {
           this.place = place;
-          this.time = time;
      }
 }
