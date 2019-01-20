@@ -22,6 +22,10 @@ mapImage.src = "./LMUMap.png";
 let lmuLogo = new Image();
 lmuLogo.src = "./LionDrawing.png";
 
+//Creates the compass image
+let compass = new Image();
+compass.src = "./compass.png";
+
 //Creates coffee, hamburger, and c-store images
 let coffeeImage = new Image();
 coffeeImage.src = "./Coffee.png";
@@ -140,6 +144,13 @@ function addBuildingConnections() {
 	addConnectionBetweenBuildings("lsb", "pereira");
 	addConnectionBetweenBuildings("pereira", "doolan");
 	addConnectionBetweenBuildings("seaver", "lsb");
+	addConnectionBetweenBuildings("hannonApt", "hannonField");
+	addConnectionBetweenBuildings("mckay", "hannonApt");
+	addConnectionBetweenBuildings("mckay", "hannonField");
+	addConnectionBetweenBuildings("burnsArt", "leaveyHall");
+	addConnectionBetweenBuildings("leaveyHall", "commArts");
+	addConnectionBetweenBuildings("commArts", "burnsArt");
+
 }
 
 function addPathNodes() {
@@ -184,7 +195,11 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, borderWidth); //top
 	ctx.fillRect(0, 0, borderWidth, canvas.height); //left
 
-	//TODO insert lion logo
+	// draws lion logo
+	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5)
+
+	// draws compass rose
+	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5)
 }
 
 refreshBackground();
