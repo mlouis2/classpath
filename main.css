@@ -11,12 +11,14 @@
      float: left;
      width: 30%;
      height: 100%;
-     background-color: blue;
+     background-color: #699CD0;
+
 }
+
 canvas {
      /* width: 70%;
      height: 100%; */
-     background-color: #6BDC72;
+     background-color: #a5d389;
 }
 
 .container:after {
