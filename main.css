@@ -5,7 +5,6 @@
 .container {
   margin: 0;
   height: 100vh;
-  background-color: purple;
 }
 
 .sidebar {
@@ -17,7 +16,7 @@
 canvas {
      /* width: 70%;
      height: 100%; */
-     /* background-color: red; */
+     background-color: #6BDC72;
 }
 
 .container:after {

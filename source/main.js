@@ -1,6 +1,10 @@
 const  widthValue = .7 - .02;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+const widthFactor = 1.35;
+
+canvas.width = 0.68 * document.body.clientWidth;
+canvas.height =  document.body.clientHeight;
 
 //Sets the canvas width and canvas height so that my circles are not ovals
 canvas.width = widthValue * document.body.clientWidth;
@@ -9,9 +13,13 @@ canvas.height =  document.body.clientHeight;
 //Creates the map image
 let mapImage = new Image();
 mapImage.src = "./LMUMap.png";
-ctx.drawImage(mapImage, 0, 0, 200, 124);
 
 //Creates the graph
+smallerDimension = canvas.width < canvas.height ? canvas.width: canvas.height;
+ctx.drawImage(mapImage, canvas.width / 2 - smallerDimension * widthFactor / 2,
+        canvas.height / 2 - smallerDimension / 2, smallerDimension * widthFactor, smallerDimension);
+
+
 let classpath = new Graph();
 
 //Creates the buildings array
