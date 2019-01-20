@@ -19,7 +19,7 @@ class Graph {
           ctx.lineTo(vertexB.x, vertexB.y);
           ctx.stroke();
      }
-     returnBuildingVertexWithName(name) {
+     returnNonPathVertexWithName(name) {
           return this.returnVerticesWithName(name)[0];
      }
      returnVerticesWithName(name) {
@@ -31,21 +31,22 @@ class Graph {
           }
           return correctVertices;
      }
-
      findPath(current, goal) {
-          this.findPathFromPoint();
+          this.setVerticesUnvisited();
+          this.findPathFromPoint(current, goal);
           let answer = this.correctPath;
           this.correctPathFound = false;
           this.correctPath = [];
+          //This does return a backwards array, but it also doesn't matter bc the edges are uncolored. so whatever.
           return answer;
      }
-
      findPathFromPoint(current, goal) {
-          if (current == null) {
+          if (current == null || current.visited) {
                return;
           } else {
+               current.visited = true;
                for (let i = 0; i < current.adjacencyList.length; i++) {
-                    this.findPath(current.adjacencyList[i], goal);
+                    this.findPathFromPoint(current.adjacencyList[i], goal);
                }
                if (!this.correctPathFound && current === goal) {
                     this.correctPathFound = true;
@@ -53,6 +54,17 @@ class Graph {
                if (this.correctPathFound) {
                     this.correctPath.push(current);
                }
+          }
+     }
+     setVerticesUnvisited() {
+          for (let i = 0; i < this.vertices.length; i++) {
+               this.vertices[i].visited = false;
+          }
+     }
+     drawPath(path) {
+          console.log("the path is " + path);
+          for (let i = 0; i < path.length - 1; i++) {
+               this.drawEdge(this.returnNonPathVertexWithName(path[i].name), this.returnNonPathVertexWithName(path[i + 1].name));
           }
      }
 }
