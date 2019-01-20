@@ -21,7 +21,7 @@ class Graph {
           ctx.lineTo(vertexB.x, vertexB.y);
           ctx.stroke();
      }
-     returnNonPathVertexWithName(name) {
+     returnVertexWithName(name) {
           return this.returnVerticesWithName(name)[0];
      }
      returnVerticesWithName(name) {
@@ -70,7 +70,7 @@ class Graph {
      }
      drawPath(path) {
           for (let i = 0; i < path.length - 1; i++) {
-               this.drawEdge(this.returnNonPathVertexWithName(path[i].name), this.returnNonPathVertexWithName(path[i + 1].name));
+               this.drawEdge(this.returnVertexWithName(path[i].name), this.returnVertexWithName(path[i + 1].name));
           }
      }
 }
