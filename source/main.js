@@ -8,6 +8,7 @@ let imageHeight;
 let imageWidth;
 let imageX;
 let imageY;
+const CONST_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 
 
 //Sets the canvas width and canvas height so that my circles are not ovals
@@ -80,6 +81,7 @@ function drawValidVerticesAndPaths() {
 		let validVertices = classpath.returnVerticesWithName(entries[i].place);
 		validVertices.forEach((validVertex) => {
 			totalValidVertices.push(validVertex);
+			validVertex.setColor(CONST_COLORS[i]);
 			validVertex.draw();
 		});
 	}
@@ -187,6 +189,14 @@ function addPathNodes() {
 	});
 	addPathNodeConnections();
 	//add invisible path nodes
+}
+
+function updateFormColors() {
+    var forms = document.getElementsByName("buildings");
+    var i;
+    for (i = 0; i < forms.length; i++) {
+        forms[i].style.backgroundColor = CONST_COLORS[i];
+    }
 }
 
 function addPathNodeConnections() {

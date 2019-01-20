@@ -20,5 +20,7 @@ class Vertex {
           ctx.fillStyle = this.color;
           ctx.fill();
           ctx.lineWidth = 1;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
      }
 }

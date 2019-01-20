@@ -65,6 +65,7 @@ function addForm(id) {
 
     if (addid <= 5) {
         addForm.appendChild(text);
+        updateFormColors();
     }
 }
 
