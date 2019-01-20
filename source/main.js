@@ -1,8 +1,14 @@
 const widthValue = .7 - .02;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const widthFactor = 1.35;
 const borderWidth = 8;
+const image_width_to_height= 21.68/16.43;
+const image_height_to_width =16.43/21.68;
+let imageHeight;
+let imageWidth;
+let imageX;
+let imageY;
+
 
 //Sets the canvas width and canvas height so that my circles are not ovals
 canvas.width = widthValue * document.body.clientWidth;
@@ -13,8 +19,23 @@ let mapImage = new Image();
 mapImage.src = "./LMUMap.png";
 
 //Draws the map image with correct dimensions
-smallerDimension = canvas.width < canvas.height ? canvas.width: canvas.height;
-ctx.drawImage(mapImage, canvas.width / 2 - smallerDimension * widthFactor / 2, canvas.height / 2 - smallerDimension / 2, smallerDimension * widthFactor, smallerDimension);
+if (canvas.width < canvas.height)
+{
+	imageHeight = canvas.width* image_height_to_width;
+	imageWidth = canvas.width;
+	imageX = 0;
+	imageY= canvas.height/2 - imageHeight/2;
+
+}
+else if (canvas.height <= canvas.width)
+{
+	imageWidth = canvas.height *image_width_to_height;
+	imageHeight = canvas.height;
+	imageY = 0;
+	imageX= canvas.width/2 - imageWidth/2;
+}
+
+ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
 //Creates the graph
 let classpath = new Graph();
@@ -27,7 +48,7 @@ let entries = [];
 //Code to handle the update button--connected to the button
 document.getElementById("updateButton").addEventListener("click", function(){
 	entries = [];
-	let entriesFromHTML = document.getElementsByClassName("entry");
+	let entriesFromHTML = document.getElementsByClassName("testClass");
 	for (let i = 0; i < entriesFromHTML.length; i++){
 		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}
@@ -64,15 +85,15 @@ function drawValidPaths(totalValidVertices) {
 function addBuildings() {
 	//Creates the buildings array
 	let buildings = [];
-	buildings.push(new Building("seaver", 73.3, 49.29));
-	buildings.push(new Building("lsb", 79.3, 49.29));
-	buildings.push(new Building("foley", 76, 38.4));
-	buildings.push(new Building("pereira", 85.88, 49.29));
-	buildings.push(new Building("doolan", 90.56, 49.29));
-	buildings.push(new Building("foleyAnnex", 80.24, 38.4));
-	buildings.push(new Building("burnsRec", 79.3, 60.97));
-	buildings.push(new Building("gersten", 79.3, 69.66));
-	buildings.push(new Building("malone", 77.63, 30.49));
+	buildings.push(new Building("seaver", 71.3, 49.29));
+	buildings.push(new Building("lsb", 77.3, 49.29));
+	buildings.push(new Building("foley", 74, 38.4));
+	buildings.push(new Building("pereira", 83.88, 49.29));
+	buildings.push(new Building("doolan", 88.56, 49.29));
+	buildings.push(new Building("foleyAnnex", 78.24, 38.4));
+	buildings.push(new Building("burnsRec", 77, 60.97));
+	buildings.push(new Building("gersten", 77.3, 69.66));
+	buildings.push(new Building("malone", 75.63, 30.49));
 
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
