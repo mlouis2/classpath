@@ -1,2 +1,3 @@
 # classpath
-Hackathon project for RoseHack 2019
+If you were to ask yourself who knows the best way around a college campus, the answer would be obvious--it's the students. So, classpath is a tool to take advantage of that knowledge. After a map of a campus is updated, path points can be added to buildings and known walkable paths on a college campus. This allows for students to map their walks from classes, food, community buildings, and more, and determine the best route. Classpath is currently available for Loyola Marymount University.
+This project was built for Rose Hack 2019 by Maddie Louis, Megan West, Kaitlyn Behrens, and Shauna Sapper.
