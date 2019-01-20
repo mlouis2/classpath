@@ -4,8 +4,8 @@ class Vertex {
      constructor(vertexType, name, xInPercent, yInPercent) {
           this.vertexType = vertexType;
           this.name = name;
-          this.x = (xInPercent / 100) * canvas.width;
-          this.y = (yInPercent / 100) * canvas.height;
+          this.x = (xInPercent / 100) * imageWidth + (canvas.width - imageWidth)/2;
+          this.y = (yInPercent / 100) * imageHeight + (canvas.height - imageHeight)/2;
           this.color = "#ffffff";
           this.adjacencyList = [];
      }
