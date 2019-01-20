@@ -7,6 +7,7 @@ class Vertex {
           this.x = (xInPercent / 100) * canvas.width;
           this.y = (yInPercent / 100) * canvas.height;
           this.color = "#ffffff";
+          this.adjacencyList = [];
      }
      setColor(color) {
           this.color = color;
