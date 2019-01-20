@@ -6,16 +6,18 @@ class Vertex {
           this.name = name;
           this.x = (xInPercent / 100) * canvas.width;
           this.y = (yInPercent / 100) * canvas.height;
-          this.color = "#000000";
+          this.color = "#ffffff";
      }
      setColor(color) {
           this.color = color;
      }
      draw() {
           ctx.beginPath();
-          console.log("drawing dot at " + this.x + " and " + this.y);
           ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
           ctx.fillStyle = this.color;
           ctx.fill();
+          ctx.lineWidth = 1;
+          ctx.fillStyle = "black";
+          ctx.stroke();
      }
 }
