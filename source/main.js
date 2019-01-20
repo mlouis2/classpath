@@ -33,6 +33,11 @@ let hamburgerImage = new Image();
 hamburgerImage.src = "./Hamburger.png";
 let sodaImage = new Image();
 sodaImage.src = "./TheGrid.png";
+let treesImage = new Image();
+treesImage.src = "./PalmTrees.png";
+let crossImage = new Image();
+crossImage.src = "./Jesus.png";
+
 
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
@@ -116,7 +121,7 @@ function addBuildings() {
 	buildings.push(new Building("leaveyHall", 53.3, 51));
 	buildings.push(new Building("xavier", 57, 17));
 	buildings.push(new Building("jesuit", 51.5, 21.5));
-	buildings.push(new Building("hannonField", 63.2, 65));
+	buildings.push(new Building("hannonField", 63.2, 69));
 	buildings.push(new Building("hannonApt", 58, 67.8));
 	buildings.push(new Building("tenderich", 52, 67.8));
 	buildings.push(new Building("mckay", 52.5, 61));
@@ -130,9 +135,12 @@ function addBuildings() {
 	buildings.push(new Building("doheny",  90,34));
 	buildings.push(new Building("sullivan", 87, 41));
 	buildings.push(new Building("desmond", 80, 17));
+	buildings.push(new Building("rosecrans", 85, 20));
+	buildings.push(new Building("whelan", 77, 11));
+	buildings.push(new Building("delreynorth", 83, 8.1));
+	buildings.push(new Building("delreysouth", 87, 14));
 
 
-	//buildings.push(new Building("test", 81, 49.29));
 
 
 	//Makes each building into a vertex in the graph
@@ -203,6 +211,11 @@ function addPathNodeConnections() {
     addConnectionBetweenNodes("B", "hannonField");
     addConnectionBetweenNodes("C", "burnsArt");
     addConnectionBetweenNodes("C", "mckay");
+    addConnectionBetweenNodes("D", "burnsArt");
+    addConnectionBetweenNodes("D", "commArts");
+    addConnectionBetweenNodes("D", "leaveyHall");
+    addConnectionBetweenNodes("E", "vonDerAhe");
+    addConnectionBetweenNodes("F", "stRobs");
 
     
 
@@ -213,7 +226,8 @@ function addPathNodeConnections() {
 
 addPathNodes();
 
-function addFoodNodes() {
+function addFoodNodes(xInPercent, yInPercent) {
+	ctx.drawImage(hamburgerImage,(xInPercent) * imageWidth + (canvas.width - imageWidth)/2- widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
 
 }
 
@@ -221,11 +235,26 @@ function addFoodNodeConnections() {
 
 }
 
-function addCoffeeNodes() {
+function addCoffeeNodes(xInPercent, yInPercent) {
+	ctx.drawImage(coffeeImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2 - widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
 
 }
 
 function addCoffeeNodeConnections() {
+
+}
+function addCStoreNodes(xInPercent, yInPercent) {
+	ctx.drawImage(sodaImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2  - widthValue,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
+
+}
+
+function addCross(xInPercent, yInPercent){
+	ctx.drawImage(crossImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2 - widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
+
+}
+
+function addPalmTrees(xInPercent, yInPercent)
+{
 
 }
 
@@ -252,6 +281,29 @@ function refreshBackground() {
 
 	// draws compass rose
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5)
+
+	addFoodNodes(.84,.14);
+	addFoodNodes(.79,.30);
+	addFoodNodes(.525,.56);
+	addFoodNodes(.14,.83);
+	addFoodNodes(.11,.90);
+
+	addCoffeeNodes(.76, .27);
+	addCoffeeNodes(.795, .492);
+	addCoffeeNodes(.747, .4929);
+	addCoffeeNodes(.47,.34);
+	addCoffeeNodes(.29,.47);
+	addCoffeeNodes(.19,.73);
+
+	addCStoreNodes(.82, .115);
+	addCStoreNodes(.725, .30);
+	addCStoreNodes(.25,.61);
+
+	addPalmTrees();
+
+	addCross(.682,.095);
 }
 
 refreshBackground();
+
+
