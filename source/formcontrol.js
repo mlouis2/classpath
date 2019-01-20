@@ -39,8 +39,7 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='uhall'>University Hall</option>" +
                   "<option value='vonDerAhe'>Von der Ahe</option>" +
                   "<option value='xavier'>Xavier Hall</option></select>" +
-                  "</div>" +
-                  "<br></br>";
+                  "</div>";
 
 function addForm(id) {
 
