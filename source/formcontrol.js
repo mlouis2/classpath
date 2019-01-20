@@ -1,8 +1,7 @@
 var addid = 0;
 let isFirst = true;
 var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
-var selectBuildingsString = "<select name='buildings'>" +
-var selectBuildingsString = "<div class='testClass'>" +
+var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<select name='buildings'>" +
                   "<option value='burnsRec'>Burns Rec Center</option>" +
                   "<option value='doolan'>Doolan</option>" +
@@ -16,7 +15,6 @@ var selectBuildingsString = "<div class='testClass'>" +
                   "<option value='seaver'>Seaver</option></select>" +
                   "</div>" +
                   "<br></br>";
-                  //"<a href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'>add more</a>"
 
 function addForm(id) {
 
@@ -33,10 +31,8 @@ function addForm(id) {
       text.innerHTML = selectBuildingsString;
       isFirst = false;
     } else {
-      text.innerHTML = optionConnector + selectBuildingsString;
+       text.innerHTML = optionConnector + selectBuildingsString;
     }
-    text.id = 'addItem' + addid;
-    text.innerHTML = selectBuildingsString;
 
 
     addForm.appendChild(text);
