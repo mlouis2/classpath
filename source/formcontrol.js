@@ -3,6 +3,7 @@ let isFirst = true;
 var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
 var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<select name='buildings'>" +
+                  //"<option value='test'>test</option>" +
                   "<option value='' selected disabled hidden>Pick a Location</option>" +
                   "<option value='burnsArt'>Burns Fine Art Center</option>" +
                   "<option value='burnsRec'>Burns Rec Center</option>" +

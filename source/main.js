@@ -86,8 +86,8 @@ function drawValidVerticesAndPaths() {
 function drawValidPaths(totalValidVertices) {
 	//This will not work if there are buildings on campus that are not accessible from other buildings
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
-		let locationA = classpath.returnNonPathVertexWithName(totalValidVertices[i].name);
-		let locationB = classpath.returnNonPathVertexWithName(totalValidVertices[i + 1].name);
+		let locationA = classpath.returnVertexWithName(totalValidVertices[i].name);
+		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1].name);
 		classpath.drawPath(classpath.findPath(locationA, locationB));
 	}
 }
@@ -133,6 +133,9 @@ function addBuildings() {
 	buildings.push(new Building("desmond", 80, 17));
 
 
+	//buildings.push(new Building("test", 81, 49.29));
+
+
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
 		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
@@ -142,25 +145,74 @@ function addBuildings() {
 }
 
 function addBuildingConnections() {
-	addConnectionBetweenBuildings("lsb", "pereira");
-	addConnectionBetweenBuildings("pereira", "doolan");
-	addConnectionBetweenBuildings("seaver", "lsb");
-	addConnectionBetweenBuildings("hannonApt", "hannonField");
-	addConnectionBetweenBuildings("mckay", "hannonApt");
-	addConnectionBetweenBuildings("mckay", "hannonField");
-	addConnectionBetweenBuildings("burnsArt", "leaveyHall");
-	addConnectionBetweenBuildings("leaveyHall", "commArts");
-	addConnectionBetweenBuildings("commArts", "burnsArt");
+	addConnectionBetweenNodes("lsb", "pereira");
+	addConnectionBetweenNodes("pereira", "doolan");
+	addConnectionBetweenNodes("seaver", "lsb");
+	addConnectionBetweenNodes("hannonApt", "hannonField");
+	addConnectionBetweenNodes("mckay", "hannonApt");
+	addConnectionBetweenNodes("mckay", "hannonField");
+	addConnectionBetweenNodes("burnsArt", "leaveyHall");
+	addConnectionBetweenNodes("leaveyHall", "commArts");
+	addConnectionBetweenNodes("commArts", "burnsArt");
+	addConnectionBetweenNodes("burnsRec", "gersten");
+	addConnectionBetweenNodes("foley", "foleyAnnex");
+	addConnectionBetweenNodes("foley", "lsb");
+	addConnectionBetweenNodes("foleyAnnex", "malone");
+	addConnectionBetweenNodes("foleyAnnex", "lsb");
+	addConnectionBetweenNodes("burnsRec", "lsb");
 
 }
 
 function addPathNodes() {
+	let pathNodes = [];
+	//pathNodes.push(new Vertex("path", PATHNODENAME, XINPERCENTAGE, YINPERCENTAGE));
+
+	pathNodes.push(new Vertex("path", "A", 68.5, 69.66));
+	pathNodes.push(new Vertex("path", "B", 68.5, 60.97));
+	pathNodes.push(new Vertex("path", "C", 68, 47.29));
+	pathNodes.push(new Vertex("path", "D", 68, 39.49));
+	pathNodes.push(new Vertex("path", "E", 68, 34));
+	pathNodes.push(new Vertex("path", "F", 74, 42));
+	pathNodes.push(new Vertex("path", "G", 81, 49.29));
+
+	pathNodes.forEach((pathNode) => {
+		classpath.addVertex(pathNode);
+	});
+	addPathNodeConnections();
 	//add invisible path nodes
 }
 
 function addPathNodeConnections() {
+	//addConnectionBetweenNodes(PATHNODENAME OR BUILDINGNODENAME, PATHNODENAME OR BUILDINGNODE);
+    addConnectionBetweenNodes("A", "gersten");
+    addConnectionBetweenNodes("B", "burnsArt");
+    addConnectionBetweenNodes("A", "B");
+    addConnectionBetweenNodes("burnsRec", "B");
+    addConnectionBetweenNodes("B", "C");
+    addConnectionBetweenNodes("B", "lsb");
+    addConnectionBetweenNodes("C", "seaver");
+    addConnectionBetweenNodes("seaver", "F");
+    addConnectionBetweenNodes("D", "E");
+    addConnectionBetweenNodes("D", "F");
+    addConnectionBetweenNodes("D", "foley");
+    addConnectionBetweenNodes("E", "malone");
+    addConnectionBetweenNodes("foley", "F");
+    addConnectionBetweenNodes("F", "lsb");
+    addConnectionBetweenNodes("G", "lsb");
+    addConnectionBetweenNodes("G", "pereira");
+    addConnectionBetweenNodes("A", "hannonField");
+    addConnectionBetweenNodes("B", "hannonField");
+    addConnectionBetweenNodes("C", "burnsArt");
+    addConnectionBetweenNodes("C", "mckay");
+
+    
+
+
+
 	//draw edges between connected path nodes
 }
+
+addPathNodes();
 
 function addFoodNodes() {
 
@@ -178,8 +230,8 @@ function addCoffeeNodeConnections() {
 
 }
 
-function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
-	classpath.addEdge(classpath.returnNonPathVertexWithName(buildingNameA), classpath.returnNonPathVertexWithName(buildingNameB));
+function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
+	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
 
 function refreshBackground() {
