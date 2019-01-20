@@ -4,6 +4,7 @@ var optionConnector = "<p style='color: white; text-align:center; font-family: B
 var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<select name='buildings'>" +
                   //"<option value='test'>test</option>" +
+                  "<option value='' selected disabled hidden>Pick a Location</option>" +
                   "<option value='burnsArt'>Burns Fine Art Center</option>" +
                   "<option value='burnsRec'>Burns Rec Center</option>" +
                   "<option value='commArts'>Communication Arts (SFTV)</option>" +
@@ -39,8 +40,7 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='uhall'>University Hall</option>" +
                   "<option value='vonDerAhe'>Von der Ahe</option>" +
                   "<option value='xavier'>Xavier Hall</option></select>" +
-                  "</div>" +
-                  "<br></br>";
+                  "</div>";
 
 function addForm(id) {
 
