@@ -1,15 +1,15 @@
 class Graph {
      constructor() {
           this.vertices = [];
-          this.adjacencyMatrix = new Map();
+          this.correctPath = [];
+          this.correctPathFound = false;
      }
      addVertex(vertex) {
           this.vertices.push(vertex);
-          this.adjacencyMatrix.set(vertex, []);
      }
      addEdge(vertexA, vertexB) {
-          this.adjacencyMatrix.get(vertexA).push(vertexB);
-          this.adjacencyMatrix.get(vertexA).push(vertexB);
+          vertexA.adjacencyList.push(vertexB);
+          vertexB.adjacencyList.push(vertexA);
      }
      drawEdge(vertexA, vertexB) {
           ctx.strokeStyle = "white";
@@ -19,6 +19,9 @@ class Graph {
           ctx.lineTo(vertexB.x, vertexB.y);
           ctx.stroke();
      }
+     returnBuildingVertexWithName(name) {
+          return this.returnVerticesWithName(name)[0];
+     }
      returnVerticesWithName(name) {
           let correctVertices = [];
           for (let i = 0; i < this.vertices.length; i++) {
@@ -27,5 +30,29 @@ class Graph {
                }
           }
           return correctVertices;
+     }
+
+     findPath(current, goal) {
+          this.findPathFromPoint();
+          let answer = this.correctPath;
+          this.correctPathFound = false;
+          this.correctPath = [];
+          return answer;
+     }
+
+     findPathFromPoint(current, goal) {
+          if (current == null) {
+               return;
+          } else {
+               for (let i = 0; i < current.adjacencyList.length; i++) {
+                    this.findPath(current.adjacencyList[i], goal);
+               }
+               if (!this.correctPathFound && current === goal) {
+                    this.correctPathFound = true;
+               }
+               if (this.correctPathFound) {
+                    this.correctPath.push(current);
+               }
+          }
      }
 }

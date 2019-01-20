@@ -19,15 +19,7 @@ ctx.drawImage(mapImage, canvas.width / 2 - smallerDimension * widthFactor / 2, c
 //Creates the graph
 let classpath = new Graph();
 
-//Creates the buildings array
-let buildings = [];
-buildings.push(new Building("seaver", 72.3, 49.36));
-buildings.push(new Building("lsb", 78.3, 50.07));
-
-//Makes each building into a vertex in the graph
-buildings.forEach((building) => {
-	classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
-});
+addBuildings();
 
 //TODO: add connections between buildings. also add path nodes! :)
 
@@ -50,6 +42,28 @@ function drawValidVertices() {
 			validVertex.draw();
 		});
 	}
+}
+
+//Adds the buildings and adds the vertices
+function addBuildings() {
+	//Creates the buildings array
+	let buildings = [];
+	buildings.push(new Building("seaver", 72.3, 49.36));
+	buildings.push(new Building("lsb", 78.3, 50.07));
+	buildings.push(new Building("pereira", 100, 100));
+	buildings.push(new Building("doolan", 100, 100));
+
+	//Makes each building into a vertex in the graph
+	buildings.forEach((building) => {
+		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
+	});
+
+	addConnectionBetweenBuildings("lsb", "pereira");
+	addConnectionBetweenBuildings("pereira", "doolan");
+}
+
+function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
+	classpath.addEdge(classpath.returnBuildingVertexWithName(buildingNameA), classpath.returnBuildingVertexWithName(buildingNameB));
 }
 
 ctx.fillStyle = "#ddaaca";
