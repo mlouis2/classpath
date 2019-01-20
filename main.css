@@ -17,6 +17,7 @@
 
 .sidebar .entry select {
   color: white;
+  font-family: Helvetica, bold;
   position: relative;
   margin-left: 25%;
   width: 50%;
@@ -33,6 +34,37 @@
     padding: 25;
 }
 
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: #699CD0; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 32%;
+  margin-left: 33%;
+  cursor: pointer;
+}
+
+.updateButton {
+ border: 2px solid #ddaaca;
+}
+
+.updateButton:hover {
+  background-color: white; /* Green */
+  color: #699CD0;
+}
+
+a {
+  font-family: 'Boogaloo', cursive;
+  color: white;
+  text-decoration: none;
+}
 canvas {
      /* width: 70%;
      height: 100%; */
