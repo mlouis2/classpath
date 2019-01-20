@@ -59,10 +59,10 @@ function addForm(id) {
        text.innerHTML = optionConnector + selectBuildingsString;
     }
 
-
-    addForm.appendChild(text);
+    if (addid <= 5) {
+        addForm.appendChild(text);
+    }
 }
 
-addForm(1);
 addForm(1);
 addForm(1);

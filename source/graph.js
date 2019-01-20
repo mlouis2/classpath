@@ -1,3 +1,5 @@
+const PATH_WIDTH = 3;
+
 class Graph {
      constructor() {
           this.vertices = [];
@@ -14,7 +16,7 @@ class Graph {
      drawEdge(vertexA, vertexB) {
           ctx.strokeStyle = "white";
           ctx.beginPath();
-          ctx.lineWidth = 5;
+          ctx.lineWidth = PATH_WIDTH;
           ctx.moveTo(vertexA.x, vertexA.y);
           ctx.lineTo(vertexB.x, vertexB.y);
           ctx.stroke();
@@ -37,19 +39,24 @@ class Graph {
           let answer = this.correctPath;
           this.correctPathFound = false;
           this.correctPath = [];
-          //This does return a backwards array, but it also doesn't matter bc the edges are uncolored. so whatever.
-          return answer;
+          return answer.reverse();
      }
      findPathFromPoint(current, goal) {
+          if (this.correctPathFound && !current.visited) {
+               return;
+          }
           if (current == null || current.visited) {
                return;
           } else {
                current.visited = true;
-               for (let i = 0; i < current.adjacencyList.length; i++) {
-                    this.findPathFromPoint(current.adjacencyList[i], goal);
-               }
-               if (!this.correctPathFound && current === goal) {
-                    this.correctPathFound = true;
+               if (!this.correctPathFound) {
+                    if (current === goal) {
+                         this.correctPathFound = true;
+                    } else {
+                         for (let i = 0; i < current.adjacencyList.length; i++) {
+                              this.findPathFromPoint(current.adjacencyList[i], goal);
+                         }
+                    }
                }
                if (this.correctPathFound) {
                     this.correctPath.push(current);
@@ -62,7 +69,6 @@ class Graph {
           }
      }
      drawPath(path) {
-          console.log("the path is " + path);
           for (let i = 0; i < path.length - 1; i++) {
                this.drawEdge(this.returnNonPathVertexWithName(path[i].name), this.returnNonPathVertexWithName(path[i + 1].name));
           }

@@ -18,6 +18,18 @@ canvas.height =  document.body.clientHeight;
 let mapImage = new Image();
 mapImage.src = "./LMUMap.png";
 
+//Creates the LMU Logo
+let lmuLogo = new Image();
+lmuLogo.src = "./LionDrawing.png";
+
+//Creates coffee, hamburger, and c-store images
+let coffeeImage = new Image();
+coffeeImage.src = "./Coffee.png";
+let hamburgerImage = new Image();
+hamburgerImage.src = "./Hamburger.png";
+let sodaImage = new Image();
+sodaImage.src = "./TheGrid.png";
+
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
 {
@@ -35,18 +47,15 @@ else if (canvas.height <= canvas.width)
 	imageX= canvas.width/2 - imageWidth/2;
 }
 
-ctx.drawImage(mapImage, imageX, imageY, imageWidth, imageHeight);
-
 //Creates the graph
 let classpath = new Graph();
 
 addBuildings();
 
-//TODO: add connections between buildings. also add path nodes! :)
-
 let entries = [];
 //Code to handle the update button--connected to the button
 document.getElementById("updateButton").addEventListener("click", function(){
+	refreshBackground();
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
 	for (let i = 0; i < entriesFromHTML.length; i++){
@@ -72,12 +81,9 @@ function drawValidVerticesAndPaths() {
 function drawValidPaths(totalValidVertices) {
 	//This will not work if there are buildings on campus that are not accessible from other buildings
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
-		//temp Code
 		let locationA = classpath.returnNonPathVertexWithName(totalValidVertices[i].name);
 		let locationB = classpath.returnNonPathVertexWithName(totalValidVertices[i + 1].name);
-		console.log("drawing from " + locationA.name + " to " + locationB.name);
 		classpath.drawPath(classpath.findPath(locationA, locationB));
-		// classpath.drawPath(classpath.findPath(classpath.returnNonPathVertexWithName(totalValidVertices[i].name), classpath.returnNonPathVertexWithName(totalValidVertices[i + 1].name)));
 	}
 }
 
@@ -127,17 +133,58 @@ function addBuildings() {
 		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
 	});
 
+	addBuildingConnections();
+}
+
+function addBuildingConnections() {
 	addConnectionBetweenBuildings("lsb", "pereira");
 	addConnectionBetweenBuildings("pereira", "doolan");
 	addConnectionBetweenBuildings("seaver", "lsb");
+}
+
+function addPathNodes() {
+	//add invisible path nodes
+}
+
+function addPathNodeConnections() {
+	//draw edges between connected path nodes
+}
+
+function addFoodNodes() {
+
+}
+
+function addFoodNodeConnections() {
+
+}
+
+function addCoffeeNodes() {
+
+}
+
+function addCoffeeNodeConnections() {
+
 }
 
 function addConnectionBetweenBuildings(buildingNameA, buildingNameB) {
 	classpath.addEdge(classpath.returnNonPathVertexWithName(buildingNameA), classpath.returnNonPathVertexWithName(buildingNameB));
 }
 
-ctx.fillStyle = "#ddaaca";
-ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
-ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
-ctx.fillRect(0, 0, canvas.width, borderWidth); //top
-ctx.fillRect(0, 0, borderWidth, canvas.height); //left
+function refreshBackground() {
+	//draws green background :)
+	ctx.fillStyle = "#a5d389";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	//draws map
+	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
+
+	//draws border
+	ctx.fillStyle = "#ddaaca";
+	ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
+	ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
+	ctx.fillRect(0, 0, canvas.width, borderWidth); //top
+	ctx.fillRect(0, 0, borderWidth, canvas.height); //left
+
+	//TODO insert lion logo
+}
+
+refreshBackground();
