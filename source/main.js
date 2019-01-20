@@ -128,6 +128,9 @@ function addBuildings() {
 	buildings.push(new Building("desmond", 80, 17));
 
 
+	//buildings.push(new Building("test", 81, 49.29));
+
+
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
 		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
