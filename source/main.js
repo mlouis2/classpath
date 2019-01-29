@@ -15,30 +15,6 @@ const CONST_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 canvas.width = widthValue * document.body.clientWidth;
 canvas.height =  document.body.clientHeight;
 
-//Creates the map image
-let mapImage = new Image();
-mapImage.src = "../images/LMUMap.png";
-
-//Creates the LMU Logo
-let lmuLogo = new Image();
-lmuLogo.src = "../images/LionDrawing.png";
-
-//Creates the compass image
-let compass = new Image();
-compass.src = "../images/compass.png";
-
-//Creates coffee, hamburger, and c-store images
-let coffeeImage = new Image();
-coffeeImage.src = "../images/Coffee.png";
-let hamburgerImage = new Image();
-hamburgerImage.src = "../images/Hamburger.png";
-let sodaImage = new Image();
-sodaImage.src = "../images/TheGrid.png";
-let treesImage = new Image();
-treesImage.src = "../images/PalmTrees.png";
-let crossImage = new Image();
-crossImage.src = "../images/Jesus.png";
-
 
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
