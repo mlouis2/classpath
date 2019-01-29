@@ -226,12 +226,6 @@ function addPathNodeConnections() {
     addConnectionBetweenNodes("D", "leaveyHall");
     addConnectionBetweenNodes("E", "vonDerAhe");
     addConnectionBetweenNodes("F", "stRobs");
-
-
-
-
-
-	//draw edges between connected path nodes
 }
 
 addPathNodes();
