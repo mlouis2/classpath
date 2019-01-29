@@ -39,27 +39,25 @@ class Graph {
           let answer = this.correctPath;
           this.correctPathFound = false;
           this.correctPath = [];
-          return answer.reverse();
+          return answer;
      }
-     findPathFromPoint(current, goal) {
-          if (this.correctPathFound && !current.visited) {
-               return;
-          }
-          if (current == null || current.visited) {
-               return;
-          } else {
-               current.visited = true;
-               if (!this.correctPathFound) {
-                    if (current === goal) {
-                         this.correctPathFound = true;
-                    } else {
-                         for (let i = 0; i < current.adjacencyList.length; i++) {
-                              this.findPathFromPoint(current.adjacencyList[i], goal);
-                         }
-                    }
+     findPathFromPoint(start, goal) {
+          let frontier = [];
+          frontier.push([start]);
+          while(frontier.length > 0) {
+               let currentPath = frontier.shift();
+               for (let i = 0; i < currentPath.length; i++) {
                }
-               if (this.correctPathFound) {
-                    this.correctPath.push(current);
+               let currentNode = currentPath[currentPath.length - 1];
+               if (currentNode === goal) {
+                    this.correctPath = currentPath;
+                    break;
+               }
+               currentNode.visited = true;
+               for (let i = 0; i < currentNode.adjacencyList.length; i++) {
+                    if (!currentNode.adjacencyList[i].visited) {
+                         frontier.push(currentPath.concat([currentNode.adjacencyList[i]]));
+                    }
                }
           }
      }
