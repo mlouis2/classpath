@@ -17,27 +17,27 @@ canvas.height =  document.body.clientHeight;
 
 //Creates the map image
 let mapImage = new Image();
-mapImage.src = "./LMUMap.png";
+mapImage.src = "../images/LMUMap.png";
 
 //Creates the LMU Logo
 let lmuLogo = new Image();
-lmuLogo.src = "./LionDrawing.png";
+lmuLogo.src = "../images/LionDrawing.png";
 
 //Creates the compass image
 let compass = new Image();
-compass.src = "./compass.png";
+compass.src = "../images/compass.png";
 
 //Creates coffee, hamburger, and c-store images
 let coffeeImage = new Image();
-coffeeImage.src = "./Coffee.png";
+coffeeImage.src = "../images/Coffee.png";
 let hamburgerImage = new Image();
-hamburgerImage.src = "./Hamburger.png";
+hamburgerImage.src = "../images/Hamburger.png";
 let sodaImage = new Image();
-sodaImage.src = "./TheGrid.png";
+sodaImage.src = "../images/TheGrid.png";
 let treesImage = new Image();
-treesImage.src = "./PalmTrees.png";
+treesImage.src = "../images/PalmTrees.png";
 let crossImage = new Image();
-crossImage.src = "./Jesus.png";
+crossImage.src = "../images/Jesus.png";
 
 
 //Draws the map image with correct dimensions
