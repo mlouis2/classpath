@@ -3,11 +3,12 @@ let isFirst = true;
 var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
 var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<select name='buildings'>" +
-                  //"<option value='test'>test</option>" +
                   "<option value='' selected disabled hidden>Pick a Location</option>" +
                   "<option value='burnsArt'>Burns Fine Art Center</option>" +
                   "<option value='burnsRec'>Burns Rec Center</option>" +
                   "<option value='commArts'>Communication Arts (SFTV)</option>" +
+                  "<option value='delreynorth'>Del Rey North</option>" +
+                  "<option value='delreysouth'>Del Rey South</option>" +
                   "<option value='desmond'>Desmond Hall</option>" +
                   "<option value='doheny'>Doheny Hall</option>" +
                   "<option value='doolan'>Doolan</option>" +
@@ -32,6 +33,7 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='omalley'>O'Malley Apartments</option>" +
                   "<option value='pereira'>Pereira</option>" +
                   "<option value='rains'>Rains Hall</option>" +
+                  "<option value='rosecrans'>Rosecrans Hall</option>" +
                   "<option value='sacredHeart'>Sacred Heart Chapel</option>" +
                   "<option value='seaver'>Seaver</option>" +
                   "<option value='sullivan'>Sullivan Hall</option>" +
@@ -39,6 +41,7 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='tenderich'>Tenderich Apartments</option>" +
                   "<option value='uhall'>University Hall</option>" +
                   "<option value='vonDerAhe'>Von der Ahe</option>" +
+                  "<option value='whelan'>Whelan Hall</option>" +
                   "<option value='xavier'>Xavier Hall</option></select>" +
                   "</div>";
 
@@ -60,6 +63,7 @@ function addForm(id) {
 
     if (addid <= 5) {
         addForm.appendChild(text);
+        updateFormColors();
     }
 }
 
