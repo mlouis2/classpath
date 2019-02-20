@@ -3,8 +3,6 @@ const PATH_WIDTH = 3;
 class Graph {
      constructor() {
           this.vertices = [];
-          this.correctPath = [];
-          this.correctPathFound = false;
      }
      addVertex(vertex) {
           this.vertices.push(vertex);
@@ -35,11 +33,7 @@ class Graph {
      }
      findPath(current, goal) {
           this.setVerticesUnvisited();
-          this.findPathFromPoint(current, goal);
-          let answer = this.correctPath;
-          this.correctPathFound = false;
-          this.correctPath = [];
-          return answer;
+          return this.findPathFromPoint(current, goal);
      }
      findPathFromPoint(start, goal) {
           let frontier = [];
@@ -50,7 +44,7 @@ class Graph {
                }
                let currentNode = currentPath[currentPath.length - 1];
                if (currentNode === goal) {
-                    this.correctPath = currentPath;
+                    return currentPath;
                     break;
                }
                currentNode.visited = true;
