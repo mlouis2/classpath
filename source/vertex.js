@@ -13,14 +13,26 @@ class Vertex {
           this.color = color;
      }
      draw() {
-          //add support to draw them differently depending on if coffee, food, or building
-          //current code is for building
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
-          ctx.fillStyle = this.color;
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = "white";
-          ctx.stroke();
+          if (this.vertexType === 'building' || this.vertexType === 'path') {
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
+               ctx.fillStyle = this.color;
+               ctx.fill();
+               ctx.lineWidth = 1;
+               ctx.strokeStyle = "white";
+               ctx.stroke();
+          } else {
+               switch (this.vertexType) {
+                    case 'food':
+                         ctx.drawImage(hamburgerImage, this.x, this.y, 50, 50);
+                         break;
+                    case 'coffee':
+                         ctx.drawImage(coffeeImage, this.x, this.y, 50, 50);
+                         break;
+                    case 'store':
+                         ctx.drawImage(sodaImage, this.x, this.y, 50, 50);
+                         break;
+               }
+          }
      }
 }
