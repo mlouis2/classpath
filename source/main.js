@@ -9,7 +9,6 @@ let imageWidth;
 let imageX;
 let imageY;
 const CONST_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
-//test comment
 
 
 //Sets the canvas width and canvas height so that my circles are not ovals
@@ -111,7 +110,7 @@ function addBuildings() {
 	buildings.push(new Building("leavey5", 21, 57));
 	buildings.push(new Building("leavey6", 28, 59));
 	buildings.push(new Building("huesman", 85, 28));
-	buildings.push(new Building("doheny",  90,34));
+	buildings.push(new Building("doheny",  90, 34));
 	buildings.push(new Building("sullivan", 87, 41));
 	buildings.push(new Building("desmond", 80, 17));
 	buildings.push(new Building("rosecrans", 85, 20));
@@ -207,26 +206,43 @@ function addPathNodeConnections() {
 
 addPathNodes();
 
-function addFoodNodes(xInPercent, yInPercent) {
-	ctx.drawImage(hamburgerImage,(xInPercent) * imageWidth + (canvas.width - imageWidth)/2- widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
-
+function addFoodNodes() {
+	let foodNodes = [];
+	foodNodes.push(new Vertex("food", "foodname", 84, 14));
+	foodNodes.push(new Vertex("food", "foodname", 79, 30));
+	foodNodes.push(new Vertex("food", "foodname", 52.5, 56));
+	foodNodes.push(new Vertex("food", "foodname", 14, 83));
+	foodNodes.push(new Vertex("food", "foodname", 11, 90));
+	foodNodes.forEach((foodNode) => {
+		classpath.addVertex(foodNode);
+		foodNode.draw();
+	});
 }
 
-function addFoodNodeConnections() {
+function addCoffeeNodes() {
+	let coffeeNodes = [];
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 76, 27));
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 79.5, 49.2));
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 74.7, 49.29));
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 47, 34));
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 29, 47));
+	coffeeNodes.push(new Vertex("coffee", "coffeename", 19, 73));
 
+	coffeeNodes.forEach((coffeeNode) => {
+		classpath.addVertex(coffeeNode);
+		coffeeNode.draw();
+	});
 }
 
-function addCoffeeNodes(xInPercent, yInPercent) {
-	ctx.drawImage(coffeeImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2 - widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
-
-}
-
-function addCoffeeNodeConnections() {
-
-}
-function addCStoreNodes(xInPercent, yInPercent) {
-	ctx.drawImage(sodaImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2  - widthValue,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
-
+function addStoreNodes() {
+	let storeNodes = [];
+	storeNodes.push(new Vertex("store", "storename", 82, 11.5));
+	storeNodes.push(new Vertex("store", "storename", 72.5, 30));
+	storeNodes.push(new Vertex("store", "storename", 25, 61));
+	storeNodes.forEach((storeNode) => {
+		classpath.addVertex(storeNode);
+		storeNode.draw();
+	});
 }
 
 function addCross(xInPercent, yInPercent){
@@ -263,26 +279,12 @@ function refreshBackground() {
 	// draws compass rose
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5)
 
-	addFoodNodes(.84,.14);
-	addFoodNodes(.79,.30);
-	addFoodNodes(.525,.56);
-	addFoodNodes(.14,.83);
-	addFoodNodes(.11,.90);
-
-	addCoffeeNodes(.76, .27);
-	addCoffeeNodes(.795, .492);
-	addCoffeeNodes(.747, .4929);
-	addCoffeeNodes(.47,.34);
-	addCoffeeNodes(.29,.47);
-	addCoffeeNodes(.19,.73);
-
-	addCStoreNodes(.82, .115);
-	addCStoreNodes(.725, .30);
-	addCStoreNodes(.25,.61);
-
 	addPalmTrees();
 
 	addCross(.682,.095);
 }
 
 refreshBackground();
+addFoodNodes();
+addCoffeeNodes();
+addStoreNodes();
