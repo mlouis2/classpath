@@ -110,7 +110,7 @@ function addBuildings() {
 	buildings.push(new Building("leavey5", 21, 57));
 	buildings.push(new Building("leavey6", 28, 59));
 	buildings.push(new Building("huesman", 85, 28));
-	buildings.push(new Building("doheny",  90,34));
+	buildings.push(new Building("doheny",  90, 34));
 	buildings.push(new Building("sullivan", 87, 41));
 	buildings.push(new Building("desmond", 80, 17));
 	buildings.push(new Building("rosecrans", 85, 20));
