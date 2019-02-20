@@ -11,6 +11,7 @@ let imageY;
 const CONST_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 //test comment
 
+
 //Sets the canvas width and canvas height so that my circles are not ovals
 canvas.width = widthValue * document.body.clientWidth;
 canvas.height =  document.body.clientHeight;
