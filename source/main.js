@@ -249,11 +249,6 @@ function addCross(xInPercent, yInPercent){
 
 }
 
-function addPalmTrees(xInPercent, yInPercent)
-{
-
-}
-
 function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
 	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
@@ -277,8 +272,6 @@ function refreshBackground() {
 
 	// draws compass rose
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5)
-
-	addPalmTrees();
 
 	addCross(.682,.095);
 }
