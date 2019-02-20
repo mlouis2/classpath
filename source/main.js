@@ -15,30 +15,6 @@ const CONST_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 canvas.width = widthValue * document.body.clientWidth;
 canvas.height =  document.body.clientHeight;
 
-//Creates the map image
-let mapImage = new Image();
-mapImage.src = "./LMUMap.png";
-
-//Creates the LMU Logo
-let lmuLogo = new Image();
-lmuLogo.src = "./LionDrawing.png";
-
-//Creates the compass image
-let compass = new Image();
-compass.src = "./compass.png";
-
-//Creates coffee, hamburger, and c-store images
-let coffeeImage = new Image();
-coffeeImage.src = "./Coffee.png";
-let hamburgerImage = new Image();
-hamburgerImage.src = "./Hamburger.png";
-let sodaImage = new Image();
-sodaImage.src = "./TheGrid.png";
-let treesImage = new Image();
-treesImage.src = "./PalmTrees.png";
-let crossImage = new Image();
-crossImage.src = "./Jesus.png";
-
 
 //Draws the map image with correct dimensions
 if (canvas.width < canvas.height)
@@ -226,12 +202,6 @@ function addPathNodeConnections() {
     addConnectionBetweenNodes("D", "leaveyHall");
     addConnectionBetweenNodes("E", "vonDerAhe");
     addConnectionBetweenNodes("F", "stRobs");
-
-    
-
-
-
-	//draw edges between connected path nodes
 }
 
 addPathNodes();
@@ -315,5 +285,3 @@ function refreshBackground() {
 }
 
 refreshBackground();
-
-

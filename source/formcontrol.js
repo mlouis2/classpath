@@ -48,8 +48,6 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
 function addForm(id) {
 
     var addForm = document.getElementById('addform');
-    var docstyle = addForm.style.display;
-    if (docstyle == 'none') addForm.style.display = '';
 
     addid++;
 
