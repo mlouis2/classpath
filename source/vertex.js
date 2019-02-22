@@ -22,6 +22,7 @@ class Vertex {
                ctx.strokeStyle = "white";
                ctx.stroke();
           } else {
+               console.log("food coffee store");
                switch (this.vertexType) {
                     case 'food':
                          ctx.drawImage(hamburgerImage, this.x, this.y, 50, 50);
