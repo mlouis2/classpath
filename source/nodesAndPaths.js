@@ -1,4 +1,4 @@
-let buildings = [], pathNodes = [], foodNodes = [], coffeeNodes = [], storeNodes = [];
+let buildings = [], pathNodes = [], foodNodes = [], coffeeNodes = [], storeNodes = [], crossNodes = [];
 
 //Adds the buildings and adds the vertices
 function addBuildings() {
@@ -148,6 +148,10 @@ function addStoreNodes() {
 	});
 }
 
+function addCrossNodes() {
+	crossNodes.push(new Vertex("cross", "chapel", 68.2, 9.5));
+}
+
 let classpath;
 function populateGraph() {
 	classpath = new Graph();
@@ -156,4 +160,5 @@ function populateGraph() {
 	addFoodNodes();
 	addCoffeeNodes();
 	addStoreNodes();
+	addCrossNodes();
 }

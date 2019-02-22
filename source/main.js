@@ -85,8 +85,7 @@ function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
 	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
 
-function drawFoodCoffeeAndStoreNodes() {
-	console.log('drawing, food, coffee, and store nodes...');
+function drawAccessoryNodes() {
 	foodNodes.forEach((foodNode) => {
 		foodNode.draw();
 	});
@@ -95,6 +94,9 @@ function drawFoodCoffeeAndStoreNodes() {
 	});
 	storeNodes.forEach((storeNode) => {
 		storeNode.draw();
+	});
+	crossNodes.forEach((crossNode) => {
+		crossNode.draw();
 	});
 }
 
@@ -117,9 +119,7 @@ function refreshBackground() {
 	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5);
 	//Draws Compass
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5);
-	console.log("draw food and coffee and store nodes");
-	drawFoodCoffeeAndStoreNodes();
-	addCross(.682,.095);
+	drawAccessoryNodes();
 }
 
 $(document).ready(function() {

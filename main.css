@@ -8,11 +8,10 @@
 }
 
 .sidebar {
-     float: left;
-     width: 30%;
-     height: 100%;
-     background-color: #699CD0;
-
+    float: left;
+    width: 30%;
+    height: 100%;
+    background-color: #699CD0;
 }
 
 .sidebar .entry select {
@@ -72,7 +71,7 @@ a:hover {
   color: #a5d389;
 }
 canvas {
-     background-color: #a5d389;
+  background-color: #a5d389;
 }
 
 .container:after {
