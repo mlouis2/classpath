@@ -9,6 +9,9 @@ let imageWidth;
 let imageX;
 let imageY;
 const FORM_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
+const BACKGROUND_COLOR ="#a5d389";
+const BORDER_COLOR = "#ddaaca";
+
 //Sets the canvas width and canvas height so that my circles are not ovals
 canvas.width = widthValue * document.body.clientWidth;
 canvas.height =  document.body.clientHeight;
@@ -31,18 +34,6 @@ function setImageWidthAndHeight() {
 		imageX= canvas.width/2 - imageWidth/2;
 	}
 }
-
-let entries;
-//Code to handle the update button--connected to the button
-document.getElementById("updateButton").addEventListener("click", function(){
-	refreshBackground();
-	entries = [];
-	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
-	for (let i = 0; i < entriesFromHTML.length; i++){
-		entries.push(new Entry(entriesFromHTML[i].children[0].value));
-	}
-	drawValidVerticesAndPaths();
-});
 
 //Draws the vertices after button has been pushed
 function drawValidVerticesAndPaths() {
@@ -102,14 +93,14 @@ function drawAccessoryNodes() {
 
 function refreshBackground() {
 	//Draws Green Background
-	ctx.fillStyle = "#a5d389";
+	ctx.fillStyle = BACKGROUND_COLOR;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 	//Draws Map
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
 	//Draws Border
-	ctx.fillStyle = "#ddaaca";
+	ctx.fillStyle = BORDER_COLOR;
 	ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
 	ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
 	ctx.fillRect(0, 0, canvas.width, borderWidth); //top
@@ -121,6 +112,18 @@ function refreshBackground() {
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5);
 	drawAccessoryNodes();
 }
+
+let entries;
+//Code to handle the update button--connected to the button
+document.getElementById("updateButton").addEventListener("click", function(){
+	refreshBackground();
+	entries = [];
+	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
+	for (let i = 0; i < entriesFromHTML.length; i++){
+		entries.push(new Entry(entriesFromHTML[i].children[0].value));
+	}
+	drawValidVerticesAndPaths();
+});
 
 $(document).ready(function() {
 	setImageWidthAndHeight();
