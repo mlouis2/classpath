@@ -32,6 +32,7 @@ class Graph {
           return correctVertices;
      }
      findPath(current, goal) {
+          console.log("finding path...");
           this.setVerticesUnvisited();
           return this.findPathFromPoint(current, goal);
      }
@@ -44,8 +45,8 @@ class Graph {
                }
                let currentNode = currentPath[currentPath.length - 1];
                if (currentNode === goal) {
+                    console.log('current path is ' + currentPath);
                     return currentPath;
-                    break;
                }
                currentNode.visited = true;
                for (let i = 0; i < currentNode.adjacencyList.length; i++) {
@@ -54,6 +55,7 @@ class Graph {
                     }
                }
           }
+          return null;
      }
      setVerticesUnvisited() {
           for (let i = 0; i < this.vertices.length; i++) {
@@ -61,6 +63,10 @@ class Graph {
           }
      }
      drawPath(path) {
+          if (path == null) {
+               console.log("no path...");
+               return;
+          }
           for (let i = 0; i < path.length - 1; i++) {
                this.drawEdge(this.returnVertexWithName(path[i].name), this.returnVertexWithName(path[i + 1].name));
           }

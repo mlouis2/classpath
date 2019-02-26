@@ -108,6 +108,7 @@ function refreshBackground() {
 
 	//Draws Lion
 	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5);
+
 	//Draws Compass
 	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5);
 	drawAccessoryNodes();

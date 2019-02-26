@@ -1,3 +1,5 @@
+const MAX_FORMS = 5;
+
 var addid = 0;
 let isFirst = true;
 var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
@@ -61,10 +63,17 @@ function addForm(id) {
        text.innerHTML = optionConnector + selectBuildingsString;
     }
 
-    if (addid <= 5) {
+    if (addid <= MAX_FORMS) {
         addForm.appendChild(text);
         updateFormColors();
     }
+    if (addid == MAX_FORMS) {
+        document.getElementById("addlink_").remove();
+    }
+}
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
 }
 
 addForm(1);
