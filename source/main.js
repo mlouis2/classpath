@@ -121,6 +121,8 @@ function addBuildings() {
 
 
 
+
+
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
 		classpath.addVertex(new Vertex("building", building.name, building.xInPercent, building.yInPercent));
@@ -208,11 +210,12 @@ addPathNodes();
 
 function addFoodNodes() {
 	let foodNodes = [];
-	foodNodes.push(new Vertex("food", "foodname", 84, 14));
-	foodNodes.push(new Vertex("food", "foodname", 79, 30));
-	foodNodes.push(new Vertex("food", "foodname", 52.5, 56));
-	foodNodes.push(new Vertex("food", "foodname", 14, 83));
-	foodNodes.push(new Vertex("food", "foodname", 11, 90));
+	foodNodes.push(new Vertex("food", "1788/Pizza Hut", 82.32, 12.1));
+	foodNodes.push(new Vertex("food", "The Lair", 76, 31.36));
+	foodNodes.push(new Vertex("food", "The Habit Burger", 52.25, 59.13));
+	foodNodes.push(new Vertex("food", "Crimson Lion", 14.58, 85.48));
+
+	foodNodes.push(new Vertex("food", "Roski Dining Hall", 12.3, 89.6));
 	foodNodes.forEach((foodNode) => {
 		classpath.addVertex(foodNode);
 		foodNode.draw();
@@ -221,12 +224,12 @@ function addFoodNodes() {
 
 function addCoffeeNodes() {
 	let coffeeNodes = [];
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 76, 27));
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 79.5, 49.2));
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 74.7, 49.29));
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 47, 34));
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 29, 47));
-	coffeeNodes.push(new Vertex("coffee", "coffeename", 19, 73));
+	coffeeNodes.push(new Vertex("coffee", "Einstein's", 20.71, 71.24));
+	coffeeNodes.push(new Vertex("coffee", "Coffee Bean and Tea Leaf", 30.97, 47.49));
+	coffeeNodes.push(new Vertex("coffee", "The Den", 76, 27.49));
+	coffeeNodes.push(new Vertex("coffee", "The Coffee Cart", 70.45, 41.58));
+	coffeeNodes.push(new Vertex("coffee", "Starbucks", 46.13, 31.81));
+	coffeeNodes.push(new Vertex("coffee", "The Foundry", 81, 48.31));
 
 	coffeeNodes.forEach((coffeeNode) => {
 		classpath.addVertex(coffeeNode);
@@ -236,9 +239,9 @@ function addCoffeeNodes() {
 
 function addStoreNodes() {
 	let storeNodes = [];
-	storeNodes.push(new Vertex("store", "storename", 82, 11.5));
-	storeNodes.push(new Vertex("store", "storename", 72.5, 30));
-	storeNodes.push(new Vertex("store", "storename", 25, 61));
+	storeNodes.push(new Vertex("store", "The Grid: Leavey 6", 27.74, 59.14));
+	storeNodes.push(new Vertex("store", "The Grid: Malone", 72.58, 31.81));
+	storeNodes.push(new Vertex("store", "The Grid: Del Rey", 80.45, 11.20));
 	storeNodes.forEach((storeNode) => {
 		classpath.addVertex(storeNode);
 		storeNode.draw();
