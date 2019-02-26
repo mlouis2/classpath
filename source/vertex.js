@@ -42,6 +42,9 @@ class Vertex {
                     case 'store':
                          ctx.drawImage(sodaImage, this.x, this.y, 50, 50);
                          break;
+                    case 'cross':
+                         ctx.drawImage(crossImage, this.x, this.y, 50, 50);
+                         break;
                }
           }
      }
