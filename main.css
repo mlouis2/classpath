@@ -40,7 +40,6 @@
   background-color: #699CD0;
   border: none;
   color: white;
-  padding: 10px 20px;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
@@ -49,18 +48,23 @@
   margin-left: 34%;
   cursor: pointer;
   font-family: 'Boogaloo', cursive;
+  border: 2px solid #ddaaca;
+  padding: 10px;
+}
+
+#addformbutton {
+  margin-bottom: 15px;
 }
 
 .updateButton {
   margin-bottom: 20px;
- border: 2px solid #ddaaca;
 }
 
 #from {
   margin: 5px;
 }
 
-.updateButton:hover {
+.button:hover {
   background-color: white;
   color: #699CD0;
 }

@@ -69,7 +69,7 @@ function addForm(id) {
         updateFormColors();
     }
     if (addid == MAX_FORMS) {
-        document.getElementsByClassName("addform")[0].remove();
+        document.getElementById("addformbutton").remove();
     }
 }
 
