@@ -63,6 +63,7 @@ class Graph {
           }
      }
      drawPath(path) {
+          console.log(path);
           if (path == null) {
                console.log("no path...");
                return;

@@ -15,6 +15,7 @@ var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<option value='doheny'>Doheny Hall</option>" +
                   "<option value='doolan'>Doolan</option>" +
                   "<option value='drollinger'>Drollinger Field</option>" +
+                  "<option value='facilitiesMgmt'>Facilities Management</option>" +
                   "<option value='foley'>Foley</option>" +
                   "<option value='foleyAnnex'>Foley Annex</option>" +
                   "<option value='gersten'>Gersten Pavilion</option>" +

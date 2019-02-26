@@ -4,7 +4,7 @@ class Vertex {
      constructor(vertexType, name, xInPercent, yInPercent) {
           this.vertexType = vertexType;
           this.name = name;
-          if (this.vertexType === 'building' || this.vertextType === 'path'){
+          if (this.vertexType === 'building' || this.vertexType === 'path'){
             this.x = (xInPercent / 100) * imageWidth + (canvas.width - imageWidth)/2;
             this.y = (yInPercent / 100) * imageHeight + (canvas.height - imageHeight)/2;
           } else{
@@ -32,9 +32,6 @@ class Vertex {
                switch (this.vertexType) {
                     case 'food':
                          ctx.drawImage(hamburgerImage, this.x, this.y, 50, 50);
-                         console.log( this.name + "this.x:"+ this.x + " this.y: " + this.y);
-                         //test
-
                          break;
                     case 'coffee':
                          ctx.drawImage(coffeeImage, this.x, this.y, 50, 50);

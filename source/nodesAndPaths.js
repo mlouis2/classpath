@@ -34,14 +34,15 @@ function addBuildings() {
 	buildings.push(new Building("leavey4", 26, 52));
 	buildings.push(new Building("leavey5", 21, 57));
 	buildings.push(new Building("leavey6", 28, 59));
-	buildings.push(new Building("huesman", 85, 28));
+	buildings.push(new Building("huesman", 86, 28));
 	buildings.push(new Building("doheny",  90, 34));
-	buildings.push(new Building("sullivan", 87, 41));
+	buildings.push(new Building("sullivan", 86, 41));
 	buildings.push(new Building("desmond", 80, 17));
 	buildings.push(new Building("rosecrans", 85, 20));
 	buildings.push(new Building("whelan", 77, 11));
 	buildings.push(new Building("delreynorth", 83, 8.1));
 	buildings.push(new Building("delreysouth", 87, 14));
+	buildings.push(new Building("facilitiesMgmt", 90, 57));
 
 	//Makes each building into a vertex in the graph
 	buildings.forEach((building) => {
@@ -67,6 +68,7 @@ function addBuildingConnections() {
 	addConnectionBetweenNodes("foleyAnnex", "malone");
 	addConnectionBetweenNodes("foleyAnnex", "lsb");
 	addConnectionBetweenNodes("burnsRec", "lsb");
+	addConnectionBetweenNodes("facilitiesMgmt", "doolan");
 
 }
 
@@ -80,6 +82,24 @@ function addPathNodes() {
 	pathNodes.push(new Vertex("path", "E", 68, 34));
 	pathNodes.push(new Vertex("path", "F", 74, 42));
 	pathNodes.push(new Vertex("path", "G", 81, 49.29));
+    pathNodes.push(new Vertex("path", "H", 75.63, 35));
+    pathNodes.push(new Vertex("path", "I", 81, 35));
+    pathNodes.push(new Vertex("path", "J", 86, 35));
+    pathNodes.push(new Vertex("path", "K", 80.5, 44));
+    pathNodes.push(new Vertex("path", "L", 80.5, 54));
+    pathNodes.push(new Vertex("path", "M", 80, 59));
+    pathNodes.push(new Vertex("path", "N", 73, 59));
+    pathNodes.push(new Vertex("path", "O", 85, 50));
+    pathNodes.push(new Vertex("path", "P", 74, 50));
+    pathNodes.push(new Vertex("path", "Q", 87, 59));
+    pathNodes.push(new Vertex("path", "R", 80, 67));
+    pathNodes.push(new Vertex("path", "S", 88, 56));
+    pathNodes.push(new Vertex("path", "T", 89, 53));
+    pathNodes.push(new Vertex("path", "U", 89, 48));
+    pathNodes.push(new Vertex("path", "V", 89, 45));
+    pathNodes.push(new Vertex("path", "W", 89, 39));
+    pathNodes.push(new Vertex("path", "X", 90.5, 35.5));
+    pathNodes.push(new Vertex("path", "Y", 89, 33));
 
 	pathNodes.forEach((pathNode) => {
 		classpath.addVertex(pathNode);
@@ -113,6 +133,53 @@ function addPathNodeConnections() {
     addConnectionBetweenNodes("D", "leaveyHall");
     addConnectionBetweenNodes("E", "vonDerAhe");
     addConnectionBetweenNodes("F", "stRobs");
+    addConnectionBetweenNodes("H", "E");
+   addConnectionBetweenNodes("H", "foley");
+   addConnectionBetweenNodes("H", "foleyAnnex");
+   addConnectionBetweenNodes("H", "I");
+   addConnectionBetweenNodes("H", "malone");
+   addConnectionBetweenNodes("H", "D");
+   addConnectionBetweenNodes("I", "J");
+   addConnectionBetweenNodes("I", "K");
+   addConnectionBetweenNodes("I", "foleyAnnex");
+   addConnectionBetweenNodes("J", "doheny");
+   addConnectionBetweenNodes("J", "huesman");
+   addConnectionBetweenNodes("J", "sullivan");
+   addConnectionBetweenNodes("K", "G");
+   addConnectionBetweenNodes("K", "F");
+   addConnectionBetweenNodes("G", "O");
+   addConnectionBetweenNodes("G", "pereira");
+   addConnectionBetweenNodes("G", "L");
+   addConnectionBetweenNodes("G", "lsb");
+   addConnectionBetweenNodes("O", "pereira");
+   addConnectionBetweenNodes("O", "doolan");
+   addConnectionBetweenNodes("L", "O");
+   addConnectionBetweenNodes("L", "lsb");
+   addConnectionBetweenNodes("L", "M");
+   addConnectionBetweenNodes("L", "pereira");
+   addConnectionBetweenNodes("M", "N");
+   addConnectionBetweenNodes("N", "B");
+   addConnectionBetweenNodes("N", "P");
+   addConnectionBetweenNodes("P", "lsb");
+   addConnectionBetweenNodes("P", "seaver");
+   addConnectionBetweenNodes("M", "Q");
+   addConnectionBetweenNodes("M", "R");
+   addConnectionBetweenNodes("L", "S");
+   addConnectionBetweenNodes("Q", "S");
+   addConnectionBetweenNodes("Q", "facilitiesMgmt");
+   addConnectionBetweenNodes("R", "A");
+   addConnectionBetweenNodes("R", "Q");
+   addConnectionBetweenNodes("S", "T");
+   addConnectionBetweenNodes("T", "U");
+   addConnectionBetweenNodes("T", "O");
+   addConnectionBetweenNodes("U", "O");
+   addConnectionBetweenNodes("U", "V");
+   addConnectionBetweenNodes("V", "K");
+   addConnectionBetweenNodes("V", "W");
+   addConnectionBetweenNodes("W", "J");
+   addConnectionBetweenNodes("W", "X");
+   addConnectionBetweenNodes("X", "Y");
+   addConnectionBetweenNodes("J", "Y");
 }
 
 function addFoodNodes() {
