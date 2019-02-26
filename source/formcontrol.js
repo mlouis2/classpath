@@ -68,7 +68,7 @@ function addForm(id) {
         updateFormColors();
     }
     if (addid == MAX_FORMS) {
-        document.getElementById("addlink_").remove();
+        document.getElementsByClassName("addform")[0].remove();
     }
 }
 
@@ -76,5 +76,6 @@ Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
 
+//Starts with two forms by default
 addForm(1);
 addForm(1);
