@@ -12,6 +12,7 @@
     width: 30%;
     height: 100%;
     background-color: #699CD0;
+    overflow: scroll;
 }
 
 .sidebar .entry select {
@@ -51,7 +52,12 @@
 }
 
 .updateButton {
+  margin-bottom: 20px;
  border: 2px solid #ddaaca;
+}
+
+#from {
+  margin: 5px;
 }
 
 .updateButton:hover {
@@ -86,4 +92,5 @@ h1 {
   text-align: center;
   font-size: 40px;
   font-family: 'Boogaloo', cursive;
+  margin-bottom: 10px;
 }
