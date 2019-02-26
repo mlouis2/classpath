@@ -35,6 +35,21 @@ function setImageWidthAndHeight() {
 	}
 }
 
+function drawAccessoryNodes() {
+    foodNodes.forEach((foodNode) => {
+        foodNode.draw();
+    });
+    coffeeNodes.forEach((coffeeNode) => {
+        coffeeNode.draw();
+    });
+    storeNodes.forEach((storeNode) => {
+        storeNode.draw();
+    });
+    crossNodes.forEach((crossNode) => {
+        crossNode.draw();
+    });
+}
+
 //Draws the vertices after button has been pushed
 function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
