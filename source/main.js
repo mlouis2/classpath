@@ -13,12 +13,18 @@ const BACKGROUND_COLOR ="#a5d389";
 const BORDER_COLOR = "#ddaaca";
 
 //Sets the canvas width and canvas height so that my circles are not ovals
-canvas.width = widthValue * document.body.clientWidth;
-canvas.height =  document.body.clientHeight;
+canvas.width = widthValue * (document.body.clientWidth)-borderWidth;
+canvas.height =  document.body.clientHeight-borderWidth;
 
 //Draws the map image with correct dimensions
 function setImageWidthAndHeight() {
-	if (canvas.width < canvas.height)
+/*	if (document.body.clientWidth === document.body.clientHeight){
+		imageHeight = canvas.height;
+		imageWidth = canvas.width
+		imageX=canvas.width/2 - imageWidth/2;
+		imageY=canvas.height/2 - imageHeight/2;
+	}*/
+	if (canvas.width  < canvas.height)
 	{
 		imageHeight = canvas.width* image_height_to_width;
 		imageWidth = canvas.width;
@@ -33,6 +39,14 @@ function setImageWidthAndHeight() {
 		imageY = 0;
 		imageX= canvas.width/2 - imageWidth/2;
 	}
+	/*
+	else
+	{
+		imageWidth = canvas.height *image_width_to_height;
+		imageHeight = canvas.width* image_height_to_width;
+		imageX = canvas.width/2 -imageWIdtht/2;
+		imageY= canvas.height/2 -imageHeight/2;
+	}*/
 }
 
 function drawAccessoryNodes() {
