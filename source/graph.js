@@ -20,19 +20,14 @@ class Graph {
           ctx.stroke();
      }
      returnVertexWithName(name) {
-          return this.returnVerticesWithName(name)[0];
-     }
-     returnVerticesWithName(name) {
-          let correctVertices = [];
           for (let i = 0; i < this.vertices.length; i++) {
                if (this.vertices[i].name === name) {
-                    correctVertices.push(this.vertices[i]);
+                    return this.vertices[i];
                }
           }
-          return correctVertices;
+          return null;
      }
      findPath(current, goal) {
-          console.log("finding path...");
           this.setVerticesUnvisited();
           return this.findPathFromPoint(current, goal);
      }
@@ -45,7 +40,6 @@ class Graph {
                }
                let currentNode = currentPath[currentPath.length - 1];
                if (currentNode === goal) {
-                    console.log('current path is ' + currentPath);
                     return currentPath;
                }
                currentNode.visited = true;
@@ -63,7 +57,6 @@ class Graph {
           }
      }
      drawPath(path) {
-          console.log(path);
           if (path == null) {
                console.log("no path...");
                return;

@@ -7,14 +7,14 @@
      <body>
           <div class="container">
                <div class="sidebar">
+                    <br>
                     <h1>FIND YOUR<br>CLASSPATH</h1>
-                    <p style="color:white; text-align:center; font-family:'Boogaloo', cursive;">FROM...</p>
+                    <p id="from" style="color:white; text-align:center; font-family:'Boogaloo', cursive;">FROM...</p>
                     <div class="entry" id="addform">
 
                     </div>
-                    <a class="addform" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
-                        style="text-align:center; display:block;">ADD A LOCATION</a>
-                    <br></br>
+                    <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
+                        style="text-align:center; display:block;">Add a Location</a>
                     <button class="button updateButton" id="updateButton" style:"text-align:center;">Update Map</button>
                </div>
                <canvas></canvas>

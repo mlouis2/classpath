@@ -62,12 +62,10 @@ function addBuildingConnections() {
 	addConnectionBetweenNodes("burnsArt", "leaveyHall");
 	addConnectionBetweenNodes("leaveyHall", "commArts");
 	addConnectionBetweenNodes("commArts", "burnsArt");
-	addConnectionBetweenNodes("burnsRec", "gersten");
 	addConnectionBetweenNodes("foley", "foleyAnnex");
 	addConnectionBetweenNodes("foley", "lsb");
 	addConnectionBetweenNodes("foleyAnnex", "malone");
 	addConnectionBetweenNodes("foleyAnnex", "lsb");
-	addConnectionBetweenNodes("burnsRec", "lsb");
 	addConnectionBetweenNodes("facilitiesMgmt", "doolan");
 
 }
