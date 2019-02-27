@@ -79,18 +79,18 @@ function addPathNodes() {
 	pathNodes.push(new Vertex("path", "D", 68, 39.49));
 	pathNodes.push(new Vertex("path", "E", 68, 34));
 	pathNodes.push(new Vertex("path", "F", 74, 42));
-	pathNodes.push(new Vertex("path", "G", 81, 49.29));
+	pathNodes.push(new Vertex("path", "G", 80.5, 49.29));
     pathNodes.push(new Vertex("path", "H", 75.63, 35));
-    pathNodes.push(new Vertex("path", "I", 81, 35));
+    pathNodes.push(new Vertex("path", "I", 80.5, 35));
     pathNodes.push(new Vertex("path", "J", 86, 35));
     pathNodes.push(new Vertex("path", "K", 80.5, 44));
     pathNodes.push(new Vertex("path", "L", 80.5, 54));
-    pathNodes.push(new Vertex("path", "M", 80, 59));
+    pathNodes.push(new Vertex("path", "M", 80.5, 59));
     pathNodes.push(new Vertex("path", "N", 73, 59));
     pathNodes.push(new Vertex("path", "O", 85, 50));
     pathNodes.push(new Vertex("path", "P", 74, 50));
     pathNodes.push(new Vertex("path", "Q", 87, 59));
-    pathNodes.push(new Vertex("path", "R", 80, 67));
+    pathNodes.push(new Vertex("path", "R", 81, 67));
     pathNodes.push(new Vertex("path", "S", 88, 56));
     pathNodes.push(new Vertex("path", "T", 89, 53));
     pathNodes.push(new Vertex("path", "U", 89, 48));
@@ -98,9 +98,20 @@ function addPathNodes() {
     pathNodes.push(new Vertex("path", "W", 89, 39));
     pathNodes.push(new Vertex("path", "X", 90.5, 35.5));
     pathNodes.push(new Vertex("path", "Y", 89, 33));
+    pathNodes.push(new Vertex("path", "Z", 80.5, 27));
+    pathNodes.push(new Vertex("path", "AA", 81, 20));
+    pathNodes.push(new Vertex("path", "AB", 81, 15));
+    pathNodes.push(new Vertex("path", "AC", 77, 15));
+    pathNodes.push(new Vertex("path", "AD", 80, 12));
+    pathNodes.push(new Vertex("path", "AE", 72, 18));
+    pathNodes.push(new Vertex("path", "AF", 67, 18));
+    pathNodes.push(new Vertex("path", "AG", 61, 18));
+
 
 	pathNodes.forEach((pathNode) => {
 		classpath.addVertex(pathNode);
+		console.log("testy testy 2");
+		pathNode.draw();
 	});
 	addPathNodeConnections();
 }
@@ -178,6 +189,15 @@ function addPathNodeConnections() {
    addConnectionBetweenNodes("W", "X");
    addConnectionBetweenNodes("X", "Y");
    addConnectionBetweenNodes("J", "Y");
+   addConnectionBetweenNodes("Z", "I");
+   addConnectionBetweenNodes("Z", "AA");
+   addConnectionBetweenNodes("AA", "AB");
+   addConnectionBetweenNodes("AA", "rosecrans");
+   addConnectionBetweenNodes("AA", "desmond");
+   addConnectionBetweenNodes("X", "Y");
+   addConnectionBetweenNodes("X", "Y");
+   addConnectionBetweenNodes("X", "Y");
+   
 }
 
 function addFoodNodes() {
@@ -197,7 +217,7 @@ function addCoffeeNodes() {
 	coffeeNodes.push(new Vertex("coffee", "The Den", 76, 27.49));
 	coffeeNodes.push(new Vertex("coffee", "The Coffee Cart", 70.45, 41.58));
 	coffeeNodes.push(new Vertex("coffee", "Starbucks", 46.13, 31.81));
-	coffeeNodes.push(new Vertex("coffee", "The Foundry", 81, 48.31));
+	coffeeNodes.push(new Vertex("coffee", "The Foundry", 74, 48.31));
 
 	coffeeNodes.forEach((coffeeNode) => {
 		classpath.addVertex(coffeeNode);
@@ -220,6 +240,7 @@ function addCrossNodes() {
 let classpath;
 function populateGraph() {
 	classpath = new Graph();
+	console.log("test test test");
 	addBuildings();
 	addPathNodes();
 	addFoodNodes();
