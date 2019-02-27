@@ -1,9 +1,8 @@
-const widthValue = .7 - .02;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const borderWidth = 8;
-const image_width_to_height= 21.68/16.43;
-const image_height_to_width =16.43/21.68;
+const originalImageWidth = 1574;
+const originalImageHeight = 1183;
+
 let imageHeight;
 let imageWidth;
 let imageX;
@@ -11,27 +10,32 @@ let imageY;
 const FORM_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 const BACKGROUND_COLOR ="#a5d389";
 const BORDER_COLOR = "#ddaaca";
+const BORDER_WIDTH = 8;
+const SIDEBAR_WIDTH_PERCENTAGE = .3;
+const CANVAS_WIDTH_PERCENTAGE = 1 - SIDEBAR_WIDTH_PERCENTAGE;
 
 //Sets the canvas width and canvas height so that my circles are not ovals
-canvas.width = widthValue * document.body.clientWidth;
+canvas.width = CANVAS_WIDTH_PERCENTAGE * document.body.clientWidth;
 canvas.height =  document.body.clientHeight;
 
 //Draws the map image with correct dimensions
 function setImageWidthAndHeight() {
-	if (canvas.width < canvas.height)
-	{
-		imageHeight = canvas.width* image_height_to_width;
-		imageWidth = canvas.width;
-		imageX = 0;
-		imageY = canvas.height/2 - imageHeight/2;
-
-	}
-	else if (canvas.height <= canvas.width)
-	{
-		imageWidth = canvas.height *image_width_to_height;
-		imageHeight = canvas.height;
-		imageY = 0;
-		imageX= canvas.width/2 - imageWidth/2;
+	docRatio = document.body.clientWidth / document.body.clientHeight;
+	let imageRatio = originalImageWidth / originalImageHeight;
+	if (docRatio > imageRatio) {
+		imageHeight = document.body.clientHeight - (2 * BORDER_WIDTH);
+		imageWidth = (document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH);
+		// imageX = BORDER_WIDTH;
+		// imageY = ((document.body.clientHeight - imageHeight) / 2);
+		imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
+		imageY = BORDER_WIDTH;
+	} else {
+		imageHeight = ((document.body.clientWidth* (CANVAS_WIDTH_PERCENTAGE)) / imageRatio) - (2 * BORDER_WIDTH);
+		imageWidth = ((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - (2 * BORDER_WIDTH);
+		// imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
+		// imageY = BORDER_WIDTH;
+		imageX = BORDER_WIDTH;
+		imageY = ((document.body.clientHeight - imageHeight) / 2);
 	}
 }
 
@@ -54,12 +58,10 @@ function drawAccessoryNodes() {
 function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
-		let validVertices = classpath.returnVerticesWithName(entries[i].place);
-		validVertices.forEach((validVertex) => {
-			totalValidVertices.push(validVertex);
-			validVertex.setColor(FORM_COLORS[i]);
-			validVertex.draw();
-		});
+		let validVertex = classpath.returnVertexWithName(entries[i].place);
+		totalValidVertices.push(validVertex);
+		validVertex.setColor(FORM_COLORS[i]);
+		validVertex.draw();
 	}
 	drawValidPaths(totalValidVertices);
 }
@@ -102,10 +104,10 @@ function refreshBackground() {
 
 	//Draws Border
 	ctx.fillStyle = BORDER_COLOR;
-	ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth); //bottom
-	ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); //right
-	ctx.fillRect(0, 0, canvas.width, borderWidth); //top
-	ctx.fillRect(0, 0, borderWidth, canvas.height); //left
+	ctx.fillRect(0, canvas.height - BORDER_WIDTH, canvas.width, BORDER_WIDTH); //bottom
+	ctx.fillRect(canvas.width - BORDER_WIDTH, 0, BORDER_WIDTH, canvas.height); //right
+	ctx.fillRect(0, 0, canvas.width, BORDER_WIDTH); //top
+	ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height); //left
 
 	//Draws Lion
 	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5);
