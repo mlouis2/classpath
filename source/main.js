@@ -127,6 +127,6 @@ document.getElementById("updateButton").addEventListener("click", function(){
 
 $(document).ready(function() {
 	setImageWidthAndHeight();
-	refreshBackground();
 	populateGraph();
+	refreshBackground();
 });

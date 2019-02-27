@@ -110,8 +110,6 @@ function addPathNodes() {
 
 	pathNodes.forEach((pathNode) => {
 		classpath.addVertex(pathNode);
-		console.log("testy testy 2");
-		pathNode.draw();
 	});
 	addPathNodeConnections();
 }
@@ -197,7 +195,7 @@ function addPathNodeConnections() {
    addConnectionBetweenNodes("X", "Y");
    addConnectionBetweenNodes("X", "Y");
    addConnectionBetweenNodes("X", "Y");
-   
+
 }
 
 function addFoodNodes() {

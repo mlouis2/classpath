@@ -21,16 +21,13 @@ class Vertex {
      }
      draw() {
           if (this.vertexType === 'building' || this.vertexType === 'path') {
-               console.log("testy testy 3");
-               ctx.font = '20px serif';
-               ctx.fillText(this.name, this.x, this.y);
-               // ctx.beginPath();
-               // ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
-               // ctx.fillStyle = this.color;
-               // ctx.fill();
-               // ctx.lineWidth = 1;
-               // ctx.strokeStyle = "white";
-               // ctx.stroke();
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
+               ctx.fillStyle = this.color;
+               ctx.fill();
+               ctx.lineWidth = 1;
+               ctx.strokeStyle = "white";
+               ctx.stroke();
           } else {
                switch (this.vertexType) {
                     case 'food':
