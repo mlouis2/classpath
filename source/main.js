@@ -25,16 +25,12 @@ function setImageWidthAndHeight() {
 	if (docRatio > imageRatio) {
 		imageHeight = document.body.clientHeight - (2 * BORDER_WIDTH);
 		imageWidth = (document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH);
-		// imageX = BORDER_WIDTH;
-		// imageY = ((document.body.clientHeight - imageHeight) / 2);
 		imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
 		imageX = ((((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - imageWidth) / 2);
 		imageY = BORDER_WIDTH;
 	} else {
 		imageHeight = ((document.body.clientWidth* (CANVAS_WIDTH_PERCENTAGE)) / imageRatio) - (2 * BORDER_WIDTH);
 		imageWidth = ((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - (2 * BORDER_WIDTH);
-		// imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
-		// imageY = BORDER_WIDTH;
 		imageX = BORDER_WIDTH;
 		imageY = ((document.body.clientHeight - imageHeight) / 2);
 	}
