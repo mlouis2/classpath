@@ -23,13 +23,6 @@ p {
   height: 100vh;
 }
 
-.closeButton {
-  float: right;
-  color: white;
-  font-size: 50px;
-  padding-right: 30px;
-}
-
 .sidebar {
     float: left;
     width: 30%;
@@ -105,8 +98,6 @@ a:hover {
 }
 canvas {
   background-color: #a5d389;
-  /* width: 70%;
-  height: 100%; */
 }
 
 .container:after {
@@ -115,11 +106,22 @@ canvas {
   clear: both;
 }
 
-.openSidebarButtonContainer {
+.sidebarButtonContainer {
   z-index: 10;
+  position: absolute;
+  height: 100%;
+  margin-left:30%;
 }
 
-.openSidebarButton {
-  color: black;
+.sidebarButton {
+  font-size: 30px;
+  color: gray;
   z-index: 10;
+  position: absolute;
+  margin-top:10px;
+  margin-left:20px;
+}
+
+.sidebarButton:hover {
+  color: #699CD0;
 }

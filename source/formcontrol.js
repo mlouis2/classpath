@@ -81,10 +81,18 @@ Element.prototype.remove = function() {
 addForm(1);
 addForm(1);
 
-function closeSidebar() {
-  document.getElementById("sidebar").style.width = "0";
-  sidebarCollapsed = true;
-  setImageWidthAndHeight(1);
+function collapseSidebar() {
+  if (sidebarCollapsed) { //open the sidebar!
+    document.getElementById("sidebar").style.width = "30%";
+    document.getElementById("sidebarButtonContainer").style.marginLeft = "30%";
+    setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
+  } else { //collapse the sidebar!
+    document.getElementById("sidebar").style.width = "0";
+    setImageWidthAndHeight(1);
+    document.getElementById("sidebarButtonContainer").style.marginLeft = "0%";
+  }
+  sidebarCollapsed = !sidebarCollapsed;
   populateGraph();
   refreshBackground();
+  drawEntries();
 }
