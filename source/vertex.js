@@ -10,7 +10,6 @@ class Vertex {
           } else{
             this.x = ((xInPercent) / 100) * imageWidth + (canvas.width - imageWidth)/2 -25;
             this.y = ((yInPercent) / 100) * imageHeight + (canvas.height - imageHeight)/2 -25;
-
           }
 
           this.color = "#ffffff";

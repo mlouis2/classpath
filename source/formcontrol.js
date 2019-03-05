@@ -1,5 +1,5 @@
 const MAX_FORMS = 5;
-
+let sidebarCollapsed = false;
 var addid = 0;
 let isFirst = true;
 var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
@@ -80,3 +80,11 @@ Element.prototype.remove = function() {
 //Starts with two forms by default
 addForm(1);
 addForm(1);
+
+function closeSidebar() {
+  document.getElementById("sidebar").style.width = "0";
+  sidebarCollapsed = true;
+  setImageWidthAndHeight(1);
+  populateGraph();
+  refreshBackground();
+}

@@ -14,22 +14,20 @@ const BORDER_WIDTH = 8;
 const SIDEBAR_WIDTH_PERCENTAGE = .3;
 const CANVAS_WIDTH_PERCENTAGE = 1 - SIDEBAR_WIDTH_PERCENTAGE;
 
-//Sets the canvas width and canvas height so that my circles are not ovals
-canvas.width = CANVAS_WIDTH_PERCENTAGE * document.body.clientWidth;
-canvas.height =  document.body.clientHeight;
-
 //Draws the map image with correct dimensions
-function setImageWidthAndHeight() {
-	docRatio = document.body.clientWidth / document.body.clientHeight;
+function setImageWidthAndHeight(canvasWidthPercentage) {
+	canvas.width = canvasWidthPercentage * document.body.clientWidth;
+	canvas.height =  document.body.clientHeight;
+	docRatio = (document.body.clientWidth * canvasWidthPercentage) / document.body.clientHeight;
 	let imageRatio = originalImageWidth / originalImageHeight;
 	if (docRatio > imageRatio) {
 		imageHeight = document.body.clientHeight - (2 * BORDER_WIDTH);
 		imageWidth = (document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH);
-		imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
+		imageX = ((((document.body.clientWidth) * (canvasWidthPercentage)) - imageWidth) / 2);
 		imageY = BORDER_WIDTH;
 	} else {
-		imageHeight = ((document.body.clientWidth* (CANVAS_WIDTH_PERCENTAGE)) / imageRatio) - (2 * BORDER_WIDTH);
-		imageWidth = ((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - (2 * BORDER_WIDTH);
+		imageHeight = ((document.body.clientWidth* (canvasWidthPercentage)) / imageRatio) - (2 * BORDER_WIDTH);
+		imageWidth = ((document.body.clientWidth) * (canvasWidthPercentage)) - (2 * BORDER_WIDTH);
 		imageX = BORDER_WIDTH;
 		imageY = ((document.body.clientHeight - imageHeight) / 2);
 	}
@@ -114,8 +112,11 @@ function refreshBackground() {
 }
 
 let entries;
+
 //Code to handle the update button--connected to the button
-document.getElementById("updateButton").addEventListener("click", function(){
+document.getElementById("updateButton").addEventListener("click", drawEntries);
+
+function drawEntries() {
 	refreshBackground();
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
@@ -123,10 +124,14 @@ document.getElementById("updateButton").addEventListener("click", function(){
 		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}
 	drawValidVerticesAndPaths();
-});
+}
 
 $(document).ready(function() {
-	setImageWidthAndHeight();
+	if (sidebarCollapsed) {
+		setImageWidthAndHeight(1);
+	} else {
+		setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
+	}
 	populateGraph();
 	refreshBackground();
 });

@@ -6,9 +6,10 @@
      </head>
      <body>
           <div class="container">
-               <div class="sidebar">
+               <div class="sidebar" id="sidebar">
+                    <a class="closeButton" href="javascript:void(0);" onclick="closeSidebar()">x</a>
                     <br>
-                    <h1>FIND YOUR<br>CLASSPATH</h1>
+                    <div class ="heading">FIND YOUR<br>CLASSPATH</div>
                     <p id="from" style="color:white; text-align:center; font-family:'Boogaloo', cursive;">FROM...</p>
                     <div class="entry" id="addform">
 
@@ -17,17 +18,20 @@
                         style="text-align:center; display:block;">Add a Location</a>
                     <button class="button updateButton" id="updateButton" style:"text-align:center;">Update Map</button>
                </div>
+               <!-- <div class="openSidebarButtonContainer">
+                    <a class="openSidebarButton" href="javascript:void(0);" onclick="closeSidebar()"><</a>
+               </div> -->
                <canvas></canvas>
           </div>
      </body>
      <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+     <script type="text/javascript" src="./source/nodesAndPaths.js"></script>
      <script type="text/javascript" src="./images/images.js"></script>
      <script type="text/javascript" src="./source/vertex.js"></script>
      <script type="text/javascript" src="./source/entry.js"></script>
      <script type="text/javascript" src="./source/building.js"></script>
      <script type="text/javascript" src="./source/graph.js"></script>
      <script type="text/javascript" src="./source/main.js"></script>
-     <script type="text/javascript" src="./source/nodesAndPaths.js"></script>
      <script type="text/javascript" src="./source/formcontrol.js"></script>
 
 </html>

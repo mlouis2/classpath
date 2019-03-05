@@ -1,7 +1,8 @@
-let buildings = [], pathNodes = [], foodNodes = [], coffeeNodes = [], storeNodes = [], crossNodes = [];
+let buildings, pathNodes, foodNodes, coffeeNodes, storeNodes, crossNodes;
 
 //Adds the buildings and adds the vertices
 function addBuildings() {
+	let buildings = [];
 	//Creates the buildings array
 	buildings.push(new Building("seaver", 71.3, 49.29));
 	buildings.push(new Building("lsb", 77.3, 49.29));
@@ -71,7 +72,7 @@ function addBuildingConnections() {
 }
 
 function addPathNodes() {
-	let pathNodes = [];
+	pathNodes = [];
 
 	pathNodes.push(new Vertex("path", "A", 68.5, 69.66));
 	pathNodes.push(new Vertex("path", "B", 68.5, 60.97));
@@ -106,7 +107,6 @@ function addPathNodes() {
     pathNodes.push(new Vertex("path", "AE", 72, 18));
     pathNodes.push(new Vertex("path", "AF", 67, 18));
     pathNodes.push(new Vertex("path", "AG", 61, 18));
-
 
 	pathNodes.forEach((pathNode) => {
 		classpath.addVertex(pathNode);
@@ -195,10 +195,10 @@ function addPathNodeConnections() {
    addConnectionBetweenNodes("X", "Y");
    addConnectionBetweenNodes("X", "Y");
    addConnectionBetweenNodes("X", "Y");
-
 }
 
 function addFoodNodes() {
+	foodNodes = [];
 	foodNodes.push(new Vertex("food", "1788/Pizza Hut", 82.32, 12.1));
 	foodNodes.push(new Vertex("food", "The Lair", 76, 31.36));
 	foodNodes.push(new Vertex("food", "The Habit Burger", 52.25, 59.13));
@@ -210,6 +210,7 @@ function addFoodNodes() {
 }
 
 function addCoffeeNodes() {
+	coffeeNodes = [];
 	coffeeNodes.push(new Vertex("coffee", "Einstein's", 20.71, 71.24));
 	coffeeNodes.push(new Vertex("coffee", "Coffee Bean and Tea Leaf", 30.97, 47.49));
 	coffeeNodes.push(new Vertex("coffee", "The Den", 76, 27.49));
@@ -223,6 +224,7 @@ function addCoffeeNodes() {
 }
 
 function addStoreNodes() {
+	storeNodes = [];
 	storeNodes.push(new Vertex("store", "The Grid: Leavey 6", 27.74, 59.14));
 	storeNodes.push(new Vertex("store", "The Grid: Malone", 72.58, 31.81));
 	storeNodes.push(new Vertex("store", "The Grid: Del Rey", 80.45, 11.20));
@@ -232,13 +234,13 @@ function addStoreNodes() {
 }
 
 function addCrossNodes() {
+	crossNodes = [];
 	crossNodes.push(new Vertex("cross", "chapel", 68.2, 9.5));
 }
 
 let classpath;
 function populateGraph() {
 	classpath = new Graph();
-	console.log("test test test");
 	addBuildings();
 	addPathNodes();
 	addFoodNodes();
