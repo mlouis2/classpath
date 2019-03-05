@@ -3,10 +3,12 @@ const ctx = canvas.getContext("2d");
 const originalImageWidth = 1574;
 const originalImageHeight = 1183;
 
+
 let imageHeight;
 let imageWidth;
 let imageX;
 let imageY;
+let constSize;
 const FORM_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 const BACKGROUND_COLOR ="#a5d389";
 const BORDER_COLOR = "#ddaaca";
@@ -20,17 +22,18 @@ canvas.height =  document.body.clientHeight;
 
 //Draws the map image with correct dimensions
 function setImageWidthAndHeight() {
-	docRatio = document.body.clientWidth / document.body.clientHeight;
+	docRatio = ((document.body.clientWidth*CANVAS_WIDTH_PERCENTAGE)) / document.body.clientHeight;
 	let imageRatio = originalImageWidth / originalImageHeight;
 	if (docRatio > imageRatio) {
 		imageHeight = document.body.clientHeight - (2 * BORDER_WIDTH);
-		imageWidth = (document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH);
-		imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
+		imageWidth = ((document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH));
+		constSize = imageHeight;
 		imageX = ((((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - imageWidth) / 2);
 		imageY = BORDER_WIDTH;
 	} else {
 		imageHeight = ((document.body.clientWidth* (CANVAS_WIDTH_PERCENTAGE)) / imageRatio) - (2 * BORDER_WIDTH);
 		imageWidth = ((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - (2 * BORDER_WIDTH);
+		constSize = imageWidth;
 		imageX = BORDER_WIDTH;
 		imageY = ((document.body.clientHeight - imageHeight) / 2);
 	}
@@ -106,11 +109,13 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, BORDER_WIDTH); //top
 	ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height); //left
 
-	//Draws Lion
-	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5);
+	//Draws Lion x,y, width, height
+
+	ctx.drawImage(lmuLogo, imageX + imageWidth*.05, imageY+ imageHeight*.05, constSize*.25, constSize*.25);
 
 	//Draws Compass
-	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5);
+
+	ctx.drawImage(compass, imageX +imageWidth*.2, imageY + imageHeight*.57, constSize*.45, constSize*.4);
 	drawAccessoryNodes();
 }
 
