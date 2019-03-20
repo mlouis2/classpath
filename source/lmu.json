@@ -667,16 +667,13 @@
           ["Hannon Apartments", "Hannon Field"],
           ["McKay Hall", "Hannon Apartments"],
           ["McKay Hall", "Hannon Field"],
-
           ["Leavey Hall", "Communication Arts"],
-
           ["Foley", "Foley Annex"],
           ["Foley", "Life Sciences Building"],
           ["Foley Annex", "Malone"],
           ["Foley Annex", "Life Sciences Building"],
           ["Facilities Management", "Doolan"],
           ["A", "Gersten Pavilion"],
-
           ["A", "B"],
           ["Burns Recreation Center", "B"],
           ["B", "C"],
@@ -693,9 +690,7 @@
           ["G", "Pereira"],
           ["A", "Hannon Field"],
           ["B", "Hannon Field"],
-
           ["C", "McKay Hall"],
-
           ["D", "Communication Arts"],
           ["D", "Leavey Hall"],
           ["E", "Von Der Ahe"],
@@ -716,7 +711,6 @@
           ["K", "F"],
           ["G", "O"],
           ["G", "L"],
-
           ["O", "Pereira"],
           ["O", "Doolan"],
           ["L", "O"],
@@ -757,7 +751,6 @@
           ["AB", "Del Rey South"],
           ["AF", "Sacred Heart Chapel"],
           ["AI", "Malone"],
-
           ["AK", "Jesuit Community"],
           ["AK", "AM"],
           ["AM", "St. Robert's"],
@@ -791,7 +784,6 @@
           ["AQ", "B"],
           ["AQ", "Hannon Apartments"],
           ["AS", "Tenderich Apartments"],
-
           ["AS", "Hannon Apartments"],
           ["AR", "McKay Hall"],
           ["University Hall", "BE"],
