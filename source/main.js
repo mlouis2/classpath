@@ -1,7 +1,5 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const originalImageWidth = 1574;
-const originalImageHeight = 1183;
 
 
 let imageHeight;
@@ -57,6 +55,7 @@ function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
 		let validVertex = classpath.returnVertexWithName(entries[i].place);
+		console.log("place is " + entries[i].place)
 		totalValidVertices.push(validVertex);
 		validVertex.setColor(FORM_COLORS[i]);
 		validVertex.draw();
@@ -98,6 +97,8 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 	//Draws Map
+	console.log('mapImage is ' + mapImage);
+	console.log('map src is ' + mapImage.src);
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
 	//Draws Border

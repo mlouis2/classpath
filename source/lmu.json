@@ -1,0 +1,834 @@
+{ "loyolaMarymountUniversity": {
+     "image": {
+          "filePath": "images/LMUMap.png",
+          "width": 1574,
+          "height": 1183
+     },
+     "buildings": [
+          {
+               "name": "Seaver",
+               "x": 71.3,
+               "y": 49.29
+          },
+          {
+               "name": "Life Sciences Building",
+               "x": 77.3,
+               "y": 49.29
+          },
+          {
+               "name": "Foley",
+               "x": 74,
+               "y": 38.4
+          },
+          {
+               "name": "Pereira",
+               "x": 83.88,
+               "y": 49.29
+          },
+          {
+               "name": "Doolan",
+               "x": 88.56,
+               "y": 49.29
+          },
+          {
+               "name": "Foley Annex",
+               "x": 78.24,
+               "y": 38.4
+          },
+          {
+               "name": "Burns Recreation Center",
+               "x": 77,
+               "y": 60.97
+          },
+          {
+               "name": "Gersten Pavilion",
+               "x": 77.3,
+               "y": 69.66
+          },
+          {
+               "name": "Hannon Library",
+               "x": 45.3,
+               "y": 31
+          },
+          {
+               "name": "Malone",
+               "x": 75.63,
+               "y": 30.49
+          },
+          {
+               "name": "Sacred Heart Chapel",
+               "x": 68.5,
+               "y": 15
+          },
+          {
+               "name": "St. Robert's",
+               "x": 60,
+               "y": 29.49
+          },
+          {
+               "name": "Von Der Ahe",
+               "x": 62,
+               "y": 39.49
+          },
+          {
+               "name": "Hilton",
+               "x": 54.7,
+               "y": 29.49
+          },
+          {
+               "name": "Drollinger",
+               "x": 43.8,
+               "y": 54
+          },
+          {
+               "name": "University Hall",
+               "x": 17,
+               "y": 78
+          },
+          {
+               "name": "Burns Fine Arts",
+               "x": 62.2,
+               "y": 53
+          },
+          {
+               "name": "Communication Arts",
+               "x": 59.9,
+               "y": 46.7
+          },
+          {
+               "name": "Leavey Hall",
+               "x": 53.3,
+               "y": 51
+          },
+          {
+               "name": "Xavier Hall",
+               "x": 57,
+               "y": 17
+          },
+          {
+               "name": "Jesuit Community",
+               "x": 51.5,
+               "y": 21.5
+          },
+          {
+               "name": "Hannon Field",
+               "x": 63.2,
+               "y": 69
+          },
+          {
+               "name": "Hannon Apartments",
+               "x": 58,
+               "y": 67.8
+          },
+          {
+               "name": "Tenderich Apartments",
+               "x": 52,
+               "y": 67.8
+          },
+          {
+               "name": "McKay Hall",
+               "x": 52.5,
+               "y": 61
+          },
+          {
+               "name": "Rains",
+               "x": 40,
+               "y": 45.2
+          },
+          {
+               "name": "McCarthy",
+               "x": 38,
+               "y": 38.5
+          },
+          {
+               "name": "O'Malley",
+               "x": 26,
+               "y": 42.5
+          },
+          {
+               "name": "Leavey 4",
+               "x": 26,
+               "y": 52
+          },
+          {
+               "name": "Leavey 5",
+               "x": 21,
+               "y": 57
+          },
+          {
+               "name": "Leavey 6",
+               "x": 28,
+               "y": 59
+          },
+          {
+               "name": "Huesman",
+               "x": 86,
+               "y": 28
+          },
+          {
+               "name": "Doheny",
+               "x": 90,
+               "y": 34
+          },
+          {
+               "name": "Sullivan",
+               "x": 86,
+               "y": 41
+          },
+          {
+               "name": "Desmond",
+               "x": 80,
+               "y": 17
+          },
+          {
+               "name": "Rosecrans",
+               "x": 85,
+               "y": 20
+          },
+          {
+               "name": "Whelan",
+               "x": 77,
+               "y": 11
+          },
+          {
+               "name": "Del Rey North",
+               "x": 83,
+               "y": 8.1
+          },
+          {
+               "name": "Del Rey South",
+               "x": 87,
+               "y": 14
+          },
+          {
+               "name": "Facilities Management",
+               "x": 90,
+               "y": 57
+          }
+     ],
+     "accessoryNodes": [
+          {
+               "name": "1788/Pizza Hut",
+               "x": 82.32,
+               "y": 12.1,
+               "type": "food"
+          },
+          {
+               "name": "The Lair",
+               "x": 76,
+               "y": 31.36,
+               "type": "food"
+          },
+          {
+               "name": "The Habit Burger",
+               "x": 52.25,
+               "y": 59.13,
+               "type": "food"
+          },
+          {
+               "name": "Crimson Lion",
+               "x": 14.58,
+               "y": 85.48,
+               "type": "food"
+          },
+          {
+               "name": "Roski Dining Hall",
+               "x": 12.3,
+               "y": 89.6,
+               "type": "food"
+          },
+          {
+               "name": "Einstein's",
+               "x": 20.71,
+               "y": 71.24,
+               "type": "coffee"
+          },
+          {
+               "name": "Coffee Bean and Tea Leaf",
+               "x": 30.97,
+               "y": 47.49,
+               "type": "coffee"
+          },
+          {
+               "name": "The Den",
+               "x": 76,
+               "y": 27.49,
+               "type": "coffee"
+          },
+          {
+               "name": "The Coffee Cart",
+               "x": 70.45,
+               "y": 41.58,
+               "type": "coffee"
+          },
+          {
+               "name": "Starbucks",
+               "x": 46.13,
+               "y": 31.81,
+               "type": "coffee"
+          },
+          {
+               "name": "The Foundry",
+               "x": 74,
+               "y": 48.31,
+               "type": "coffee"
+          },
+          {
+               "name": "The Grid: Leavey 6",
+               "x": 27.74,
+               "y": 59.14,
+               "type": "store"
+          },
+          {
+               "name": "The Grid: Malone",
+               "x": 72.58,
+               "y": 31.81,
+               "type": "store"
+          },
+          {
+               "name": "The Grid: Del Rey",
+               "x": 80.45,
+               "y": 11.20,
+               "type": "store"
+          },
+          {
+               "name": "Chapel",
+               "x": 68.2,
+               "y": 9.5,
+               "type": "cross"
+          }
+     ],
+     "pathNodes": [
+          {
+               "name": "A",
+               "x": 68.5,
+               "y": 69.66
+          },
+          {
+               "name": "B",
+               "x": 68.5,
+               "y": 60.97
+          },
+          {
+               "name": "C",
+               "x": 68,
+               "y": 47.29
+          },
+          {
+               "name": "D",
+               "x": 68,
+               "y": 39.49
+          },
+          {
+               "name": "E",
+               "x": 68,
+               "y": 34
+          },
+          {
+               "name": "F",
+               "x": 74,
+               "y": 42
+          },
+          {
+               "name": "G",
+               "x": 80.5,
+               "y": 49.29
+          },
+          {
+               "name": "H",
+               "x": 75.63,
+               "y": 35
+          },
+          {
+               "name": "I",
+               "x": 80.5,
+               "y": 35
+          },
+          {
+               "name": "J",
+               "x": 86,
+               "y": 35
+          },
+          {
+               "name": "K",
+               "x": 80.5,
+               "y": 44
+          },
+          {
+               "name": "L",
+               "x": 80.5,
+               "y": 54
+          },
+          {
+               "name": "M",
+               "x": 80.5,
+               "y": 59
+          },
+          {
+               "name": "N",
+               "x": 73,
+               "y": 59
+          },
+          {
+               "name": "O",
+               "x": 85,
+               "y": 50
+          },
+          {
+               "name": "P",
+               "x": 74,
+               "y": 50
+          },
+          {
+               "name": "Q",
+               "x": 87,
+               "y": 59
+          },
+          {
+               "name": "R",
+               "x": 81,
+               "y": 67
+          },
+          {
+               "name": "S",
+               "x": 88,
+               "y": 56
+          },
+          {
+               "name": "T",
+               "x": 89,
+               "y": 53
+          },
+          {
+               "name": "U",
+               "x": 89,
+               "y": 48
+          },
+          {
+               "name": "V",
+               "x": 89,
+               "y": 45
+          },
+          {
+               "name": "W",
+               "x": 89,
+               "y": 39
+          },
+          {
+               "name": "X",
+               "x": 90.5,
+               "y": 35.5
+          },
+          {
+               "name": "Y",
+               "x": 89,
+               "y": 33
+          },
+          {
+               "name": "Z",
+               "x": 80.5,
+               "y": 27
+          },
+          {
+               "name": "AA",
+               "x": 81,
+               "y": 20
+          },
+          {
+               "name": "AB",
+               "x": 81,
+               "y": 15
+          },
+          {
+               "name": "AC",
+               "x": 77,
+               "y": 15
+          },
+          {
+               "name": "AD",
+               "x": 80,
+               "y": 12
+          },
+          {
+               "name": "AE",
+               "x": 72,
+               "y": 18
+          },
+          {
+               "name": "AF",
+               "x": 67,
+               "y": 18
+          },
+          {
+               "name": "AG",
+               "x": 61,
+               "y": 18
+          },
+          {
+               "name": "AH",
+               "x": 60,
+               "y": 21.5
+          },
+          {
+               "name": "AI",
+               "x": 75.63,
+               "y": 25
+          },
+          {
+               "name": "AJ",
+               "x": 68,
+               "y": 25
+          },
+          {
+               "name": "AK",
+               "x": 57.5,
+               "y": 25
+          },
+          {
+               "name": "AL",
+               "x": 57,
+               "y": 39.49
+          },
+          {
+               "name": "AM",
+               "x": 57,
+               "y": 35
+          },
+          {
+               "name": "AN",
+               "x": 48.5,
+               "y": 35
+          },
+          {
+               "name": "AO",
+               "x": 55.7,
+               "y": 51
+          },
+          {
+               "name": "AP",
+               "x": 55.7,
+               "y": 59.8
+          },
+          {
+               "name": "AQ",
+               "x": 58.9,
+               "y": 59.8
+          },
+          {
+               "name": "AR",
+               "x": 53.5,
+               "y": 59.8
+          },
+          {
+               "name": "AS",
+               "x": 53.5,
+               "y": 66.8
+          },
+          {
+               "name": "AT",
+               "x": 48.5,
+               "y": 55
+          },
+          {
+               "name": "AU",
+               "x": 48.5,
+               "y": 65
+          },
+          {
+               "name": "AV",
+               "x": 55.7,
+               "y": 55
+          },
+          {
+               "name": "AW",
+               "x": 48.5,
+               "y": 45
+          },
+          {
+               "name": "AX",
+               "x": 48.5,
+               "y": 39
+          },
+          {
+               "name": "AY",
+               "x": 42,
+               "y": 40
+          },
+          {
+               "name": "AZ",
+               "x": 38,
+               "y": 42
+          },
+          {
+               "name": "BA",
+               "x": 30,
+               "y": 49
+          },
+          {
+               "name": "BB",
+               "x": 30,
+               "y": 36
+          },
+          {
+               "name": "BC",
+               "x": 30,
+               "y": 55
+          },
+          {
+               "name": "BD",
+               "x": 25,
+               "y": 57.5
+          },
+          {
+               "name": "BE",
+               "x": 21,
+               "y": 65
+          },
+          {
+               "name": "BF",
+               "x": 33,
+               "y": 54
+          },
+          {
+               "name": "BG",
+               "x": 37,
+               "y": 54
+          },
+          {
+               "name": "BH",
+               "x": 40,
+               "y": 51
+          },
+          {
+               "name": "BI",
+               "x": 44,
+               "y": 45
+          },
+          {
+               "name": "BJ",
+               "x": 28,
+               "y": 68
+          },
+          {
+               "name": "BK",
+               "x": 18,
+               "y": 48
+          },
+          {
+               "name": "BL",
+               "x": 39,
+               "y": 32
+          },
+          {
+               "name": "BM",
+               "x": 55,
+               "y": 44
+          },
+          {
+               "name": "BN",
+               "x": 59,
+               "y": 44
+          },
+          {
+               "name": "BO",
+               "x": 64,
+               "y": 44
+          },
+          {
+               "name": "BP",
+               "x": 67.5,
+               "y": 55
+          },
+          {
+               "name": "BQ",
+               "x": 60,
+               "y": 35
+          },
+          {
+               "name": "BR",
+               "x": 71,
+               "y": 42
+          },
+          {
+               "name": "BS",
+               "x": 53,
+               "y": 27
+          },
+          {
+               "name": "BT",
+               "x": 47,
+               "y": 28
+          }
+     ],
+     "connections": [
+          ["Life Sciences Building", "Pereira"],
+          ["Pereira", "Doolan"],
+          ["Seaver", "Life Sciences Building"],
+          ["Hannon Apartments", "Hannon Field"],
+          ["McKay Hall", "Hannon Apartments"],
+          ["McKay Hall", "Hannon Field"],
+          ["Burns Fine Arts", "Leavey Hall"],
+          ["Leavey Hall", "Communication Arts"],
+          ["Communication Arts", "Burns Fine Arts"],
+          ["Foley", "Foley Annex"],
+          ["Foley", "Life Sciences Building"],
+          ["Foley Annex", "Malone"],
+          ["Foley Annex", "Life Sciences Building"],
+          ["Facilities Management", "Doolan"],
+          ["A", "Gersten Pavilion"],
+          ["B", "Burns Fine Arts"],
+          ["A", "B"],
+          ["Burns Recreation Center", "B"],
+          ["B", "Life Sciences Building"],
+          ["C", "Seaver"],
+          ["Seaver", "F"],
+          ["D", "E"],
+          ["D", "Foley"],
+          ["E", "Malone"],
+          ["Foley", "F"],
+          ["F", "Life Sciences Building"],
+          ["G", "Life Sciences Building"],
+          ["G", "Pereira"],
+          ["A", "Hannon Field"],
+          ["B", "Hannon Field"],
+          ["C", "Burns Fine Arts"],
+          ["C", "McKay Hall"],
+          ["D", "Burns Fine Arts"],
+          ["D", "Communication Arts"],
+          ["D", "Leavey Hall"],
+          ["E", "Von Der Ahe"],
+          ["F", "St. Robert's"],
+          ["H", "E"],
+          ["H", "Foley"],
+          ["H", "Foley Annex"],
+          ["H", "I"],
+          ["H", "Malone"],
+          ["H", "D"],
+          ["I", "J"],
+          ["I", "K"],
+          ["I", "Foley Annex"],
+          ["J", "Doheny"],
+          ["J", "Huesman"],
+          ["J", "Sullivan"],
+          ["K", "G"],
+          ["K", "F"],
+          ["G", "O"],
+          ["G", "Pereira"],
+          ["G", "L"],
+          ["G", "Life Sciences Building"],
+          ["O", "Pereira"],
+          ["O", "Doolan"],
+          ["L", "O"],
+          ["L", "Life Sciences Building"],
+          ["L", "M"],
+          ["L", "Pereira"],
+          ["M", "N"],
+          ["N", "B"],
+          ["N", "P"],
+          ["P", "Life Sciences Building"],
+          ["P", "Seaver"],
+          ["M", "Q"],
+          ["M", "R"],
+          ["L", "S"],
+          ["Q", "S"],
+          ["Q", "Facilities Management"],
+          ["R", "A"],
+          ["R", "Q"],
+          ["S", "T"],
+          ["T", "U"],
+          ["T", "O"],
+          ["U", "O"],
+          ["U", "V"],
+          ["V", "K"],
+          ["V", "W"],
+          ["W", "J"],
+          ["W", "X"],
+          ["X", "Y"],
+          ["J", "Y"],
+          ["Z", "I"],
+          ["Z", "AA"],
+          ["AA", "AB"],
+          ["AA", "Rosecrans"],
+          ["AA", "Desmond"],
+          ["AC", "Whelan"],
+          ["AC", "Desmond"],
+          ["Del Rey North", "AD"],
+          ["AB", "Del Rey South"],
+          ["AF", "Sacred Heart Chapel"],
+          ["AI", "Malone"],
+          ["AG", "Xavier Hall"],
+          ["AH", "Xavier Hall"],
+          ["AK", "Jesuit Community"],
+          ["AK", "AM"],
+          ["AM", "St. Robert's"],
+          ["AM", "AL"],
+          ["AM", "Hilton"],
+          ["AM", "AN"],
+          ["AM", "E"],
+          ["AM", "Von Der Ahe"],
+          ["AL", "AX"],
+          ["AX", "AN"],
+          ["AN", "Hannon Library"],
+          ["AN", "Hilton"],
+          ["AN", "AY"],
+          ["AY", "Hannon Library"],
+          ["AL", "AW"],
+          ["AW", "AT"],
+          ["AT", "AU"],
+          ["AT", "AV"],
+          ["AV", "AO"],
+          ["AV", "AR"],
+          ["AR", "AU"],
+          ["AR", "AP"],
+          ["AP", "AQ"],
+          ["AQ", "AS"],
+          ["AU", "AS"],
+          ["AO", "Leavey Hall"],
+          ["AV", "Leavey Hall"],
+          ["AR", "AS"],
+          ["AO", "C"],
+          ["AQ", "Burns Fine Arts"],
+          ["AQ", "B"],
+          ["AQ", "Hannon Apartments"],
+          ["AS", "Tenderich Apartments"],
+          ["Hannon Apartments", "Hannon Field"],
+          ["AS", "Hannon Apartments"],
+          ["AR", "McKay Hall"],
+          ["University Hall", "BE"],
+          ["BJ", "BE"],
+          ["BD", "Leavey 6"],
+          ["BE", "Leavey 5"],
+         ["BE", "BD"],
+         ["BD", "Leavey 6"],
+         ["BE", "Leavey 5"],
+         ["Leavey 4", "Leavey 5"],
+         ["BK", "Leavey 5"],
+         ["BK", "Leavey 4"],
+         ["O'Malley", "Leavey 4"],
+         ["BK", "O'Malley"],
+         ["BD", "BC"],
+         ["BA", "BC"],
+         ["BA", "Leavey 4"],
+         ["BA", "O'Malley"],
+         ["BA", "BK"],
+         ["BF", "BC"],
+         ["BF", "BG"],
+         ["BG", "BH"],
+         ["BA", "AZ"],
+         ["AZ", "Rains"],
+         ["AZ", "McCarthy"],
+         ["AZ", "AY"],
+         ["BI", "AY"],
+         ["AX", "AY"],
+         ["AW", "AY"],
+         ["BL", "AY"],
+         ["BL", "BB"],
+         ["BB", "McCarthy"],
+         ["BB", "O'Malley"],
+         ["BG", "Drollinger"],
+         ["BH", "Drollinger"],
+         ["AN", "AY"],
+         ["Jesuit Community", "BS"]
+     ]
+}
+}

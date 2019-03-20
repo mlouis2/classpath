@@ -1,6 +1,7 @@
 //Creates the map image
 let mapImage = new Image();
-mapImage.src = "images/LMUMap.png";
+interpretImage();
+mapImage.src = imageFilePath;
 
 //Creates the LMU Logo
 let lmuLogo = new Image();
