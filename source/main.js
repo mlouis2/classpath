@@ -55,7 +55,6 @@ function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
 		let validVertex = classpath.returnVertexWithName(entries[i].place);
-		console.log("place is " + entries[i].place)
 		totalValidVertices.push(validVertex);
 		validVertex.setColor(FORM_COLORS[i]);
 		validVertex.draw();
@@ -87,6 +86,8 @@ function addCross(xInPercent, yInPercent){
 }
 
 function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
+	console.log('node name a is ' + nodeNameA);
+	console.log('node name b is ' + nodeNameB);
 	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
 
@@ -97,8 +98,6 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 	//Draws Map
-	console.log('mapImage is ' + mapImage);
-	console.log('map src is ' + mapImage.src);
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
 	//Draws Border
