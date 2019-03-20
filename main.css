@@ -1,9 +1,5 @@
-<<<<<<< HEAD
- * {
-=======
 * {
   margin: 0;
->>>>>>> 49527781cf136a9dde04d0f6ee86c29474e6cdb2
   box-sizing: border-box;
 }
 
@@ -16,6 +12,27 @@ p {
   height: 100vh;
 }
 
+.FindYour{
+  letter-spacing: 0 px;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 10;
+  font-family: 'Noto Serif', serif;
+  margin-bottom: -45px;
+  margin-top: 5%;
+}
+
+.classpath {
+  letter-spacing: 0 px;
+  color: white;
+  text-align: center;
+  font-size: 65px;
+  font-weight: 10;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
+}
+
 .sidebar {
     float: left;
     width: 30%;
@@ -26,7 +43,7 @@ p {
 
 .sidebar .entry select {
   color: white;
-  font-family: Helvetica, bold;
+  font-family: 'Noto Serif', serif;
   position: relative;
   margin-left: 25%;
   width: 50%;
@@ -44,19 +61,17 @@ p {
 }
 
 .button {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
   background-color: #699CD0;
   border: none;
   color: white;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 15px;
   margin: 4px 2px;
-  width: 32%;
-  margin-left: 34%;
+  width: 37%;
+  margin-left: 32%;
   cursor: pointer;
-  font-family: 'Boogaloo', cursive;
+  font-family: 'Noto Serif', serif;
   border: 2px solid #ddaaca;
   padding: 10px;
 }
@@ -70,25 +85,30 @@ p {
 }
 
 #from {
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: -15px;
+  font-family: 'Noto Serif', serif;
 }
 
 .button:hover {
+  -webkit-transition-duration: 0.4s; Safari
+  transition-duration: 0.4s;
   background-color: white;
   color: #699CD0;
 }
 
-a {
-  -webkit-transition-duration: 0.4s; /* Safari */
+/*a {
+  -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
-  font-family: 'Boogaloo', cursive;
+  font-family: 'Noto Serif', serif;
   color: white;
   text-decoration: none;
-}
+} */
 
-a:hover {
-  color: #a5d389;
-}
+/*a:hover {
+  background-color: white;
+  color: #699CD0;
+}*/
 canvas {
   background-color: #a5d389;
   /* width: 70%;
@@ -101,11 +121,3 @@ canvas {
   clear: both;
 }
 
-h1 {
-  letter-spacing: 5px;
-  color:white;
-  text-align: center;
-  font-size: 40px;
-  font-family: 'Boogaloo', cursive;
-  margin-bottom: 10px;
-}

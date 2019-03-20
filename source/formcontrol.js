@@ -2,7 +2,7 @@ const MAX_FORMS = 5;
 
 var addid = 0;
 let isFirst = true;
-var optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
+var optionConnector = "<p style='color: white; text-align: center; font-family: 'Noto Serif', serif;'>&nbsp;&nbsp;to...</p>";
 var selectBuildingsString = "<div class='buildingEntry'>" +
                   "<select name='buildings'>" +
                   "<option value='' selected disabled hidden>Pick a Location</option>" +

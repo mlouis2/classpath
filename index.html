@@ -1,21 +1,23 @@
 <html>
      <head>
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link href="https://fonts.googleapis.com/css?family=Boogaloo%7CCoiny%7CCuprum" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
           <link rel="stylesheet" href="./main.css">
+          <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
      </head>
      <body>
           <div class="container">
                <div class="sidebar">
                     <br>
-                    <h1>FIND YOUR<br>CLASSPATH</h1>
-                    <p id="from" style="color:white; text-align:center; font-family:'Boogaloo', cursive;">FROM...</p>
+                    <h1 class = "FindYour ">&nbsp;&nbsp;Find Your</h1>
+                    <h1 class = "classpath ">classpath</h1>
+                    <p id="from" style="color:white; text-align:center">&nbsp;&nbsp;from...</p>
                     <div class="entry" id="addform">
 
                     </div>
                     <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
                         style="text-align:center; display:block;">Add a Location</a>
-                    <button class="button updateButton" id="updateButton" style:"text-align:center;">Update Map</button>
+                    <button class="button updateButton" id="updateButton" style ="text-align:center;">Update Map</button>
                </div>
                <canvas></canvas>
           </div>
