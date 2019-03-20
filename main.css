@@ -7,6 +7,8 @@ p {
   margin: 10px;
 }
 
+
+
 .container {
   margin: 0;
   height: 100vh;
@@ -111,8 +113,6 @@ p {
 }*/
 canvas {
   background-color: #a5d389;
-  /* width: 70%;
-  height: 100%; */
 }
 
 .container:after {
@@ -121,3 +121,22 @@ canvas {
   clear: both;
 }
 
+.sidebarButtonContainer {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  margin-left:30%;
+}
+
+.sidebarButton {
+  font-size: 30px;
+  color: gray;
+  z-index: 10;
+  position: absolute;
+  margin-top:10px;
+  margin-left:20px;
+}
+
+.sidebarButton:hover {
+  color: #699CD0;
+}

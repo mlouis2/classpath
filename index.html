@@ -7,11 +7,12 @@
      </head>
      <body>
           <div class="container">
-               <div class="sidebar">
+               <div class="sidebar" id="sidebar">
                     <br>
                     <h1 class = "FindYour ">&nbsp;&nbsp;Find Your</h1>
                     <h1 class = "classpath ">classpath</h1>
                     <p id="from" style="color:white; text-align:center">&nbsp;&nbsp;from...</p>
+                    
                     <div class="entry" id="addform">
 
                     </div>
@@ -19,17 +20,20 @@
                         style="text-align:center; display:block;">Add a Location</a>
                     <button class="button updateButton" id="updateButton" style ="text-align:center;">Update Map</button>
                </div>
+               <div class="sidebarButtonContainer" id="sidebarButtonContainer">
+                    <a class="sidebarButton" href="javascript:void(0);" onclick="collapseSidebar()">&#x2630;</a>
+               </div>
                <canvas></canvas>
           </div>
      </body>
      <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+     <script type="text/javascript" src="./source/nodesAndPaths.js"></script>
      <script type="text/javascript" src="./images/images.js"></script>
      <script type="text/javascript" src="./source/vertex.js"></script>
      <script type="text/javascript" src="./source/entry.js"></script>
      <script type="text/javascript" src="./source/building.js"></script>
      <script type="text/javascript" src="./source/graph.js"></script>
      <script type="text/javascript" src="./source/main.js"></script>
-     <script type="text/javascript" src="./source/nodesAndPaths.js"></script>
      <script type="text/javascript" src="./source/formcontrol.js"></script>
 
 </html>

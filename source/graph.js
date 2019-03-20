@@ -3,13 +3,25 @@ const PATH_WIDTH = 3;
 class Graph {
      constructor() {
           this.vertices = [];
+          this.adjacencyMatrix = [];
      }
      addVertex(vertex) {
+          vertex.index = this.vertices.length;
           this.vertices.push(vertex);
+          this.increaseSizeOfAdjacencyMatrix(vertex);
+     }
+     increaseSizeOfAdjacencyMatrix(vertex) {
+          this.adjacencyMatrix.push([]);
+          for (let i = 0; i < this.vertices.length; i++) {
+               this.adjacencyMatrix[i].push(0);
+               if (i !== this.vertices.length - 1) {
+                    this.adjacencyMatrix[this.vertices.length - 1].push(0);
+               }
+          }
      }
      addEdge(vertexA, vertexB) {
-          vertexA.adjacencyList.push(vertexB);
-          vertexB.adjacencyList.push(vertexA);
+          this.adjacencyMatrix[vertexA.index][vertexB.index] = 1;
+          this.adjacencyMatrix[vertexB.index][vertexA.index] = 1;
      }
      drawEdge(vertexA, vertexB) {
           ctx.strokeStyle = "white";
@@ -43,13 +55,23 @@ class Graph {
                     return currentPath;
                }
                currentNode.visited = true;
-               for (let i = 0; i < currentNode.adjacencyList.length; i++) {
-                    if (!currentNode.adjacencyList[i].visited) {
-                         frontier.push(currentPath.concat([currentNode.adjacencyList[i]]));
+               let adjacentNodes = this.returnAdjacentVertices(currentNode);
+               adjacentNodes.forEach(function(adjacentNode) {
+                    if (!adjacentNode.visited) {
+                         frontier.push(currentPath.concat([adjacentNode]));
                     }
-               }
+               });
           }
           return null;
+     }
+     returnAdjacentVertices(vertex) {
+          let adjacentVertices = [];
+          for (let i = 0; i < this.vertices.length; i++) {
+               if (this.adjacencyMatrix[vertex.index][i] === 1) {
+                    adjacentVertices.push(this.vertices[i]);
+               }
+          }
+          return adjacentVertices;
      }
      setVerticesUnvisited() {
           for (let i = 0; i < this.vertices.length; i++) {

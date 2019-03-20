@@ -1,12 +1,12 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const originalImageWidth = 1574;
-const originalImageHeight = 1183;
+
 
 let imageHeight;
 let imageWidth;
 let imageX;
 let imageY;
+let constSize;
 const FORM_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 const BACKGROUND_COLOR ="#a5d389";
 const BORDER_COLOR = "#ddaaca";
@@ -14,26 +14,22 @@ const BORDER_WIDTH = 8;
 const SIDEBAR_WIDTH_PERCENTAGE = .3;
 const CANVAS_WIDTH_PERCENTAGE = 1 - SIDEBAR_WIDTH_PERCENTAGE;
 
-//Sets the canvas width and canvas height so that my circles are not ovals
-canvas.width = CANVAS_WIDTH_PERCENTAGE * document.body.clientWidth;
-canvas.height =  document.body.clientHeight;
-
 //Draws the map image with correct dimensions
-function setImageWidthAndHeight() {
-	docRatio = document.body.clientWidth / document.body.clientHeight;
+function setImageWidthAndHeight(canvasWidthPercentage) {
+	canvas.width = canvasWidthPercentage * document.body.clientWidth;
+	canvas.height =  document.body.clientHeight;
+	docRatio = (document.body.clientWidth * canvasWidthPercentage) / document.body.clientHeight;
 	let imageRatio = originalImageWidth / originalImageHeight;
 	if (docRatio > imageRatio) {
 		imageHeight = document.body.clientHeight - (2 * BORDER_WIDTH);
 		imageWidth = (document.body.clientHeight * imageRatio) - (2 * BORDER_WIDTH);
-		// imageX = BORDER_WIDTH;
-		// imageY = ((document.body.clientHeight - imageHeight) / 2);
-		imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
+		constSize = imageHeight;
+		imageX = ((((document.body.clientWidth) * (canvasWidthPercentage)) - imageWidth) / 2);
 		imageY = BORDER_WIDTH;
 	} else {
-		imageHeight = ((document.body.clientWidth* (CANVAS_WIDTH_PERCENTAGE)) / imageRatio) - (2 * BORDER_WIDTH);
-		imageWidth = ((document.body.clientWidth) * (CANVAS_WIDTH_PERCENTAGE)) - (2 * BORDER_WIDTH);
-		// imageX = ((((document.body.clientWidth) * (.7)) - imageWidth) / 2);
-		// imageY = BORDER_WIDTH;
+		imageHeight = ((document.body.clientWidth* (canvasWidthPercentage)) / imageRatio) - (2 * BORDER_WIDTH);
+		imageWidth = ((document.body.clientWidth) * (canvasWidthPercentage)) - (2 * BORDER_WIDTH);
+		constSize = imageWidth;
 		imageX = BORDER_WIDTH;
 		imageY = ((document.body.clientHeight - imageHeight) / 2);
 	}
@@ -59,6 +55,7 @@ function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
 		let validVertex = classpath.returnVertexWithName(entries[i].place);
+		console.log("place is " + entries[i].place)
 		totalValidVertices.push(validVertex);
 		validVertex.setColor(FORM_COLORS[i]);
 		validVertex.draw();
@@ -100,6 +97,8 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 	//Draws Map
+	console.log('mapImage is ' + mapImage);
+	console.log('map src is ' + mapImage.src);
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
 
 	//Draws Border
@@ -109,17 +108,22 @@ function refreshBackground() {
 	ctx.fillRect(0, 0, canvas.width, BORDER_WIDTH); //top
 	ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height); //left
 
-	//Draws Lion
-	ctx.drawImage(lmuLogo, 40, 10, imageWidth/3.5, imageWidth/3.5);
+	//Draws Lion x,y, width, height
+
+	ctx.drawImage(lmuLogo, imageX + imageWidth*.05, imageY+ imageHeight*.05, constSize*.25, constSize*.25);
 
 	//Draws Compass
-	ctx.drawImage(compass, canvas.width*.19, canvas.height*.62, imageWidth/2.5, imageHeight/2.5);
+
+	ctx.drawImage(compass, imageX +imageWidth*.2, imageY + imageHeight*.57, constSize*.45, constSize*.4);
 	drawAccessoryNodes();
 }
 
 let entries;
+
 //Code to handle the update button--connected to the button
-document.getElementById("updateButton").addEventListener("click", function(){
+document.getElementById("updateButton").addEventListener("click", drawEntries);
+
+function drawEntries() {
 	refreshBackground();
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
@@ -127,10 +131,15 @@ document.getElementById("updateButton").addEventListener("click", function(){
 		entries.push(new Entry(entriesFromHTML[i].children[0].value));
 	}
 	drawValidVerticesAndPaths();
-});
+}
 
 $(document).ready(function() {
 	setImageWidthAndHeight();
+	if (sidebarCollapsed) {
+		setImageWidthAndHeight(1);
+	} else {
+		setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
+	}
 	populateGraph();
 	refreshBackground();
 });
