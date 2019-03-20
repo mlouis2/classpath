@@ -59,7 +59,6 @@ function collapseSidebar() {
 	}
 	sidebarCollapsed = !sidebarCollapsed;
 	populateGraph();
-	refreshBackground();
 	drawEntries();
 }
 

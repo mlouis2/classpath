@@ -2,7 +2,7 @@ let imageFilePath, originalImageWidth, originalImageHeight;
 let foodNodes = [], coffeeNodes = [], storeNodes = [], crossNodes = [], buildingNodes = [];
 
 let request = new XMLHttpRequest();
-request.open("GET", "/source/lmu.json", false);
+request.open("GET", "./source/lmu.json", false);
 request.send(null)
 let mapData = JSON.parse(request.responseText);
 
@@ -31,6 +31,10 @@ function addBuildings() {
 }
 
 function addAccessoryNodes() {
+	foodNodes = [];
+	coffeeNodes = [];
+	storeNodes = [];
+	crossNodes = [];
 	let accessoryNodes = mapData.loyolaMarymountUniversity.accessoryNodes;
 	for (let i = 0; i < accessoryNodes.length; i++) {
 		let vertex = new Vertex(accessoryNodes[i].type, accessoryNodes[i].name, accessoryNodes[i].x, accessoryNodes[i].y);
