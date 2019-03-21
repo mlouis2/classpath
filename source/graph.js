@@ -40,55 +40,51 @@ class Graph {
           return null;
      }
      findPath(current, goal) {
-          this.setVerticesUnvisited();
-          return this.findPathFromPoint(current, goal);
+          return this.djikstras(current, goal);
      }
-     findPathFromPoint(start, goal) {
-          this.djikstras(start);
-          let frontier = [];
-          frontier.push([start]);
-          while(frontier.length > 0) {
-               let currentPath = frontier.shift();
-               for (let i = 0; i < currentPath.length; i++) {
-               }
-               let currentNode = currentPath[currentPath.length - 1];
-               if (currentNode === goal) {
-                    return currentPath;
-               }
-               currentNode.visited = true;
-               let adjacentNodes = this.returnAdjacentVertices(currentNode);
-               adjacentNodes.forEach(function(adjacentNode) {
-                    if (!adjacentNode.visited) {
-                         frontier.push(currentPath.concat([adjacentNode]));
-                    }
-               });
-          }
-          return null;
-     }
-     djikstras(start) {
-          let distances = [[0, null]];
-          let done = [true];
-          for (let i = 0; i < this.vertices.length - 1; i++) {
+     djikstras(start, goal) {
+          let distances = [];
+          let done = [];
+          for (let i = 0; i < this.vertices.length; i++) {
                distances.push([Number.MAX_SAFE_INTEGER, null]);
                done.push(false);
           }
+          distances[start.index] = [0, null];
           let closestUndoneNode = start;
           while (this.checkIfAnyFalseElement(done)) {
-               closestUndoneNode = this.findClosestUndoneNode(start, done);
+               closestUndoneNode = this.findClosestUndoneNode(start, distances, done);
                done[closestUndoneNode.index] = true;
                let undoneNeighbors = this.getAllUndoneNeighbors(closestUndoneNode, done);
-               undoneNeighbors.forEach(function(neighbor) {
-                    let distance = this.getManhattanDistance(closestUndoneNode, neighbor);
+               undoneNeighbors.forEach((neighbor) => {
+                    const distance = this.getManhattanDistance(closestUndoneNode, neighbor);
                     if (distance + distances[closestUndoneNode.index] < distances[neighbor.index]) {
-                         distances[neighbor.index] = [distances[closestUndoneNode.index] + distance, closestUndoneNode];
+                         if (distances[closestUndoneNode.index][0] === Number.MAX_SAFE_INTEGER) {
+                              distances[neighbor.index] = [distance, closestUndoneNode];
+                         } else {
+                              distances[neighbor.index] = [distances[closestUndoneNode.index][0] + distance, closestUndoneNode];
+                         }
                     }
                });
           }
-          console.log(distances);
+          let path = [goal];
+          let currentNode = goal;
+          while (currentNode !== start && currentNode !== null) {
+               currentNode = distances[currentNode.index][1];
+               if (currentNode !== null) {
+                    path.push(currentNode);
+               }
+          }
+          path.push(start);
+          path = path.reverse();
+          if (path !== null) {
+               return path;
+          } else {
+               return null;
+          }
      }
      checkIfAnyFalseElement(list) {
           for (let i = 0; i < list.length; i++) {
-               if (list[i] === false) {
+               if ((list[i] === false && (this.vertices[i].vertexType === 'building' || this.vertices[i].vertexType === 'path')) && this.vertexHasNeighbors(this.vertices[i])) {
                     return true;
                }
           }
@@ -97,20 +93,23 @@ class Graph {
      getAllUndoneNeighbors(currentNode, done) {
           let undoneNeighbors = [];
           for (let i = 0; i < this.vertices.length; i++) {
-               if (this.adjacencyMatrix[currentNode.index][i] === 1 && !done[this.vertices[i]]) {
-                    undoneNeighbors.push(this.vertices[i]);
+               if (this.vertices[i].vertexType === 'building' || this.vertices[i].vertexType === 'path') {
+                    if (this.adjacencyMatrix[currentNode.index][i] === 1 && !done[i]) {
+                         undoneNeighbors.push(this.vertices[i]);
+                    }
                }
           }
           return undoneNeighbors;
      }
-     findClosestUndoneNode(currentNode, done) {
-          let adjacentNodes = this.returnAdjacentVertices(currentNode);
+     findClosestUndoneNode(currentNode, distances, done) {
           let currentClosestDistance = Number.MAX_SAFE_INTEGER;
           let currentClosestNode = null;
-          adjacentNodes.forEach(function(adjacentNode) {
-               if (!done[adjacentNode.index] && (this.getManhattanDistance(currentNode, adjacentNode) < currentClosestDistance)) {
-                    currentClosestDistance = this.getManhattanDistance(currentNode, adjacentNode);
-                    currentClosestNode = adjacentNode;
+          this.vertices.forEach((vertex) => {
+               if ((vertex.vertexType === 'building' || vertex.vertexType === 'path')) {
+                    if (!done[vertex.index] && distances[vertex.index][0] < currentClosestDistance) {
+                         currentClosestDistance = distances[vertex.index];
+                         currentClosestNode = vertex;
+                    }
                }
           });
           return currentClosestNode;
@@ -124,11 +123,6 @@ class Graph {
           }
           return adjacentVertices;
      }
-     setVerticesUnvisited() {
-          for (let i = 0; i < this.vertices.length; i++) {
-               this.vertices[i].visited = false;
-          }
-     }
      drawPath(path) {
           if (path == null) {
                console.log("no path...");
@@ -141,12 +135,7 @@ class Graph {
      getManhattanDistance(vertexA, vertexB) {
           return Math.abs(vertexA.x - vertexB.x) + Math.abs(vertexA.y - vertexB.y);
      }
-     // getIndexOfVertex(vertex) {
-     //      for (let i = 0; i < this.vertices.length; i++) {
-     //           if (this.vertices[i] === vertex) {
-     //                return i;
-     //           }
-     //      }
-     //      return null;
-     // }
+     vertexHasNeighbors(vertex) {
+          return (this.returnAdjacentVertices(vertex).length !== 0);
+     }
 }

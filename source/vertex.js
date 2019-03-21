@@ -13,7 +13,6 @@ class Vertex {
           }
 
           this.color = "#ffffff";
-          this.adjacencyList = [];
      }
      setColor(color) {
           this.color = color;
