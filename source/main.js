@@ -86,8 +86,6 @@ function addCross(xInPercent, yInPercent){
 }
 
 function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
-	console.log('node name a is ' + nodeNameA);
-	console.log('node name b is ' + nodeNameB);
 	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
 
