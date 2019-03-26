@@ -129,6 +129,7 @@ canvas {
 }
 
 .sidebarButton {
+text-decoration-line: none;
   font-size: 30px;
   color: gray;
   z-index: 10;
