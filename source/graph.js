@@ -52,17 +52,13 @@ class Graph {
           distances[start.index] = [0, null];
           let closestUndoneNode = start;
           while (this.checkIfAnyFalseElement(done)) {
-               closestUndoneNode = this.findClosestUndoneNode(start, distances, done);
+               closestUndoneNode = this.findClosestUndoneNode(distances, done); //should find lowest distance in distances
                done[closestUndoneNode.index] = true;
                let undoneNeighbors = this.getAllUndoneNeighbors(closestUndoneNode, done);
                undoneNeighbors.forEach((neighbor) => {
-                    const distance = this.getManhattanDistance(closestUndoneNode, neighbor);
-                    if (distance + distances[closestUndoneNode.index] < distances[neighbor.index]) {
-                         if (distances[closestUndoneNode.index][0] === Number.MAX_SAFE_INTEGER) {
-                              distances[neighbor.index] = [distance, closestUndoneNode];
-                         } else {
-                              distances[neighbor.index] = [distances[closestUndoneNode.index][0] + distance, closestUndoneNode];
-                         }
+                    const distance = distances[closestUndoneNode.index][0] + this.getManhattanDistance(closestUndoneNode, neighbor);
+                    if (distance < distances[neighbor.index][0]) {
+                         distances[neighbor.index] = [distance, closestUndoneNode];
                     }
                });
           }
@@ -101,13 +97,13 @@ class Graph {
           }
           return undoneNeighbors;
      }
-     findClosestUndoneNode(currentNode, distances, done) {
+     findClosestUndoneNode(distances, done) {
           let currentClosestDistance = Number.MAX_SAFE_INTEGER;
           let currentClosestNode = null;
           this.vertices.forEach((vertex) => {
                if ((vertex.vertexType === 'building' || vertex.vertexType === 'path')) {
                     if (!done[vertex.index] && distances[vertex.index][0] < currentClosestDistance) {
-                         currentClosestDistance = distances[vertex.index];
+                         currentClosestDistance = distances[vertex.index][0];
                          currentClosestNode = vertex;
                     }
                }

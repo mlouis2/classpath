@@ -10,7 +10,7 @@ let selectBuildingsString = "<div class='buildingEntry'>" +
 populateGraph();
 sortBuildingsAlphabetically();
 for (let i = 0; i < buildingNodes.length; i++) {
-	selectBuildingsString += "<option value='" + buildingNodes[i].name + "'>" + buildingNodes[i].name + "</option>";
+	selectBuildingsString += "<option value='" + buildingNodes[i].name.replace("\'", "&#39;") + "'>" + buildingNodes[i].name + "</option>";
 }
 selectBuildingsString += "</div>";
 
