@@ -62,9 +62,7 @@ function drawValidVerticesAndPaths() {
 	drawValidPaths(totalValidVertices);
 }
 
-//Draws valid paths
 function drawValidPaths(totalValidVertices) {
-	//This will not work if there are buildings on campus that are not accessible from other buildings
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
 		let locationA = classpath.returnVertexWithName(totalValidVertices[i].name);
 		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1].name);
@@ -74,8 +72,7 @@ function drawValidPaths(totalValidVertices) {
 
 function updateFormColors() {
     var forms = document.getElementsByName("buildings");
-    var i;
-    for (i = 0; i < forms.length; i++) {
+    for (let i = 0; i < forms.length; i++) {
         forms[i].style.backgroundColor = FORM_COLORS[i];
     }
 }
@@ -89,29 +86,38 @@ function addConnectionBetweenNodes(nodeNameA, nodeNameB) {
 	classpath.addEdge(classpath.returnVertexWithName(nodeNameA), classpath.returnVertexWithName(nodeNameB));
 }
 
-
-function refreshBackground() {
-	//Draws Green Background
+function drawBackground() {
 	ctx.fillStyle = BACKGROUND_COLOR;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
 
-	//Draws Map
+function drawMap() {
 	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
+}
 
-	//Draws Border
+function drawBorder() {
 	ctx.fillStyle = BORDER_COLOR;
 	ctx.fillRect(0, canvas.height - BORDER_WIDTH, canvas.width, BORDER_WIDTH); //bottom
 	ctx.fillRect(canvas.width - BORDER_WIDTH, 0, BORDER_WIDTH, canvas.height); //right
 	ctx.fillRect(0, 0, canvas.width, BORDER_WIDTH); //top
 	ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height); //left
+}
 
-	//Draws Lion x,y, width, height
-
+function drawLionSymbol() {
 	ctx.drawImage(lmuLogo, imageX + imageWidth*.05, imageY+ imageHeight*.05, constSize*.25, constSize*.25);
+}
 
-	//Draws Compass
-
+function drawCompassSymbol() {
 	ctx.drawImage(compass, imageX +imageWidth*.2, imageY + imageHeight*.57, constSize*.45, constSize*.4);
+}
+
+
+function refreshBackground() {
+	drawBackground();
+	drawMap();
+	drawBorder();
+	drawLionSymbol();
+	drawCompassSymbol();
 	drawAccessoryNodes();
 }
 
@@ -125,7 +131,10 @@ function drawEntries() {
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
 	for (let i = 0; i < entriesFromHTML.length; i++){
-		entries.push(new Entry(entriesFromHTML[i].children[0].value));
+		let valueOfEntry = entriesFromHTML[i].children[0].value;
+		if (valueOfEntry !== "") {
+			entries.push(new Entry(valueOfEntry));
+		}
 	}
 	drawValidVerticesAndPaths();
 }
@@ -133,7 +142,7 @@ function drawEntries() {
 $(document).ready(function() {
 	setImageWidthAndHeight();
 	if (sidebarCollapsed) {
-		setImageWidthAndHeight(1);
+		setImageWidthAndHeight(1.00);
 	} else {
 		setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
 	}
