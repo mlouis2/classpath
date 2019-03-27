@@ -43,26 +43,26 @@ class Graph {
           return this.djikstras(current, goal);
      }
      djikstras(start, goal) {
+          let undoneNodes = [];
           let distances = [];
-          let done = [];
           for (let i = 0; i < this.vertices.length; i++) {
                distances.push([Number.MAX_SAFE_INTEGER, null]);
-               done.push(false);
+               if ((this.vertices[i].vertexType === "building" || this.vertices[i].vertexType === "path") && this.hasNeighbors(this.vertices[i])) {
+                    if (this.vertices[i].accessible || (this.vertices[i] === start || this.vertices[i] === goal)) {
+                         undoneNodes.push(this.vertices[i]);
+                    }
+               }
           }
           distances[start.index] = [0, null];
           let closestUndoneNode = start;
-          while (this.checkIfAnyFalseElement(done)) {
-               closestUndoneNode = this.findClosestUndoneNode(start, distances, done);
-               done[closestUndoneNode.index] = true;
-               let undoneNeighbors = this.getAllUndoneNeighbors(closestUndoneNode, done);
+          while (undoneNodes.length > 0) {
+               closestUndoneNode = this.findClosestUndoneNode(distances, undoneNodes); //should find lowest distance in distances
+               undoneNodes.splice(undoneNodes.indexOf(closestUndoneNode), 1);
+               let undoneNeighbors = this.getAllUndoneNeighbors(closestUndoneNode, undoneNodes);
                undoneNeighbors.forEach((neighbor) => {
-                    const distance = this.getManhattanDistance(closestUndoneNode, neighbor);
-                    if (distance + distances[closestUndoneNode.index] < distances[neighbor.index]) {
-                         if (distances[closestUndoneNode.index][0] === Number.MAX_SAFE_INTEGER) {
-                              distances[neighbor.index] = [distance, closestUndoneNode];
-                         } else {
-                              distances[neighbor.index] = [distances[closestUndoneNode.index][0] + distance, closestUndoneNode];
-                         }
+                    const distance = distances[closestUndoneNode.index][0] + this.getManhattanDistance(closestUndoneNode, neighbor);
+                    if (distance < distances[neighbor.index][0]) {
+                         distances[neighbor.index] = [distance, closestUndoneNode];
                     }
                });
           }
@@ -82,34 +82,22 @@ class Graph {
                return null;
           }
      }
-     checkIfAnyFalseElement(list) {
-          for (let i = 0; i < list.length; i++) {
-               if ((list[i] === false && (this.vertices[i].vertexType === 'building' || this.vertices[i].vertexType === 'path')) && this.vertexHasNeighbors(this.vertices[i])) {
-                    return true;
-               }
-          }
-          return false;
-     }
-     getAllUndoneNeighbors(currentNode, done) {
+     getAllUndoneNeighbors(currentNode, undoneNodes) {
           let undoneNeighbors = [];
-          for (let i = 0; i < this.vertices.length; i++) {
-               if (this.vertices[i].vertexType === 'building' || this.vertices[i].vertexType === 'path') {
-                    if (this.adjacencyMatrix[currentNode.index][i] === 1 && !done[i]) {
-                         undoneNeighbors.push(this.vertices[i]);
-                    }
+          for (let i = 0; i < undoneNodes.length; i++) {
+               if (this.adjacencyMatrix[currentNode.index][undoneNodes[i].index] === 1) {
+                    undoneNeighbors.push(undoneNodes[i]);
                }
           }
           return undoneNeighbors;
      }
-     findClosestUndoneNode(currentNode, distances, done) {
+     findClosestUndoneNode(distances, undoneNodes) {
           let currentClosestDistance = Number.MAX_SAFE_INTEGER;
           let currentClosestNode = null;
-          this.vertices.forEach((vertex) => {
-               if ((vertex.vertexType === 'building' || vertex.vertexType === 'path')) {
-                    if (!done[vertex.index] && distances[vertex.index][0] < currentClosestDistance) {
-                         currentClosestDistance = distances[vertex.index];
-                         currentClosestNode = vertex;
-                    }
+          undoneNodes.forEach((vertex) => {
+               if (distances[vertex.index][0] < currentClosestDistance) {
+                    currentClosestDistance = distances[vertex.index][0];
+                    currentClosestNode = vertex;
                }
           });
           return currentClosestNode;
@@ -135,7 +123,7 @@ class Graph {
      getManhattanDistance(vertexA, vertexB) {
           return Math.abs(vertexA.x - vertexB.x) + Math.abs(vertexA.y - vertexB.y);
      }
-     vertexHasNeighbors(vertex) {
+     hasNeighbors(vertex) {
           return (this.returnAdjacentVertices(vertex).length !== 0);
      }
 }

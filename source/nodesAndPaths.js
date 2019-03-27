@@ -25,6 +25,9 @@ function addBuildings() {
 	let buildings = mapData.loyolaMarymountUniversity.buildings;
 	for (let i = 0; i < buildings.length; i++) {
 		let vertex = new Vertex("building", buildings[i].name, buildings[i].x, buildings[i].y);
+		if (buildings[i].accessible === false) {
+			vertex.accessible = false;
+		}
 		classpath.addVertex(vertex);
 		buildingNodes.push(vertex);
 	}
