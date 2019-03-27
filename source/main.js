@@ -35,14 +35,12 @@ function setImageWidthAndHeight(canvasWidthPercentage) {
 	}
 }
 
-function checkIfChecked() {
-	refreshBackground();
+function updateCheckboxes() {
 	drawFood();
 	drawCoffee();
 	drawStore();
 	drawReligion();
 }
-
 
 function drawFood() {
     var foodBox = document.getElementById("foodCheck");
@@ -50,7 +48,7 @@ function drawFood() {
         foodNodes.forEach((foodNode) => {
             foodNode.draw();
         });
-    } 
+    }
 }
 
 function drawCoffee() {
@@ -148,6 +146,7 @@ function refreshBackground() {
 	drawBorder();
 	drawLionSymbol();
 	drawCompassSymbol();
+	updateCheckboxes();
 }
 
 let entries;
