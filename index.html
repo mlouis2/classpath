@@ -11,7 +11,11 @@
                     <br>
                     <h1 class = "FindYour ">&nbsp;&nbsp;Find Your</h1>
                     <h1 class = "classpath ">classpath</h1>
-                    <p id="from" style="color:white; text-align:center">&nbsp;&nbsp;from...</p>
+
+                    <button class="transportation" id="walk" style ="text-align:center;">Walk</button>
+                    <button class="transportation" id="bike" style ="text-align:center;">Bike</button>
+                    <button class="transportation" id="drive" style ="text-align:center;">Drive</button>
+
                     
                     <div class="entry" id="addform">
 
@@ -19,9 +23,20 @@
                     <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
                         style="text-align:center; display:block;">Add a Location</a>
                     <button class="button updateButton" id="updateButton" style ="text-align:center;">Update Map</button>
+
+                    <br>
+                    <div class = "pageBottom">
+                        <p>Show locations of:</p>
+                        Food: <input type="checkbox" id="foodCheck"  onclick="checkIfChecked()">
+                        Coffee: <input type="checkbox" id="coffeeCheck"  onclick="checkIfChecked()">
+                        Store: <input type="checkbox" id="storeCheck"  onclick="checkIfChecked()">
+                        Religion: <input type="checkbox" id="religionCheck"  onclick="checkIfChecked()">
+                    </div>
+
+
                </div>
                <div class="sidebarButtonContainer" id="sidebarButtonContainer">
-                    <a class="sidebarButton" href="javascript:void(0);" onclick="collapseSidebar()">&#x2630;</a>
+                    <a class="sidebarButton" href="javascript:void(0);" onclick="collapseSidebar()">&#9776;</a>
                </div>
                <canvas></canvas>
           </div>

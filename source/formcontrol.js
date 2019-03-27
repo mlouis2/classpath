@@ -2,7 +2,7 @@ const MAX_FORMS = 5;
 let sidebarCollapsed = false;
 let addid = 0;
 let isFirst = true;
-let optionConnector = "<p style='color: white; text-align:center; font-family: Boogaloo, bold;'>TO</p>";
+let optionConnector = "<div style='font-size: 25px; text-align: center; color: white'>&darr;</div>";
 let selectBuildingsString = "<div class='buildingEntry'>" +
 "<select name='buildings'>" +
 "<option value='' selected disabled hidden>Pick a Location</option>";

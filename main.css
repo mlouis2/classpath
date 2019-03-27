@@ -64,7 +64,6 @@ p {
 
 .button {
   background-color: #699CD0;
-  border: none;
   color: white;
   text-decoration: none;
   display: inline-block;
@@ -76,6 +75,32 @@ p {
   font-family: 'Noto Serif', serif;
   border: 2px solid #ddaaca;
   padding: 10px;
+}
+
+.transportation {
+  background-color: #699CD0;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  width: 20%;
+  margin-left: 22%;
+  margin-right: -24%;
+  margin-bottom: -10%;
+  cursor: pointer;
+  font-family: 'Noto Serif', serif;
+  border: 2px solid #ddaaca;
+  padding: 10px;
+
+}
+
+.transportation:hover {
+  -webkit-transition-duration: 0.4s; Safari
+  transition-duration: 0.4s;
+  background-color: white;
+  color: #699CD0;
 }
 
 #addformbutton {
@@ -141,3 +166,19 @@ text-decoration-line: none;
 .sidebarButton:hover {
   color: #699CD0;
 }
+
+.pageBottom {
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+

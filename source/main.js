@@ -35,20 +35,71 @@ function setImageWidthAndHeight(canvasWidthPercentage) {
 	}
 }
 
-function drawAccessoryNodes() {
-    foodNodes.forEach((foodNode) => {
-        foodNode.draw();
-    });
-    coffeeNodes.forEach((coffeeNode) => {
-        coffeeNode.draw();
-    });
-    storeNodes.forEach((storeNode) => {
-        storeNode.draw();
-    });
-    crossNodes.forEach((crossNode) => {
-        crossNode.draw();
-    });
+//update checkboxes update accessory
+//updates background
+//calls all four of your methods
+
+function checkIfChecked() {
+	refreshBackground();
+	drawFood();
+	drawCoffee();
+	drawStore();
+	drawReligion();
 }
+
+
+function drawFood() {
+    var foodBox = document.getElementById("foodCheck");
+    if (foodBox.checked == true){
+        foodNodes.forEach((foodNode) => {
+            foodNode.draw();
+        });
+    } 
+}
+
+function drawCoffee() {
+    var coffeeBox = document.getElementById("coffeeCheck");
+    if (coffeeBox.checked == true){
+        coffeeNodes.forEach((coffeeNode) => {
+            coffeeNode.draw();
+        });
+    }
+}
+
+function drawStore() {
+    var storeBox = document.getElementById("storeCheck");
+    if (storeBox.checked == true){
+        storeNodes.forEach((storeNode) => {
+            storeNode.draw();
+        });
+    }
+}
+
+function drawReligion() {
+    var religionBox = document.getElementById("religionCheck");
+    if (religionBox.checked == true){
+        crossNodes.forEach((crossNode) => {
+            crossNode.draw();
+        });
+    }
+}
+
+
+
+//function drawAccessoryNodes() {
+//    foodNodes.forEach((foodNode) => {
+//        foodNode.draw();
+//    });
+//    coffeeNodes.forEach((coffeeNode) => {
+//        coffeeNode.draw();
+//    });
+//    storeNodes.forEach((storeNode) => {
+//        storeNode.draw();
+//    });
+//    crossNodes.forEach((crossNode) => {
+//        crossNode.draw();
+//    });
+//}
 
 //Draws the vertices after button has been pushed
 function drawValidVerticesAndPaths() {
@@ -112,7 +163,8 @@ function refreshBackground() {
 	//Draws Compass
 
 	ctx.drawImage(compass, imageX +imageWidth*.2, imageY + imageHeight*.57, constSize*.45, constSize*.4);
-	drawAccessoryNodes();
+
+	//drawAccessoryNodes();
 }
 
 let entries;
