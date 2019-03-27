@@ -118,87 +118,104 @@
           {
                "name": "Hannon Apartments",
                "x": 58,
-               "y": 67.8
+               "y": 67.8,
+               "accessible": false
           },
           {
                "name": "Tenderich Apartments",
                "x": 52,
-               "y": 67.8
+               "y": 67.8,
+               "accessible": false
           },
           {
                "name": "McKay Hall",
                "x": 52.5,
-               "y": 61
+               "y": 61,
+               "accessible": false
           },
           {
                "name": "Rains",
                "x": 40,
-               "y": 45.2
+               "y": 45.2,
+               "accessible": false
           },
           {
                "name": "McCarthy",
                "x": 38,
-               "y": 38.5
+               "y": 38.5,
+               "accessible": false
           },
           {
                "name": "O'Malley",
                "x": 26,
-               "y": 42.5
+               "y": 42.5,
+               "accessible": false
           },
           {
                "name": "Leavey 4",
                "x": 26,
-               "y": 52
+               "y": 52,
+               "accessible": false
           },
           {
                "name": "Leavey 5",
                "x": 21,
-               "y": 57
+               "y": 57,
+               "accessible": false
           },
           {
                "name": "Leavey 6",
                "x": 28,
-               "y": 59
+               "y": 59,
+               "accessible": false
           },
           {
                "name": "Huesman",
                "x": 86,
-               "y": 28
+               "y": 28,
+               "accessible": false
           },
           {
                "name": "Doheny",
                "x": 90,
-               "y": 34
+               "y": 34,
+               "accessible": false
           },
           {
                "name": "Sullivan",
                "x": 86,
-               "y": 41
+               "y": 41,
+               "accessible": false
           },
           {
                "name": "Desmond",
                "x": 80,
-               "y": 17
+               "y": 17,
+               "accessible": false
           },
           {
                "name": "Rosecrans",
                "x": 85,
-               "y": 20
+               "y": 20,
+               "accessible": false
           },
           {
                "name": "Whelan",
                "x": 77,
-               "y": 11
+               "y": 11,
+               "accessible": false
           },
           {
                "name": "Del Rey North",
                "x": 83,
-               "y": 8.1
+               "y": 8.1,
+               "accessible": false
           },
           {
                "name": "Del Rey South",
                "x": 87,
-               "y": 14
+               "y": 14,
+               "accessible": false
           },
           {
                "name": "Facilities Management",

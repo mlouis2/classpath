@@ -4,21 +4,20 @@ class Vertex {
      constructor(vertexType, name, xInPercent, yInPercent) {
           this.vertexType = vertexType;
           this.name = name;
-          if (this.vertexType === 'building' || this.vertexType === 'path'){
-            this.x = (xInPercent / 100) * imageWidth + (canvas.width - imageWidth)/2;
-            this.y = (yInPercent / 100) * imageHeight + (canvas.height - imageHeight)/2;
-          } else{
-            this.x = ((xInPercent) / 100) * imageWidth + (canvas.width - imageWidth)/2 -25;
-            this.y = ((yInPercent) / 100) * imageHeight + (canvas.height - imageHeight)/2 -25;
+          this.x = (xInPercent / 100) * imageWidth + (canvas.width - imageWidth)/2;
+          this.y = (yInPercent / 100) * imageHeight + (canvas.height - imageHeight)/2;
+          if (this.vertexType !== 'building' && this.vertexType !== 'path'){
+            this.x -= 25;
+            this.y -= 25;
           }
-
           this.color = "#ffffff";
+          this.accessible = true;
      }
      setColor(color) {
           this.color = color;
      }
      draw() {
-          if (this.vertexType === 'building' || this.vertexType === 'path') {
+          if (this.vertexType === 'building' || this.vertexType === "path") {
                ctx.beginPath();
                ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
                ctx.fillStyle = this.color;

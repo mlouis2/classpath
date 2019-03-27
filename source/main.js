@@ -1,12 +1,12 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-
 let imageHeight;
 let imageWidth;
 let imageX;
 let imageY;
 let constSize;
+
 const FORM_COLORS = ["#aa5252", "#f9c64d", "#5e8e7f", "#775169", "#775e41"];
 const BACKGROUND_COLOR ="#a5d389";
 const BORDER_COLOR = "#ddaaca";
