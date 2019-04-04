@@ -61,7 +61,14 @@ function addAccessoryNodes() {
 function addPathNodes() {
 	let pathNodes = mapData.loyolaMarymountUniversity.pathNodes;
 	for (let i = 0; i < pathNodes.length; i++) {
-		classpath.addVertex(new Vertex("path", pathNodes[i].name, pathNodes[i].x, pathNodes[i].y));
+		let currentVertex = new Vertex("path", pathNodes[i].name, pathNodes[i].x, pathNodes[i].y);;
+		if (pathNodes[i].bikePath) {
+			currentVertex.setAbleToBike();
+		}
+		if (pathNodes[i].drivePath) {
+			currentVertex.setAbleToDrive();
+		}
+		classpath.addVertex(currentVertex);
 	}
 }
 

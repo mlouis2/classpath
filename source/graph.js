@@ -39,24 +39,29 @@ class Graph {
           }
           return null;
      }
-     findPath(current, goal) {
-          return this.djikstras(current, goal);
+     vertexValidForPath(vertex, start, goal, transportationMethod) {
+          if ((transportationMethod === "bike" && !vertex.bikePath) || (transportationMethod === "drive" && !vertex.drivePath)) {
+               return false;
+          }
+          return (((vertex.vertexType === "building" || vertex.vertexType === "path") &&
+                    this.hasNeighbors(vertex)) && (vertex.accessible || (vertex === start || vertex === goal)));
      }
-     djikstras(start, goal) {
+     findPath(start, goal, transportationMethod) {
           let undoneNodes = [];
           let distances = [];
           for (let i = 0; i < this.vertices.length; i++) {
                distances.push([Number.MAX_SAFE_INTEGER, null]);
-               if ((this.vertices[i].vertexType === "building" || this.vertices[i].vertexType === "path") && this.hasNeighbors(this.vertices[i])) {
-                    if (this.vertices[i].accessible || (this.vertices[i] === start || this.vertices[i] === goal)) {
-                         undoneNodes.push(this.vertices[i]);
-                    }
+               if (this.vertexValidForPath(this.vertices[i], start, goal, transportationMethod)) {
+                    undoneNodes.push(this.vertices[i]);
                }
+          }
+          if (undoneNodes.length === 0) {
+               return null;
           }
           distances[start.index] = [0, null];
           let closestUndoneNode = start;
           while (undoneNodes.length > 0) {
-               closestUndoneNode = this.findClosestUndoneNode(distances, undoneNodes); //should find lowest distance in distances
+               closestUndoneNode = this.findClosestUndoneNode(distances, undoneNodes);
                undoneNodes.splice(undoneNodes.indexOf(closestUndoneNode), 1);
                let undoneNeighbors = this.getAllUndoneNeighbors(closestUndoneNode, undoneNodes);
                undoneNeighbors.forEach((neighbor) => {
@@ -76,11 +81,7 @@ class Graph {
           }
           path.push(start);
           path = path.reverse();
-          if (path !== null) {
-               return path;
-          } else {
-               return null;
-          }
+          return (path !== null) ? path : null;
      }
      getAllUndoneNeighbors(currentNode, undoneNodes) {
           let undoneNeighbors = [];
@@ -113,7 +114,7 @@ class Graph {
      }
      drawPath(path) {
           if (path == null) {
-               console.log("no path...");
+               console.log("No valid path could be formed.");
                return;
           }
           for (let i = 0; i < path.length - 1; i++) {

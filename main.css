@@ -172,13 +172,6 @@ text-decoration-line: none;
   text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
+.selectedTransportationMethod {
+  color: purple;
+}

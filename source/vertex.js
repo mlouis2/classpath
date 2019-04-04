@@ -12,6 +12,14 @@ class Vertex {
           }
           this.color = "#ffffff";
           this.accessible = true;
+          this.bikePath = false;
+          this.drivePath = false;
+     }
+     setAbleToBike() {
+          this.bikePath = true;
+     }
+     setAbleToDrive() {
+          this.drivePath = true;
      }
      setColor(color) {
           this.color = color;
