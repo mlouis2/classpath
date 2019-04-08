@@ -319,17 +319,22 @@
           {
                "name": "A",
                "x": 68.5,
-               "y": 69.66
+               "y": 69.66,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "B",
                "x": 68.5,
-               "y": 60.97
+               "y": 60.97,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "C",
                "x": 68,
-               "y": 47.29
+               "y": 47.29,
+               "bikePath" : true
           },
           {
                "name": "D",
@@ -344,12 +349,15 @@
           {
                "name": "F",
                "x": 74,
-               "y": 42
+               "y": 42,
+               "bikePath" : true
           },
           {
                "name": "G",
                "x": 80.5,
-               "y": 49.29
+               "y": 49.29,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "H",
@@ -359,32 +367,42 @@
           {
                "name": "I",
                "x": 80.5,
-               "y": 35
+               "y": 35,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "J",
                "x": 86,
-               "y": 35
+               "y": 35,
+               "bikePath" : true
           },
           {
                "name": "K",
                "x": 80.5,
-               "y": 44
+               "y": 44,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "L",
                "x": 80.5,
-               "y": 54
+               "y": 54,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "M",
                "x": 80.5,
-               "y": 59
+               "y": 59,
+               "drivePath": true
           },
           {
                "name": "N",
                "x": 73,
-               "y": 59
+               "y": 59,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "O",
@@ -394,7 +412,8 @@
           {
                "name": "P",
                "x": 74,
-               "y": 50
+               "y": 50,
+               "bikePath" : true
           },
           {
                "name": "Q",
@@ -439,59 +458,76 @@
           {
                "name": "Y",
                "x": 89,
-               "y": 33
+               "y": 33,
+               "bikePath" : true
           },
           {
                "name": "Z",
                "x": 80.5,
-               "y": 27
+               "y": 27,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AA",
                "x": 81,
-               "y": 20
+               "y": 20,
+               "bikePath" : true
           },
           {
                "name": "AB",
                "x": 81,
-               "y": 15
+               "y": 15,
+               "bikePath" : true
           },
           {
                "name": "AC",
                "x": 77,
-               "y": 15
+               "y": 15,
+               "bikePath" : true
           },
           {
                "name": "AD",
                "x": 80,
-               "y": 12
+               "y": 12,
+               "bikePath" : true
           },
           {
                "name": "AE",
                "x": 72,
-               "y": 18
+               "y": 18,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AF",
                "x": 67,
-               "y": 18
+               "y": 18,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AG",
                "x": 61,
-               "y": 18
+               "y": 18,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AH",
                "x": 60,
-               "y": 21.5
+               "y": 21.5,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AI",
                "x": 75.63,
-               "y": 25
+               "y": 25,
+               "bikePath" : true
           },
           {
+
                "name": "AJ",
                "x": 68,
                "y": 25
@@ -499,17 +535,23 @@
           {
                "name": "AK",
                "x": 57.5,
-               "y": 25
+               "y": 25,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AL",
                "x": 57,
-               "y": 39.49
+               "y": 39.49,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AM",
                "x": 57,
-               "y": 35
+               "y": 35,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AN",
@@ -519,47 +561,64 @@
           {
                "name": "AO",
                "x": 55.7,
-               "y": 51
+               "y": 51,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AP",
                "x": 55.7,
-               "y": 59.8
+               "y": 59.8,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AQ",
                "x": 58.9,
-               "y": 59.8
+               "y": 59.8,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AR",
                "x": 53.5,
-               "y": 59.8
+               "y": 59.8,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AS",
                "x": 53.5,
-               "y": 66.8
+               "y": 66.8,
+               "bikePath" : true
           },
           {
                "name": "AT",
                "x": 48.5,
-               "y": 55
+               "y": 55,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AU",
                "x": 48.5,
-               "y": 65
+               "y": 65,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AV",
                "x": 55.7,
-               "y": 55
+               "y": 55,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AW",
                "x": 48.5,
-               "y": 45
+               "y": 45,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "AX",
@@ -584,77 +643,99 @@
           {
                "name": "BB",
                "x": 30,
-               "y": 36
+               "y": 36,
+               "bikePath" : true
           },
           {
                "name": "BC",
                "x": 30,
-               "y": 55
+               "y": 55,
+               "bikePath" : true
           },
           {
                "name": "BD",
                "x": 25,
-               "y": 57.5
+               "y": 57.5,
+               "bikePath" : true
           },
           {
                "name": "BE",
                "x": 21,
-               "y": 65
+               "y": 65,
+               "bikePath" : true
+
           },
           {
                "name": "BF",
                "x": 33,
-               "y": 54
+               "y": 54,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BG",
                "x": 37,
-               "y": 54
+               "y": 54,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BH",
                "x": 40,
-               "y": 51
+               "y": 51,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BI",
                "x": 44,
-               "y": 45
+               "y": 45,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BJ",
                "x": 28,
-               "y": 68
+               "y": 68,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BK",
                "x": 18,
-               "y": 48
+               "y": 48,
+               "bikePath" : true
           },
           {
                "name": "BL",
                "x": 39,
-               "y": 32
+               "y": 32,
+               "bikePath" : true
           },
           {
                "name": "BM",
                "x": 55,
-               "y": 44
+               "y": 44,
+               "bikePath" : true,
+               "drivePath": true
           },
           {
                "name": "BN",
                "x": 59,
-               "y": 44
+               "y": 44,
+               "bikePath" : true
           },
           {
                "name": "BO",
                "x": 64,
-               "y": 44
+               "y": 44,
+               "bikePath" : true
           },
           {
                "name": "BP",
                "x": 67.5,
-               "y": 55
+               "y": 55,
+               "bikePath" : true
           },
           {
                "name": "BQ",
@@ -664,18 +745,50 @@
           {
                "name": "BR",
                "x": 71,
-               "y": 42
+               "y": 42,
+               "bikePath" : true
           },
           {
                "name": "BS",
                "x": 53,
-               "y": 27
+               "y": 27,
+               "bikePath" : true
           },
           {
                "name": "BT",
                "x": 47,
-               "y": 28
+               "y": 28,
+               "bikePath" : true
+          },
+          {
+               "name": "BU",
+               "x": 15,
+               "y": 54,
+               "bikePath" : true
+          },
+          {
+            "name": "BV",
+            "x": 15,
+            "y": 65,
+            "bikePath" : true,
+            "drivePath" : true
+
+          },
+          {
+            "name": "BW",
+            "x": 10,
+            "y": 67,
+            "bikePath" : true,
+            "drivePath" : true
+          },
+          {
+            "name": "BX",
+            "x": 6,
+            "y": 75,
+            "bikePath" : true,
+            "drivePath" : true
           }
+
      ],
      "connections": [
           ["Life Sciences Building", "Pereira"],
@@ -863,7 +976,17 @@
           ["AO", "BM"],
           ["AW", "BM"],
           ["BH", "Drollinger"],
-          ["Jesuit Community", "BS"]
+          ["Jesuit Community", "BS"],
+          ["BU", "Leavey5"],
+          ["BU", "Leavey4"],
+          ["BU", "BK"],
+          ["BU", "BD"],
+          ["BU", "BV"],
+          ["BV", "BW"],
+          ["BW", "BX"]
+
+
+
      ]
 }
 }
