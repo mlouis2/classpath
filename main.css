@@ -7,7 +7,9 @@ p {
   margin: 10px;
 }
 
-
+#transportationIcon {
+  height: 100%;
+}
 
 .container {
   margin: 0;
@@ -26,13 +28,12 @@ p {
 }
 
 .classpath {
-  letter-spacing: 0 px;
+  letter-spacing: 0px;
   color: white;
   text-align: center;
   font-size: 65px;
   font-weight: 10;
   font-family: 'Pacifico', cursive;
-  margin-bottom: 30px;
 }
 
 .sidebar {
@@ -79,23 +80,20 @@ p {
 
 .transportation {
   background-color: #699CD0;
-  border: none;
-  color: white;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
   cursor: pointer;
   font-family: 'Noto Serif', serif;
-  border: 2px solid #ddaaca;
   padding: 10px;
-
+  border: none;
 }
 
 .transportation:hover {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: white;
-  color: #699CD0;
+  border-radius: 20px;
 }
 
 #addformbutton {
@@ -119,18 +117,6 @@ p {
   color: #699CD0;
 }
 
-/*a {
-  -webkit-transition-duration: 0.4s; Safari
-  transition-duration: 0.4s;
-  font-family: 'Noto Serif', serif;
-  color: white;
-  text-decoration: none;
-} */
-
-/*a:hover {
-  background-color: white;
-  color: #699CD0;
-}*/
 canvas {
   background-color: #a5d389;
 }
@@ -167,12 +153,19 @@ text-decoration-line: none;
   text-align: center;
 }
 
+button {
+  outline: none;
+}
+
 #transportationMethodsContainer {
   text-align: center;
   width: 100%;
-  height: 50px;
+  padding: 10px;
+  height: 70px;
+  margin-bottom: 20px;
 }
 
 .selectedTransportationMethod {
-  color: purple;
+  background: white;
+  border-radius: 20px;
 }
