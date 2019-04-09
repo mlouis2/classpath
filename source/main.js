@@ -91,11 +91,44 @@ function drawValidVerticesAndPaths() {
 }
 
 function drawValidPaths(totalValidVertices) {
+	let transportationMethod = returnCurrentTransportationMethod();
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
 		let locationA = classpath.returnVertexWithName(totalValidVertices[i].name);
 		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1].name);
-		classpath.drawPath(classpath.findPath(locationA, locationB));
+		classpath.drawPath(classpath.findPath(locationA, locationB, transportationMethod));
 	}
+}
+
+//Finds out whether the user is walking, biking, or driving to their destination
+function returnCurrentTransportationMethod() {
+	let walkButton = document.getElementById("walk");
+	let driveButton = document.getElementById("drive");
+	let bikeButton = document.getElementById("bike");
+	let transportationMethods = [walkButton, driveButton, bikeButton];
+	for (let i = 0; i < transportationMethods.length; i++) {
+		if (transportationMethods[i].classList.contains("selectedTransportationMethod")) {
+			return transportationMethods[i].id;
+		}
+	}
+	return null;
+}
+
+function updateTransportation(id) {
+	let button = document.getElementById(id);
+	button.classList.add("selectedTransportationMethod");
+	removeOtherSelectionsFromTransportationMethods(id);
+}
+
+function removeOtherSelectionsFromTransportationMethods(idOfSelected) {
+	let walkButton = document.getElementById("walk");
+	let driveButton = document.getElementById("drive");
+	let bikeButton = document.getElementById("bike");
+	let transportationMethods = [walkButton, driveButton, bikeButton];
+	transportationMethods.forEach((method) => {
+		if (method.id !== idOfSelected && method.classList.contains("selectedTransportationMethod")) {
+			method.classList.remove("selectedTransportationMethod");
+		}
+	});
 }
 
 function updateFormColors() {
@@ -131,6 +164,7 @@ function drawBorder() {
 	ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height); //left
 }
 
+//TODO: change these hardcoded values at some point (probably just figure out a nice way to figure out with what ratios and sizes to draw symbols)
 function drawLionSymbol() {
 	ctx.drawImage(lmuLogo, imageX + imageWidth*.05, imageY+ imageHeight*.05, constSize*.25, constSize*.25);
 }
@@ -175,5 +209,6 @@ $(document).ready(function() {
 		setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
 	}
 	populateGraph();
-	refreshBackground();
+	//TODO: this is temporary so probably fix this at some point yikes
+	setTimeout(() => {refreshBackground()}, 10);
 });
