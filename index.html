@@ -11,15 +11,19 @@
                     <br>
                     <h1 class = "FindYour ">&nbsp;&nbsp;Find Your</h1>
                     <h1 class = "classpath ">classpath</h1>
+                    <div id="transportationMethodsContainer">
                     <button class="transportation selectedTransportationMethod" id="walk" onclick="updateTransportation(id);" style ="text-align:center;">Walk</button>
                     <button class="transportation" id="bike" onclick="updateTransportation(id);" style ="text-align:center;">Bike</button>
                     <button class="transportation" id="drive" onclick="updateTransportation(id);" style ="text-align:center;">Drive</button>
+                    </div>
+
                     <div class="entry" id="addform">
 
                     </div>
-                    <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
-                        style="text-align:center; display:block;">Add a Location</a>
-                    <button class="button updateButton" id="updateButton" style ="text-align:center;">Update Map</button>
+
+               <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm(" + addid + ")' id='addlink_" + addid + "'
+                    style="text-align:center; display:block;">Add a Location</a>
+                <button class="button updateButton" id="updateButton" style ="text-align:center;">Update Map</button>
 
                     <br>
                     <div class = "pageBottom">
@@ -38,6 +42,8 @@
                <canvas></canvas>
           </div>
      </body>
+     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
      <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
      <script type="text/javascript" src="./source/nodesAndPaths.js"></script>
      <script type="text/javascript" src="./images/images.js"></script>
