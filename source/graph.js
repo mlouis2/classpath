@@ -20,6 +20,7 @@ class Graph {
           }
      }
      addEdge(vertexA, vertexB) {
+       
           this.adjacencyMatrix[vertexA.index][vertexB.index] = 1;
           this.adjacencyMatrix[vertexB.index][vertexA.index] = 1;
      }
