@@ -20,7 +20,7 @@ class Graph {
           }
      }
      addEdge(vertexA, vertexB) {
-       
+
           this.adjacencyMatrix[vertexA.index][vertexB.index] = 1;
           this.adjacencyMatrix[vertexB.index][vertexA.index] = 1;
      }
@@ -48,6 +48,27 @@ class Graph {
                     this.hasNeighbors(vertex)) && (vertex.accessible || (vertex === start || vertex === goal)));
      }
      findPath(start, goal, transportationMethod) {
+          switch (transportationMethod) {
+               case 'walk':
+                    return getBestPath(start, goal, transportationMethod);
+                    break;
+               case 'bike':
+                    let closestBikeRackToStart = getClosestBikeRackToVertex(start);
+                    let closestBikeRackToGoal = getClosestBikeRackToVertex(goal);
+                    return getBestPath(start, closestBikeRackToStart, "walk")
+                              .concat(getBestPath(closestBikeRackToStart, closestBikeRackToGoal, "bike"))
+                              .concat(getBestPath(closestBikeRackToGoal, goal, "walk"));
+                    break;
+               case 'drive':
+                    let closestParkingLotToStart = getClosestParkingLotToVertex(start);
+                    let closestParkingLotToGoal = getClosestParkingLotToVertex(goal);
+                    return getBestPath(start, closestParkingLotToStart, "walk")
+                         .concat(getBestPath(closestParkingLotToStart, closestParkingLotToGoal, "drive"))
+                         .concat(getBestPath(closestParkingLotToGoal, goal, "walk"));
+                    break;
+          }
+     }
+     getBestPath(start, goal, transportationMethod) {
           let undoneNodes = [];
           let distances = [];
           for (let i = 0; i < this.vertices.length; i++) {
@@ -127,5 +148,29 @@ class Graph {
      }
      hasNeighbors(vertex) {
           return (this.returnAdjacentVertices(vertex).length !== 0);
+     }
+     getClosestBikeRackToVertex(vertex) {
+          closestBikeRack = null;
+          closestDistance = Number.MAX_VALUE;
+          bikeRackNodes.forEach((bikeRack) => {
+               const distance = getManhattanDistance(vertex, bikeRack);
+               if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestBikeRack = bikeRack;
+               }
+          });
+          return closestBikeRack;
+     }
+     getClosestParkingLotToVertex(vertex) {
+          closestParkingLot = null;
+          closestDistance = Number.MAX_VALUE;
+          parkingLotNodes.forEach((parkingLot) => {
+               const distance = getManhattanDistance(vertex, parkingLot);
+               if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestParkingLot = parkingLot;
+               }
+          });
+          return closestParkingLot;
      }
 }

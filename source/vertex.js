@@ -47,6 +47,10 @@ class Vertex {
                     case 'cross':
                          ctx.drawImage(crossImage, this.x, this.y, 50, 50);
                          break;
+                    case 'bikeRack':
+                         break;
+                    case 'parkingLot':
+                         break;
                }
           }
      }

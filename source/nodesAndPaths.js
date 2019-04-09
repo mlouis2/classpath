@@ -38,6 +38,8 @@ function addAccessoryNodes() {
 	coffeeNodes = [];
 	storeNodes = [];
 	crossNodes = [];
+	bikeRackNodes = [];
+	parkingLotNodes = [];
 	let accessoryNodes = mapData.loyolaMarymountUniversity.accessoryNodes;
 	for (let i = 0; i < accessoryNodes.length; i++) {
 		let vertex = new Vertex(accessoryNodes[i].type, accessoryNodes[i].name, accessoryNodes[i].x, accessoryNodes[i].y);
@@ -54,6 +56,10 @@ function addAccessoryNodes() {
 				break;
 			case "cross":
 				crossNodes.push(vertex);
+			case "parkingLot":
+				parkingLotNodes.push(vertex);
+			case "bikeRack":
+				bikeRackNodes.push(vertex);
 		}
 	}
 }
