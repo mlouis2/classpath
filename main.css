@@ -42,6 +42,10 @@ p {
     height: 100%;
     background-color: #699CD0;
     overflow: scroll;
+    -webkit-transition: width .5s ease;
+    -moz-transition: width .5s ease;
+    -o-transition: width .5s ease;
+    transition: width .5s ease;
 }
 
 .entry {
@@ -119,6 +123,10 @@ p {
 
 canvas {
   background-color: #a5d389;
+  -webkit-transition: width .25s ease;
+  -moz-transition: width .25s ease;
+  -o-transition: width .25s ease;
+  transition: width .25s ease;
 }
 
 .container:after {
@@ -132,6 +140,10 @@ canvas {
   position: absolute;
   height: 100%;
   margin-left:30%;
+  -webkit-transition: margin-left .25s ease;
+  -moz-transition: margin-left .25s ease;
+  -o-transition: margin-left .25s ease;
+  transition: margin-left .25s ease;
 }
 
 .sidebarButton {
