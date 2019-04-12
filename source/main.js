@@ -131,13 +131,6 @@ function removeOtherSelectionsFromTransportationMethods(idOfSelected) {
 	});
 }
 
-function updateFormColors() {
-    var forms = document.getElementsByName("buildings");
-    for (let i = 0; i < forms.length; i++) {
-        forms[i].style.backgroundColor = FORM_COLORS[i];
-    }
-}
-
 function addCross(xInPercent, yInPercent){
 	ctx.drawImage(crossImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2 - widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
 

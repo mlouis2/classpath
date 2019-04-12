@@ -50,19 +50,19 @@ class Graph {
      findPath(start, goal, transportationMethod) {
           switch (transportationMethod) {
                case 'walk':
-                    return getBestPath(start, goal, transportationMethod);
+                    return this.getBestPath(start, goal, transportationMethod);
                     break;
                case 'bike':
                     let closestBikeRackToStart = getClosestBikeRackToVertex(start);
                     let closestBikeRackToGoal = getClosestBikeRackToVertex(goal);
-                    return getBestPath(start, closestBikeRackToStart, "walk")
+                    return this.getBestPath(start, closestBikeRackToStart, "walk")
                               .concat(getBestPath(closestBikeRackToStart, closestBikeRackToGoal, "bike"))
                               .concat(getBestPath(closestBikeRackToGoal, goal, "walk"));
                     break;
                case 'drive':
                     let closestParkingLotToStart = getClosestParkingLotToVertex(start);
                     let closestParkingLotToGoal = getClosestParkingLotToVertex(goal);
-                    return getBestPath(start, closestParkingLotToStart, "walk")
+                    return this.getBestPath(start, closestParkingLotToStart, "walk")
                          .concat(getBestPath(closestParkingLotToStart, closestParkingLotToGoal, "drive"))
                          .concat(getBestPath(closestParkingLotToGoal, goal, "walk"));
                     break;

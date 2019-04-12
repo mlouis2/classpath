@@ -14,14 +14,12 @@ for (let i = 0; i < buildingNodes.length; i++) {
 }
 selectBuildingsString += "</div>";
 
-function addForm(id) {
+function addForm() {
 
 	let addForm = document.getElementById('addform');
 
-	addid++;
-
 	let text = document.createElement('div');
-	text.id = 'additem_' + addid;
+	text.id = 'entry ' + addid;
 
 	if (isFirst) {
 		text.innerHTML = selectBuildingsString;
@@ -30,13 +28,18 @@ function addForm(id) {
 		text.innerHTML = optionConnector + selectBuildingsString;
 	}
 
-	if (addid <= MAX_FORMS) {
+	if (addid < MAX_FORMS) {
 		addForm.appendChild(text);
 		updateFormColors();
 	}
-	if (addid == MAX_FORMS) {
+	if (addid == MAX_FORMS - 1) {
 		document.getElementById("addformbutton").remove();
 	}
+
+	let buildingEntries = document.getElementsByClassName("buildingEntry");
+	buildingEntries[addid].addEventListener("mouseover", highlightLocation(addid));
+
+	addid++;
 }
 
 Element.prototype.remove = function() {
@@ -44,8 +47,8 @@ Element.prototype.remove = function() {
 }
 
 //Starts with two forms by default
-addForm(1);
-addForm(1);
+addForm();
+addForm();
 
 function collapseSidebar() {
 	if (sidebarCollapsed) { //open the sidebar!
@@ -68,4 +71,15 @@ function sortBuildingsAlphabetically() {
     		if(buildingA.name > buildingB.name) { return 1; }
     		return 0;
 	});
+}
+
+function highlightLocation(formNumber) {
+	console.log("form number is " + formNumber);
+}
+
+function updateFormColors() {
+    var forms = document.getElementsByName("buildings");
+    for (let i = 0; i < forms.length; i++) {
+        forms[i].style.backgroundColor = FORM_COLORS[i];
+    }
 }
