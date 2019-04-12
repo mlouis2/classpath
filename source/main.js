@@ -82,10 +82,12 @@ function drawReligion() {
 function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
-		let validVertex = classpath.returnVertexWithName(entries[i].place);
-		totalValidVertices.push(validVertex);
-		validVertex.setColor(FORM_COLORS[i]);
-		validVertex.draw();
+		if (entries[i] !== null) {
+			let validVertex = classpath.returnVertexWithName(entries[i].place);
+			totalValidVertices.push(validVertex);
+			validVertex.setColor(FORM_COLORS[i]);
+			validVertex.draw();
+		}
 	}
 	drawValidPaths(totalValidVertices);
 }
@@ -179,7 +181,7 @@ function refreshBackground() {
 let entries;
 
 //Code to handle the update button--connected to the button
-document.getElementById("updateButton").addEventListener("click", drawEntries);
+// document.getElementById("updateButton").addEventListener("click", drawEntries);
 
 function drawEntries() {
 	refreshBackground();
@@ -189,6 +191,8 @@ function drawEntries() {
 		let valueOfEntry = entriesFromHTML[i].children[0].value;
 		if (valueOfEntry !== "") {
 			entries.push(new Entry(valueOfEntry));
+		} else {
+			entries.push(null);
 		}
 	}
 	drawValidVerticesAndPaths();

@@ -24,10 +24,10 @@ class Vertex {
      setColor(color) {
           this.color = color;
      }
-     draw() {
+     draw(radius = DOT_RADIUS) {
           if (this.vertexType === 'building' || this.vertexType === "path") {
                ctx.beginPath();
-               ctx.arc(this.x, this.y, DOT_RADIUS, 0, 2 * Math.PI);
+               ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI);
                ctx.fillStyle = this.color;
                ctx.fill();
                ctx.lineWidth = 1;

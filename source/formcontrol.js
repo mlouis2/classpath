@@ -1,4 +1,5 @@
 const MAX_FORMS = 5;
+const HIGHLIGHTED_DOT_RADIUS = 15;
 let sidebarCollapsed = false;
 let addid = 0;
 let isFirst = true;
@@ -37,7 +38,8 @@ function addForm() {
 	}
 
 	let buildingEntries = document.getElementsByClassName("buildingEntry");
-	buildingEntries[addid].addEventListener("mouseover", highlightLocation(addid));
+	buildingEntries[addid].addEventListener("mouseover", highlightLocationDelegate(addid));
+	buildingEntries[addid].addEventListener("mouseout", unhighlightLocationDelegate(addid));
 
 	addid++;
 }
@@ -73,8 +75,35 @@ function sortBuildingsAlphabetically() {
 	});
 }
 
+function unhighlightLocationDelegate(formNumber) {
+	return function() {
+		unhighlightLocation(formNumber);
+	}
+}
+
+//Hacky way to make it so that we can assign the eventListeners dynamically
+function highlightLocationDelegate(formNumber) {
+	return function() {
+		highlightLocation(formNumber);
+	}
+}
+
+function unhighlightLocation(formNumber) {
+	drawEntries();
+}
+
 function highlightLocation(formNumber) {
-	console.log("form number is " + formNumber);
+	let entry = document.getElementsByClassName("buildingEntry")[formNumber];
+	let entryValue = entry.children[0].value;
+	let vertexWithEntryValue = classpath.returnVertexWithName(entryValue);
+	if (vertexWithEntryValue !== null) {
+		ctx.fillStyle = "white";
+		ctx.font = "15px Arial";
+		ctx.fillRect(vertexWithEntryValue.x, vertexWithEntryValue.y - (HIGHLIGHTED_DOT_RADIUS), ctx.measureText(vertexWithEntryValue.name).width + HIGHLIGHTED_DOT_RADIUS * 2, HIGHLIGHTED_DOT_RADIUS * 2);
+		ctx.fillStyle = "black";
+		ctx.fillText(vertexWithEntryValue.name, vertexWithEntryValue.x + HIGHLIGHTED_DOT_RADIUS + 5, vertexWithEntryValue.y + HIGHLIGHTED_DOT_RADIUS / 4);
+		vertexWithEntryValue.draw(HIGHLIGHTED_DOT_RADIUS);
+	}
 }
 
 function updateFormColors() {
