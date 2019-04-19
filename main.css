@@ -7,16 +7,26 @@ p {
   margin: 10px;
 }
 
-#transportationIcon {
-  height: 100%;
-}
-
-.container {
+.bodyContainer {
   margin: 0;
   height: 100vh;
 }
 
-.FindYour{
+.bodyContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.sidebar {
+    float: left;
+    width: 30%;
+    height: 100%;
+    background-color: #699CD0;
+    overflow: scroll;
+}
+
+.findYour{
   letter-spacing: 0 px;
   color: white;
   text-align: center;
@@ -36,12 +46,46 @@ p {
   font-family: 'Pacifico', cursive;
 }
 
-.sidebar {
-    float: left;
-    width: 30%;
-    height: 100%;
-    background-color: #699CD0;
-    overflow: scroll;
+#transportationIcon {
+  height: 100%;
+}
+
+#transportationMethodsContainer {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.transportation {
+  background-color: #699CD0;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Noto Serif', serif;
+  padding: 10px;
+  border: none;
+}
+
+.selectedTransportationMethod {
+  background: white;
+  border-radius: 20px;
+}
+
+.transportation:hover {
+  -webkit-transition-duration: 0.4s; Safari
+  transition-duration: 0.4s;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.sidebar .buildingEntry select {
+  color: white;
+  font-family: 'Noto Serif', serif;
+  background: #a5d389;
+  font-size: 1em;
 }
 
 .entry {
@@ -63,13 +107,6 @@ p {
     box-shadow:         0px 0px 30px 0px rgba(255, 255, 255, 0.67);
 }
 
-.sidebar .buildingEntry select {
-  color: white;
-  font-family: 'Noto Serif', serif;
-  background: #a5d389;
-  font-size: 1em;
-}
-
 .button {
   background-color: #699CD0;
   color: white;
@@ -85,36 +122,8 @@ p {
   padding: 10px;
 }
 
-.transportation {
-  background-color: #699CD0;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  cursor: pointer;
-  font-family: 'Noto Serif', serif;
-  padding: 10px;
-  border: none;
-}
-
-.transportation:hover {
-  -webkit-transition-duration: 0.4s; Safari
-  transition-duration: 0.4s;
-  background-color: white;
-  border-radius: 20px;
-}
-
-#addformbutton {
-  margin-bottom: 15px;
-}
-
-.updateButton {
-  margin-bottom: 20px;
-}
-
-#from {
-  margin-top: 5px;
-  margin-bottom: -15px;
-  font-family: 'Noto Serif', serif;
+button {
+  outline: none;
 }
 
 .button:hover {
@@ -124,14 +133,12 @@ p {
   color: #699CD0;
 }
 
-canvas {
-  background-color: #a5d389;
+#addformbutton {
+  margin-bottom: 15px;
 }
 
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
+.updateButton {
+  margin-bottom: 20px;
 }
 
 .sidebarButtonContainer {
@@ -160,19 +167,6 @@ text-decoration-line: none;
   text-align: center;
 }
 
-button {
-  outline: none;
-}
-
-#transportationMethodsContainer {
-  text-align: center;
-  width: 100%;
-  padding: 10px;
-  height: 70px;
-  margin-bottom: 20px;
-}
-
-.selectedTransportationMethod {
-  background: white;
-  border-radius: 20px;
+canvas {
+  background-color: #a5d389;
 }
