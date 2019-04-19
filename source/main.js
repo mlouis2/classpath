@@ -206,6 +206,4 @@ $(document).ready(function() {
 		setImageWidthAndHeight(CANVAS_WIDTH_PERCENTAGE);
 	}
 	populateGraph();
-	//TODO: this is temporary so probably fix this at some point yikes
-	setTimeout(() => {refreshBackground()}, 10);
 });
