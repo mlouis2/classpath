@@ -115,24 +115,6 @@ function returnCurrentTransportationMethod() {
 	return null;
 }
 
-function updateTransportation(id) {
-	let button = document.getElementById(id);
-	button.classList.add("selectedTransportationMethod");
-	removeOtherSelectionsFromTransportationMethods(id);
-}
-
-function removeOtherSelectionsFromTransportationMethods(idOfSelected) {
-	let walkButton = document.getElementById("walk");
-	let driveButton = document.getElementById("drive");
-	let bikeButton = document.getElementById("bike");
-	let transportationMethods = [walkButton, driveButton, bikeButton];
-	transportationMethods.forEach((method) => {
-		if (method.id !== idOfSelected && method.classList.contains("selectedTransportationMethod")) {
-			method.classList.remove("selectedTransportationMethod");
-		}
-	});
-}
-
 function addCross(xInPercent, yInPercent){
 	ctx.drawImage(crossImage, (xInPercent) * imageWidth + (canvas.width - imageWidth)/2 - widthValue ,(yInPercent) * imageHeight + (canvas.height - imageHeight)/2, 50, 50);
 
@@ -184,6 +166,7 @@ let entries;
 // document.getElementById("updateButton").addEventListener("click", drawEntries);
 
 function drawEntries() {
+	console.log('drawing entries');
 	refreshBackground();
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
@@ -199,6 +182,9 @@ function drawEntries() {
 }
 
 $(document).ready(function() {
+	//Start with two forms on page by default
+	addForm();
+	addForm();
 	setImageWidthAndHeight();
 	if (sidebarCollapsed) {
 		setImageWidthAndHeight(1.00);

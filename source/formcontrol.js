@@ -48,9 +48,24 @@ Element.prototype.remove = function() {
 	this.parentElement.removeChild(this);
 }
 
-//Starts with two forms by default
-addForm();
-addForm();
+function updateTransportation(id) {
+	let button = document.getElementById(id);
+	button.classList.add("selectedTransportationMethod");
+	removeOtherSelectionsFromTransportationMethods(id);
+	drawEntries();
+}
+
+function removeOtherSelectionsFromTransportationMethods(idOfSelected) {
+	let walkButton = document.getElementById("walk");
+	let driveButton = document.getElementById("drive");
+	let bikeButton = document.getElementById("bike");
+	let transportationMethods = [walkButton, driveButton, bikeButton];
+	transportationMethods.forEach((method) => {
+		if (method.id !== idOfSelected && method.classList.contains("selectedTransportationMethod")) {
+			method.classList.remove("selectedTransportationMethod");
+		}
+	});
+}
 
 function collapseSidebar() {
 	if (sidebarCollapsed) { //open the sidebar!
