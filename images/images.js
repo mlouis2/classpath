@@ -1,7 +1,5 @@
 //Creates the map image
 let mapImage = new Image();
-interpretImage();
-mapImage.src = imageFilePath;
 
 //Creates the LMU Logo
 let lmuLogo = new Image();
@@ -22,11 +20,27 @@ let treesImage = new Image();
 treesImage.src = "images/palmTrees.png";
 let crossImage = new Image();
 crossImage.src = "images/religionIcon.png";
+
 let walkImage = new Image();
 walkImage.src = "images/walkIcon.png";
 let bikeImage = new Image();
 bikeImage.src = "images/bikeIcon.png";
 let driveImage = new Image();
 driveImage.src = "images/carIcon.png";
+
+var walkIconFromHTML = document.images[0];
+walkImage.onload = function(){
+    walkIconFromHTML.src = walkImage.src;
+};
+var bikeIconFromHTML = document.images[1];
+bikeImage.onload = function(){
+    bikeIconFromHTML.src = bikeImage.src;
+};
+var driveIconFromHTML = document.images[2];
+driveImage.onload = function(){
+    driveIconFromHTML.src = driveImage.src;
+};
+
+
 let bikeRackImage = new Image();
 bikeRackImage.src = "images/brownBikeIcon.png";

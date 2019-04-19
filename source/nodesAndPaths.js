@@ -17,6 +17,7 @@ function populateGraph() {
 
 function interpretImage() {
 	imageFilePath = mapData.loyolaMarymountUniversity.image.filePath;
+	mapImage.src = imageFilePath;
 	originalImageWidth = mapData.loyolaMarymountUniversity.image.width;
 	originalImageHeight = mapData.loyolaMarymountUniversity.image.height;
 }
