@@ -84,7 +84,7 @@ function drawValidVerticesAndPaths() {
 	for (let i = 0; i < entries.length; i++) {
 		if (entries[i] !== null) {
 			let validVertex = classpath.returnVertexWithName(entries[i].place);
-			totalValidVertices.push(validVertex);
+			totalValidVertices.push([validVertex, i]);
 			validVertex.setColor(FORM_COLORS[i]);
 			validVertex.draw();
 		}
@@ -95,9 +95,10 @@ function drawValidVerticesAndPaths() {
 function drawValidPaths(totalValidVertices) {
 	let transportationMethod = returnCurrentTransportationMethod();
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
-		let locationA = classpath.returnVertexWithName(totalValidVertices[i].name);
-		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1].name);
-		classpath.drawPath(classpath.findPath(locationA, locationB, transportationMethod));
+		let locationA = classpath.returnVertexWithName(totalValidVertices[i][0].name);
+		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1][0].name);
+		let path = classpath.findPathAndTimes(locationA, locationB, transportationMethod, totalValidVertices[i + 1][1]);
+		classpath.drawPath(path);
 	}
 }
 
@@ -166,7 +167,6 @@ let entries;
 // document.getElementById("updateButton").addEventListener("click", drawEntries);
 
 function drawEntries() {
-	console.log('drawing entries');
 	refreshBackground();
 	entries = [];
 	let entriesFromHTML = document.getElementsByClassName("buildingEntry");

@@ -3,7 +3,7 @@ const HIGHLIGHTED_DOT_RADIUS = 15;
 let sidebarCollapsed = false;
 let addid = 0;
 let isFirst = true;
-let optionConnector = "<div style='font-size: 25px; text-align: center; color: white'>&darr;</div>";
+let optionConnector = "<div class='entryConnector' style='font-size: 25px; text-align: center; color: white'>&darr;</div>";
 let selectBuildingsString = "<div class='buildingEntry'>" +
 "<select name='buildings'>" +
 "<option value='' selected disabled hidden>Pick a Location</option>";
@@ -126,4 +126,31 @@ function updateFormColors() {
     for (let i = 0; i < forms.length; i++) {
         forms[i].style.backgroundColor = FORM_COLORS[i];
     }
+}
+
+function addTime(bottomFormNumber, time) {
+	let connector = document.getElementsByClassName("entryConnector")[bottomFormNumber - 1];
+	let formattedTime = secondsToTimeFormat(time)
+	if (connector.classList.contains("hasTime")) {
+		if (!connector.innerHTML.includes(formattedTime)) {
+			connector.innerHTML = "&darr;";
+		} else {
+			return;
+		}
+	} else {
+		connector.classList.add("hasTime");
+	}
+	connector.innerHTML += " " + secondsToTimeFormat(time);
+}
+
+function secondsToTimeFormat(timeInSeconds) {
+    var hours   = Math.floor(timeInSeconds / 3600);
+    var minutes = Math.floor((timeInSeconds - (hours * 3600)) / 60);
+    var seconds = timeInSeconds - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    let result = hours+':'+minutes+':'+seconds;
+    return result.substring(0, 8);
 }

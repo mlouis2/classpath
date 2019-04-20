@@ -1,5 +1,6 @@
 let imageFilePath, originalImageWidth, originalImageHeight;
 let foodNodes = [], coffeeNodes = [], storeNodes = [], crossNodes = [], buildingNodes = [];
+let secondsPerHundredPixels;
 
 let request = new XMLHttpRequest();
 request.open("GET", "./source/lmu.json", false);
@@ -20,6 +21,7 @@ function interpretImage() {
 	mapImage.src = imageFilePath;
 	originalImageWidth = mapData.loyolaMarymountUniversity.image.width;
 	originalImageHeight = mapData.loyolaMarymountUniversity.image.height;
+	secondsPerHundredPixels = mapData.loyolaMarymountUniversity.image.secondsPerHundredPixels;
 }
 
 function addBuildings() {
