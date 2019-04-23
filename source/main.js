@@ -82,10 +82,12 @@ function drawReligion() {
 function drawValidVerticesAndPaths() {
 	let totalValidVertices = [];
 	for (let i = 0; i < entries.length; i++) {
-		let validVertex = classpath.returnVertexWithName(entries[i].place);
-		totalValidVertices.push(validVertex);
-		validVertex.setColor(FORM_COLORS[i]);
-		validVertex.draw();
+		if (entries[i] !== null) {
+			let validVertex = classpath.returnVertexWithName(entries[i].place);
+			totalValidVertices.push([validVertex, i]);
+			validVertex.setColor(FORM_COLORS[i]);
+			validVertex.draw();
+		}
 	}
 	drawValidPaths(totalValidVertices);
 }
@@ -93,9 +95,10 @@ function drawValidVerticesAndPaths() {
 function drawValidPaths(totalValidVertices) {
 	let transportationMethod = returnCurrentTransportationMethod();
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
-		let locationA = classpath.returnVertexWithName(totalValidVertices[i].name);
-		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1].name);
-		classpath.drawPath(classpath.findPath(locationA, locationB, transportationMethod));
+		let locationA = classpath.returnVertexWithName(totalValidVertices[i][0].name);
+		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1][0].name);
+		let path = classpath.findPathAndTimes(locationA, locationB, transportationMethod, totalValidVertices[i + 1][1]);
+		classpath.drawPath(path);
 	}
 }
 
@@ -111,31 +114,6 @@ function returnCurrentTransportationMethod() {
 		}
 	}
 	return null;
-}
-
-function updateTransportation(id) {
-	let button = document.getElementById(id);
-	button.classList.add("selectedTransportationMethod");
-	removeOtherSelectionsFromTransportationMethods(id);
-}
-
-function removeOtherSelectionsFromTransportationMethods(idOfSelected) {
-	let walkButton = document.getElementById("walk");
-	let driveButton = document.getElementById("drive");
-	let bikeButton = document.getElementById("bike");
-	let transportationMethods = [walkButton, driveButton, bikeButton];
-	transportationMethods.forEach((method) => {
-		if (method.id !== idOfSelected && method.classList.contains("selectedTransportationMethod")) {
-			method.classList.remove("selectedTransportationMethod");
-		}
-	});
-}
-
-function updateFormColors() {
-    var forms = document.getElementsByName("buildings");
-    for (let i = 0; i < forms.length; i++) {
-        forms[i].style.backgroundColor = FORM_COLORS[i];
-    }
 }
 
 function addCross(xInPercent, yInPercent){
@@ -186,7 +164,7 @@ function refreshBackground() {
 let entries;
 
 //Code to handle the update button--connected to the button
-document.getElementById("updateButton").addEventListener("click", drawEntries);
+// document.getElementById("updateButton").addEventListener("click", drawEntries);
 
 function drawEntries() {
 	refreshBackground();
@@ -196,12 +174,17 @@ function drawEntries() {
 		let valueOfEntry = entriesFromHTML[i].children[0].value;
 		if (valueOfEntry !== "") {
 			entries.push(new Entry(valueOfEntry));
+		} else {
+			entries.push(null);
 		}
 	}
 	drawValidVerticesAndPaths();
 }
 
 $(document).ready(function() {
+	//Start with two forms on page by default
+	addForm();
+	addForm();
 	setImageWidthAndHeight();
 	if (sidebarCollapsed) {
 		setImageWidthAndHeight(1.00);

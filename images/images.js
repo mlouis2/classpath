@@ -1,7 +1,5 @@
 //Creates the map image
 let mapImage = new Image();
-interpretImage();
-mapImage.src = imageFilePath;
 
 //Creates the LMU Logo
 let lmuLogo = new Image();
@@ -13,20 +11,36 @@ compass.src = "images/compass.png";
 
 //Creates coffee, hamburger, and c-store images
 let coffeeImage = new Image();
-coffeeImage.src = "images/Coffee.png";
+coffeeImage.src = "images/coffeeIcon.png";
 let hamburgerImage = new Image();
-hamburgerImage.src = "images/Hamburger.png";
+hamburgerImage.src = "images/foodIcon.png";
 let sodaImage = new Image();
-sodaImage.src = "images/TheGrid.png";
+sodaImage.src = "images/storeIcon.png";
 let treesImage = new Image();
-treesImage.src = "images/PalmTrees.png";
+treesImage.src = "images/palmTrees.png";
 let crossImage = new Image();
-crossImage.src = "images/Jesus.png";
+crossImage.src = "images/religionIcon.png";
+
 let walkImage = new Image();
-walkImage.src = "images/foot prints.png";
+walkImage.src = "images/walkIcon.png";
 let bikeImage = new Image();
-bikeImage.src = "images/Bike Icon.png";
+bikeImage.src = "images/bikeIcon.png";
 let driveImage = new Image();
-driveImage.src = "images/car icon.png";
+driveImage.src = "images/carIcon.png";
+
+var walkIconFromHTML = document.images[0];
+walkImage.onload = function(){
+    walkIconFromHTML.src = walkImage.src;
+};
+var bikeIconFromHTML = document.images[1];
+bikeImage.onload = function(){
+    bikeIconFromHTML.src = bikeImage.src;
+};
+var driveIconFromHTML = document.images[2];
+driveImage.onload = function(){
+    driveIconFromHTML.src = driveImage.src;
+};
+
+
 let bikeRackImage = new Image();
-bikeRackImage.src = "images/Brown Bike Icon.png";
+bikeRackImage.src = "images/brownBikeIcon.png";

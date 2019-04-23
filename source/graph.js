@@ -20,7 +20,7 @@ class Graph {
           }
      }
      addEdge(vertexA, vertexB) {
-       
+
           this.adjacencyMatrix[vertexA.index][vertexB.index] = 1;
           this.adjacencyMatrix[vertexB.index][vertexA.index] = 1;
      }
@@ -47,7 +47,39 @@ class Graph {
           return (((vertex.vertexType === "building" || vertex.vertexType === "path") &&
                     this.hasNeighbors(vertex)) && (vertex.accessible || (vertex === start || vertex === goal)));
      }
-     findPath(start, goal, transportationMethod) {
+     findPathAndTimes(start, goal, transportationMethod, bottomFormNumber) {
+          let path;
+          switch (transportationMethod) {
+               case 'walk':
+                    path = this.getBestPath(start, goal, transportationMethod);
+                    addTime(bottomFormNumber, this.retrieveTime([path], ["walk"]));
+                    break;
+               case 'bike':
+                    const closestBikeRackToStart = this.getClosestBikeRackToVertex(start);
+                    const closestBikeRackToGoal = this.getClosestBikeRackToVertex(goal);
+                    const pathFromStartToBikeRack = this.getBestPath(start, closestBikeRackToStart, "walk");
+                    const pathFromBikeRackToBikeRack = this.getBestPath(closestBikeRackToStart, closestBikeRackToGoal, "bike");
+                    const pathFromBikeRackToGoal = this.getBestPath(closestBikeRackToGoal, goal, "walk");
+                    addTime(bottomFormNumber, retrieveTime([pathFromStartToBikeRack, pathFromBikeRackToBikeRack, pathFromBikeRackToGoal], ["walk", "bike", "walk"]));
+                    path = pathFromStartToBikeRack
+                              .concat(pathFromBikeRackToBikeRack)
+                              .concat(pathFromBikeRackToGoal);
+                    break;
+               case 'drive':
+                    const closestParkingLotToStart = this.getClosestParkingLotToVertex(start);
+                    const closestParkingLotToGoal = this.getClosestParkingLotToVertex(goal);
+                    const pathFromStartToParkingLot = this.getBestPath(start, closestParkingLotToStart, "walk");
+                    const pathFromParkingLotToParkingLot = getBestPath(closestParkingLotToStart, closestParkingLotToGoal, "drive");
+                    const pathFromParkingLotToGoal = getBestPath(closestParkingLotToGoal, goal, "walk");
+                    path = pathFromStartToParkingLot
+                         .concat(pathFromParkingLotToParkingLot)
+                         .concat(pathFromParkingLotToGoal);
+                    addTime(bottomFormNumber, retrieveTime([pathFromStartToParkingLot, pathFromParkingLotToParkingLot, pathFromParkingLotToGoal], ["walk", "drive", "walk"]));
+                    break;
+          }
+          return path;
+     }
+     getBestPath(start, goal, transportationMethod) {
           let undoneNodes = [];
           let distances = [];
           for (let i = 0; i < this.vertices.length; i++) {
@@ -125,7 +157,53 @@ class Graph {
      getManhattanDistance(vertexA, vertexB) {
           return Math.abs(vertexA.x - vertexB.x) + Math.abs(vertexA.y - vertexB.y);
      }
+     retrieveTime(paths, transportationMethods) {
+          let totalManhattanDistance = 0;
+          let totalSeconds = 0;
+          for (let path = 0; path < paths.length; path++) {
+               for (let i = 1; i < paths[path].length; i++) {
+                    totalManhattanDistance += this.getManhattanDistance(paths[path][i - 1], paths[path][i]);
+               }
+               switch (transportationMethods[path]) {
+                    case "walk":
+                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100);
+                         break;
+                    case "bike":
+                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100) * .7;
+                         break;
+                    case "drive":
+                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100) * .5;
+                         break;
+               }
+               totalManhattanDistance = 0;
+          }
+          return totalSeconds
+     }
      hasNeighbors(vertex) {
           return (this.returnAdjacentVertices(vertex).length !== 0);
+     }
+     getClosestBikeRackToVertex(vertex) {
+          let closestBikeRack = null;
+          let closestDistance = Number.MAX_VALUE;
+          bikeRackNodes.forEach((bikeRack) => {
+               const distance = this.getManhattanDistance(vertex, bikeRack);
+               if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestBikeRack = bikeRack;
+               }
+          });
+          return closestBikeRack;
+     }
+     getClosestParkingLotToVertex(vertex) {
+          let closestParkingLot = null;
+          let closestDistance = Number.MAX_VALUE;
+          parkingLotNodes.forEach((parkingLot) => {
+               const distance = this.getManhattanDistance(vertex, parkingLot);
+               if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestParkingLot = parkingLot;
+               }
+          });
+          return closestParkingLot;
      }
 }

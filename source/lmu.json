@@ -2,7 +2,8 @@
      "image": {
           "filePath": "images/LMUMap.png",
           "width": 1574,
-          "height": 1183
+          "height": 1183,
+          "secondsPerHundredPixels": 50
      },
      "buildings": [
           {

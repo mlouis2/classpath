@@ -1,5 +1,6 @@
 let imageFilePath, originalImageWidth, originalImageHeight;
 let foodNodes = [], coffeeNodes = [], storeNodes = [], crossNodes = [], buildingNodes = [];
+let secondsPerHundredPixels;
 
 let request = new XMLHttpRequest();
 request.open("GET", "./source/lmu.json", false);
@@ -17,8 +18,10 @@ function populateGraph() {
 
 function interpretImage() {
 	imageFilePath = mapData.loyolaMarymountUniversity.image.filePath;
+	mapImage.src = imageFilePath;
 	originalImageWidth = mapData.loyolaMarymountUniversity.image.width;
 	originalImageHeight = mapData.loyolaMarymountUniversity.image.height;
+	secondsPerHundredPixels = mapData.loyolaMarymountUniversity.image.secondsPerHundredPixels;
 }
 
 function addBuildings() {
@@ -38,6 +41,8 @@ function addAccessoryNodes() {
 	coffeeNodes = [];
 	storeNodes = [];
 	crossNodes = [];
+	bikeRackNodes = [];
+	parkingLotNodes = [];
 	let accessoryNodes = mapData.loyolaMarymountUniversity.accessoryNodes;
 	for (let i = 0; i < accessoryNodes.length; i++) {
 		let vertex = new Vertex(accessoryNodes[i].type, accessoryNodes[i].name, accessoryNodes[i].x, accessoryNodes[i].y);
@@ -54,6 +59,10 @@ function addAccessoryNodes() {
 				break;
 			case "cross":
 				crossNodes.push(vertex);
+			case "parkingLot":
+				parkingLotNodes.push(vertex);
+			case "bikeRack":
+				bikeRackNodes.push(vertex);
 		}
 	}
 }
