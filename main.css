@@ -58,16 +58,17 @@ p {
   font-family: 'Pacifico', cursive;
 }
 
-#transportationIcon {
-  height: 100%;
-}
-
 #transportationMethodsContainer {
   text-align: center;
   width: 100%;
   padding: 10px;
   height: 70px;
   margin-bottom: 20px;
+}
+
+
+#transportationIcon {
+  height: 100%;
 }
 
 .transportation {
@@ -174,11 +175,56 @@ text-decoration-line: none;
   color: #699CD0;
 }
 
-.pageBottom {
-  color: white;
-  text-align: center;
-}
 
 canvas {
   background-color: #a5d389;
+}
+
+.dropbtn {
+  background-color: #ddaaca;
+  color: white;
+  font-family: 'Noto Serif', serif;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dropdown {
+  text-align: center;
+}
+
+.dropdown-content {
+  display: none;
+  text-align: center;
+  padding-left: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #ddaaca;
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: white;
+  margin-top: 0px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+.dropdown:hover .dropbtn {
+  -webkit-transition-duration: 0.4s; Safari
+  transition-duration: 0.4s;
+  background-color: #bf8eac;
 }
