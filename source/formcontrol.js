@@ -5,7 +5,7 @@ let addid = 0;
 let isFirst = true;
 let optionConnector = "<div class='entryConnector' style='font-size: 25px; text-align: center; color: white'>&darr;</div>";
 let selectBuildingsString = "<div class='buildingEntry'>" +
-"<select name='buildings'>" +
+"<select name='buildings' class='buildings'>" +
 "<option value='' selected disabled hidden>Pick a Location</option>";
 
 populateGraph();
@@ -13,7 +13,7 @@ sortBuildingsAlphabetically();
 for (let i = 0; i < buildingNodes.length; i++) {
 	selectBuildingsString += "<option value='" + buildingNodes[i].name.replace("\'", "&#39;") + "'>" + buildingNodes[i].name + "</option>";
 }
-selectBuildingsString += "</div>";
+selectBuildingsString += "</select></div>";
 
 function addForm() {
 
@@ -21,6 +21,7 @@ function addForm() {
 
 	let text = document.createElement('div');
 	text.id = 'entry ' + addid;
+	text.classList.add('numberedEntry');
 
 	if (isFirst) {
 		text.innerHTML = selectBuildingsString;
@@ -33,15 +34,31 @@ function addForm() {
 		addForm.appendChild(text);
 		updateFormColors();
 	}
-	if (addid == MAX_FORMS - 1) {
-		document.getElementById("addformbutton").remove();
-	}
-
-	let buildingEntries = document.getElementsByClassName("buildingEntry");
-	buildingEntries[addid].addEventListener("mouseover", highlightLocationDelegate(addid));
-	buildingEntries[addid].addEventListener("mouseout", unhighlightLocationDelegate(addid));
 
 	addid++;
+	updateAddAndRemoveButtons();
+
+	let buildingEntries = document.getElementsByClassName("buildingEntry");
+	buildingEntries[addid - 1].addEventListener("mouseover", highlightLocationDelegate(addid - 1));
+	buildingEntries[addid - 1].addEventListener("mouseout", unhighlightLocationDelegate(addid - 1));
+}
+
+function updateAddAndRemoveButtons() {
+	const numForms = addid;
+
+	const addFormButtonPresent = (numForms < MAX_FORMS);
+	const removeFormButtonPresent = (numForms > 2);
+	if (addFormButtonPresent) {
+		addAddFormButton();
+	} else {
+		removeAddFormButton();
+	}
+
+	if (removeFormButtonPresent) {
+		addRemoveFormButton();
+	} else {
+		removeRemoveFormButton();
+	}
 }
 
 Element.prototype.remove = function() {
@@ -82,6 +99,41 @@ function collapseSidebar() {
 	drawEntries();
 }
 
+function addRemoveFormButton() {
+	const removeFormButton = document.getElementById("removeFormButton");
+	if (removeFormButton.classList.contains("hidden")) {
+		removeFormButton.classList.remove("hidden");
+	}
+}
+
+function removeRemoveFormButton() {
+	const removeFormButton = document.getElementById("removeFormButton");
+	if (!removeFormButton.classList.contains("hidden")) {
+		removeFormButton.classList.add("hidden");
+	}
+}
+
+function addAddFormButton() {
+	const addFormButton = document.getElementById("addformbutton");
+	if (addFormButton.classList.contains("hidden")) {
+		addFormButton.classList.remove("hidden");
+	}
+}
+
+function removeAddFormButton() {
+	const addFormButton = document.getElementById("addformbutton");
+	if (!addFormButton.classList.contains("hidden")) {
+		addFormButton.classList.add("hidden");
+	}
+}
+
+function removeForm() {
+	const entries = document.getElementsByClassName("numberedEntry");
+	entries[entries.length - 1].parentElement.removeChild(entries[entries.length - 1]);
+	addid--;
+	updateAddAndRemoveButtons();
+}
+
 function sortBuildingsAlphabetically() {
 	buildingNodes.sort(function(buildingA, buildingB) {
 		if(buildingA.name < buildingB.name) { return -1; }
@@ -90,13 +142,13 @@ function sortBuildingsAlphabetically() {
 	});
 }
 
+//Hacky way to make it so that we can assign the eventListeners dynamically
 function unhighlightLocationDelegate(formNumber) {
 	return function() {
 		unhighlightLocation(formNumber);
 	}
 }
 
-//Hacky way to make it so that we can assign the eventListeners dynamically
 function highlightLocationDelegate(formNumber) {
 	return function() {
 		highlightLocation(formNumber);
@@ -119,6 +171,11 @@ function highlightLocation(formNumber) {
 		ctx.fillText(vertexWithEntryValue.name, vertexWithEntryValue.x + HIGHLIGHTED_DOT_RADIUS + 5, vertexWithEntryValue.y + HIGHLIGHTED_DOT_RADIUS / 4);
 		vertexWithEntryValue.draw(HIGHLIGHTED_DOT_RADIUS);
 	}
+}
+
+function setSelect(formNumber, valueToSet) {
+	let entry = document.getElementsByClassName("buildingEntry")[formNumber];
+	entry.children[0].value = valueToSet;
 }
 
 function updateFormColors() {
@@ -144,13 +201,11 @@ function addTime(bottomFormNumber, time) {
 }
 
 function secondsToTimeFormat(timeInSeconds) {
-    var hours   = Math.floor(timeInSeconds / 3600);
-    var minutes = Math.floor((timeInSeconds - (hours * 3600)) / 60);
-    var seconds = timeInSeconds - (hours * 3600) - (minutes * 60);
+    var minutes = Math.floor((timeInSeconds) / 60);
+    var seconds = timeInSeconds - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
     if (minutes < 10) {minutes = "0"+minutes;}
     if (seconds < 10) {seconds = "0"+seconds;}
-    let result = hours+':'+minutes+':'+seconds;
-    return result.substring(0, 8);
+    let result = minutes+':'+seconds;
+    return result.substring(0, 5);
 }

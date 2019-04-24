@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+let firstLoad = true;
 let imageHeight;
 let imageWidth;
 let imageX;
@@ -78,30 +79,6 @@ function drawReligion() {
     }
 }
 
-//Draws the vertices after button has been pushed
-function drawValidVerticesAndPaths() {
-	let totalValidVertices = [];
-	for (let i = 0; i < entries.length; i++) {
-		if (entries[i] !== null) {
-			let validVertex = classpath.returnVertexWithName(entries[i].place);
-			totalValidVertices.push([validVertex, i]);
-			validVertex.setColor(FORM_COLORS[i]);
-			validVertex.draw();
-		}
-	}
-	drawValidPaths(totalValidVertices);
-}
-
-function drawValidPaths(totalValidVertices) {
-	let transportationMethod = returnCurrentTransportationMethod();
-	for (let i = 0; i < totalValidVertices.length - 1; i++) {
-		let locationA = classpath.returnVertexWithName(totalValidVertices[i][0].name);
-		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1][0].name);
-		let path = classpath.findPathAndTimes(locationA, locationB, transportationMethod, totalValidVertices[i + 1][1]);
-		classpath.drawPath(path);
-	}
-}
-
 //Finds out whether the user is walking, biking, or driving to their destination
 function returnCurrentTransportationMethod() {
 	let walkButton = document.getElementById("walk");
@@ -131,7 +108,15 @@ function drawBackground() {
 }
 
 function drawMap() {
-	ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
+	if (firstLoad) {
+		mapImage.onload = () => {
+			ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
+			checkLocalStorage();
+		}
+		firstLoad = false;
+	} else {
+		ctx.drawImage(mapImage, imageX,imageY, imageWidth, imageHeight);
+	}
 }
 
 function drawBorder() {
@@ -161,24 +146,64 @@ function refreshBackground() {
 	updateCheckboxes();
 }
 
-let entries;
-
-//Code to handle the update button--connected to the button
-// document.getElementById("updateButton").addEventListener("click", drawEntries);
-
-function drawEntries() {
+function drawEntries(buildingEntries = []) {
 	refreshBackground();
-	entries = [];
-	let entriesFromHTML = document.getElementsByClassName("buildingEntry");
+	const entriesFromHTML = document.getElementsByClassName("buildingEntry");
+	const buildingEntriesFromHTML = [];
 	for (let i = 0; i < entriesFromHTML.length; i++){
-		let valueOfEntry = entriesFromHTML[i].children[0].value;
+		//TODO: extract as function
+		const valueOfEntry = entriesFromHTML[i].children[0].value;
 		if (valueOfEntry !== "") {
-			entries.push(new Entry(valueOfEntry));
+			//TODO: get rid of entry class
+			buildingEntriesFromHTML.push(new Entry(valueOfEntry));
 		} else {
-			entries.push(null);
+			buildingEntriesFromHTML.push(null);
 		}
 	}
-	drawValidVerticesAndPaths();
+	if (buildingEntries !== buildingEntriesFromHTML) {
+		buildingEntries = buildingEntriesFromHTML;
+	}
+	localStorage.setItem('entries', JSON.stringify(buildingEntries.filter(entry => entry !== null))); // Magic var
+	drawValidVerticesAndPaths(buildingEntries);
+}
+
+//Draws the vertices after button has been pushed
+function drawValidVerticesAndPaths(buildingEntries = []) {
+	let totalValidVertices = [];
+	for (let i = 0; i < buildingEntries.length; i++) {
+		if (buildingEntries[i] !== null) {
+			let validVertex = classpath.returnVertexWithName(buildingEntries[i].place);
+			totalValidVertices.push([validVertex, i]);
+			validVertex.setColor(FORM_COLORS[i]);
+			validVertex.draw();
+		}
+	}
+	drawValidPaths(totalValidVertices);
+}
+
+function drawValidPaths(totalValidVertices) {
+	let transportationMethod = returnCurrentTransportationMethod();
+	for (let i = 0; i < totalValidVertices.length - 1; i++) {
+		let locationA = classpath.returnVertexWithName(totalValidVertices[i][0].name);
+		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1][0].name);
+		let path = classpath.findPathAndTimes(locationA, locationB, transportationMethod, totalValidVertices[i + 1][1]);
+		classpath.drawPath(path);
+	}
+}
+
+function checkLocalStorage() {
+	if (localStorage.getItem('entries') !== null) {
+		let entries = JSON.parse(localStorage.getItem('entries'));
+		for (let i = 0; i < entries.length; i++) {
+			if (addid < entries.length) {
+				addForm();
+			}
+			if (entries[i] !== null) {
+				setSelect(i, entries[i].place);
+			}
+		}
+		drawEntries(entries);
+	}
 }
 
 $(document).ready(function() {
@@ -193,5 +218,5 @@ $(document).ready(function() {
 	}
 	populateGraph();
 	//TODO: this is temporary so probably fix this at some point yikes
-	setTimeout(() => {refreshBackground()}, 10);
+	refreshBackground();
 });
