@@ -2,11 +2,23 @@ body {
      background-color: #a5d389;
 }
 
-h1 {
+.header {
      margin-top: 5%;
      text-align: center;
      color: white;
-     font-family: 'Noto Serif', serif;
+     font-family: 'Montserrat', sans-serif;
+     display: inline-block;
+     font-weight: 1000;
+     margin-left: 41%;
+}
+
+.classpath { 
+     color: white;
+     font-family: 'Pacifico', cursive;
+     font-weight: 100;
+     display: inline-block;
+     margin-right: -41%;
+     margin-left: .3%;
 }
 
 .container {
@@ -26,6 +38,7 @@ h1 {
      font-size: 20px;
      margin-left: 5%;
      margin-right: 5%;
+     font-family: 'Montserrat', sans-serif;
 }
 
 #returnButton {
@@ -35,6 +48,7 @@ h1 {
      padding: 10px;
      color: white;
      text-decoration: none;
+     font-family: 'Montserrat', sans-serif;
 }
 
 #returnButton:hover {

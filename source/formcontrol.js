@@ -3,7 +3,7 @@ const HIGHLIGHTED_DOT_RADIUS = 15;
 let sidebarCollapsed = false;
 let addid = 0;
 let isFirst = true;
-let optionConnector = "<div class='entryConnector' style='font-size: 25px; text-align: center; color: white'>&darr;</div>";
+let optionConnector = "<div class='entryConnector' style='font-size: 20px; text-align: center; color: white'>&darr;</div>";
 let selectBuildingsString = "<div class='buildingEntry'>" +
 "<select name='buildings'>" +
 "<option value='' selected disabled hidden>Pick a Location</option>";
@@ -140,7 +140,7 @@ function addTime(bottomFormNumber, time) {
 	} else {
 		connector.classList.add("hasTime");
 	}
-	connector.innerHTML += " " + secondsToTimeFormat(time);
+	connector.innerHTML += " " + "<p id=\"time\">" + secondsToTimeFormat(time) + "</p>";
 }
 
 function secondsToTimeFormat(timeInSeconds) {
