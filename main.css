@@ -7,25 +7,23 @@ p {
   margin: 10px;
 }
 
-.helpButton {
+#helpButton {
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 10px;
   z-index: 2;
   padding: 0px 10px 0px 10px;
   text-decoration: none;
-  background-color: #305fa0; 
+  background-color: #305fa0;
   border-radius: 10px;
   font-family: 'Pacifico', cursive;
 }
 
-.helpButton:hover {
+#helpButton:hover {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: #183359;
 }
-
-
 
 .bodyContainer {
   margin: 0;
@@ -128,13 +126,27 @@ p {
   margin: 0px;
 }
 
-.buildingEntry:hover {
+.buildings:hover {
   -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.67);
     -moz-box-shadow:    0px 0px 30px 0px rgba(255, 255, 255, 0.67);
     box-shadow:         0px 0px 30px 0px rgba(255, 255, 255, 0.67);
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+#addformbutton {
+  text-align:center;
+  display:inline-block;
+}
+
+#removeFormButton {
+  text-align:center;
+  display:inline-block;
 }
 
 .button {
@@ -144,7 +156,6 @@ p {
   display: inline-block;
   margin-top: 8px;
   width: 40%;
-  margin-left: 30%;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
 
@@ -155,11 +166,16 @@ p {
   border-radius: 10px;
 }
 
+.disabled {
+  background-color: gray;
+  cursor: auto;
+}
+
 button {
   outline: none;
 }
 
-.button:hover {
+.button:hover:enabled {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: #183359;
@@ -235,7 +251,6 @@ canvas {
 
 }
 
-
 .dropdown-content a {
   color: white;
   margin-top: 0px;
@@ -246,18 +261,13 @@ canvas {
 
 }
 
-
 .dropdown:hover .dropdown-content {
   display: block;
 
 }
-
-
 
 .dropdown:hover .dropbtn {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: #183359;
 }
-
-

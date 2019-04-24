@@ -158,26 +158,29 @@ class Graph {
           return Math.abs(vertexA.x - vertexB.x) + Math.abs(vertexA.y - vertexB.y);
      }
      retrieveTime(paths, transportationMethods) {
-          let totalManhattanDistance = 0;
+          let totalDistance = 0;
           let totalSeconds = 0;
           for (let path = 0; path < paths.length; path++) {
                for (let i = 1; i < paths[path].length; i++) {
-                    totalManhattanDistance += this.getManhattanDistance(paths[path][i - 1], paths[path][i]);
+                    totalDistance += this.distanceFormula(paths[path][i - 1], paths[path][i]);
                }
                switch (transportationMethods[path]) {
                     case "walk":
-                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100);
+                         totalSeconds += ((secondsPerHundredPixels * totalDistance) / 100);
                          break;
                     case "bike":
-                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100) * .7;
+                         totalSeconds += ((secondsPerHundredPixels * totalDistance) / 100) * .7;
                          break;
                     case "drive":
-                         totalSeconds += ((secondsPerHundredPixels * totalManhattanDistance) / 100) * .5;
+                         totalSeconds += ((secondsPerHundredPixels * totalDistance) / 100) * .5;
                          break;
                }
-               totalManhattanDistance = 0;
+               totalDistance = 0;
           }
           return totalSeconds
+     }
+     distanceFormula(vertexA, vertexB) {
+          return Math.sqrt(Math.pow((vertexB.x - vertexA.x), 2) + Math.pow((vertexB.y - vertexA.y), 2))
      }
      hasNeighbors(vertex) {
           return (this.returnAdjacentVertices(vertex).length !== 0);

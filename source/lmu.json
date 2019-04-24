@@ -3,7 +3,7 @@
           "filePath": "images/LMUMap.png",
           "width": 1574,
           "height": 1183,
-          "secondsPerHundredPixels": 50
+          "secondsPerHundredPixels": 70
      },
      "buildings": [
           {
@@ -985,9 +985,6 @@
           ["BU", "BV"],
           ["BV", "BW"],
           ["BW", "BX"]
-
-
-
      ]
 }
 }

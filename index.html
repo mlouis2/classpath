@@ -11,9 +11,11 @@
           <div class="bodyContainer">
                <div class="sidebar" id="sidebar">
                     <br>
-                    <a class="helpButton" href="./help.html">?</a>
-                    <h1 class = "findYour ">&nbsp;&nbsp;Find Your</h1>
-                    <h1 class = "classpath ">classpath</h1>
+                    <a id="helpButton" href="./help.html">?</a>
+                    <div id="header">
+                         <h1 class = "findYour ">&nbsp;&nbsp;Find Your</h1>
+                         <h1 class = "classpath ">classpath</h1>
+                    </div>
                     <div id="transportationMethodsContainer">
                     <button class="transportation selectedTransportationMethod" id="walk" onclick="updateTransportation(id);" style ="text-align:center;"><img id="transportationIcon" src="/images/walkIcon.png"></button>
                     <button class="transportation" id="bike" onclick="updateTransportation(id);" style ="text-align:center;"><img id="transportationIcon" src="/images/bikeIcon.png"></button>
@@ -24,9 +26,11 @@
 
                     </div>
 
-               <a class="button" id="addformbutton" href='javascript:void(0);' onclick='addForm()' id='addlink_" + addid + "'
-                    style="text-align:center; display:block;">Add a Location</a>
+               <div class="buttonContainer">
+               <button class="button" class="" id="addformbutton" href='javascript:void(0);' onclick='addForm()' id='addlink_" + addid + "'>Add Location</a>
 
+               <button class="button" class="disabled" id="removeFormButton" href='javascript:void(0);' onclick='removeForm()' disabled>Remove Location</a>
+          </div>
                     <br>
 
                     <div class="dropdown">
