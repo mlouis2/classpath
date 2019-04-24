@@ -7,17 +7,25 @@ p {
   margin: 10px;
 }
 
-#helpButton {
+.helpButton {
   color: white;
   font-size: 30px;
   margin-left: 10px;
   z-index: 2;
-  padding: 5px 10px 5px 10px;
+  padding: 0px 10px 0px 10px;
   text-decoration: none;
-  border: 5px solid white;
+  background-color: #305fa0; 
   border-radius: 10px;
-
+  font-family: 'Pacifico', cursive;
 }
+
+.helpButton:hover {
+  -webkit-transition-duration: 0.4s; Safari
+  transition-duration: 0.4s;
+  background-color: #183359;
+}
+
+
 
 .bodyContainer {
   margin: 0;
@@ -43,8 +51,8 @@ p {
   color: white;
   text-align: center;
   font-size: 25px;
-  font-weight: 10;
-  font-family: 'Noto Serif', serif;
+  font-weight: 50;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: -45px;
   margin-top: 5%;
 }
@@ -63,7 +71,7 @@ p {
   width: 100%;
   padding: 10px;
   height: 70px;
-  margin-bottom: 20px;
+  margin-bottom: 13px;
 }
 
 
@@ -77,7 +85,7 @@ p {
   display: inline-block;
   font-size: 15px;
   cursor: pointer;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 10px;
   border: none;
 }
@@ -96,19 +104,28 @@ p {
 
 .sidebar .buildingEntry select {
   color: white;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Montserrat', sans-serif;
   background: #a5d389;
   font-size: 1em;
 }
 
 .entry {
-  padding: 20px 0px 20px 0px;
+  padding: 20px 10px 20px 10px;
 }
 
 .buildingEntry {
   text-align: center;
   width: 50%;
-  margin: 0 auto;
+  margin: 5px;
+  margin-left: 24%;
+}
+
+
+#time {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  margin: 0px;
 }
 
 .buildingEntry:hover {
@@ -121,18 +138,21 @@ p {
 }
 
 .button {
-  background-color: #699CD0;
+  background-color: #305fa0;
   color: white;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
-  margin: 4px 2px;
-  width: 37%;
-  margin-left: 32%;
+  margin-top: 8px;
+  width: 40%;
+  margin-left: 30%;
   cursor: pointer;
-  font-family: 'Noto Serif', serif;
-  border: 2px solid #ddaaca;
-  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  transition: all 0.5s;
+  border-radius: 10px;
 }
 
 button {
@@ -142,8 +162,7 @@ button {
 .button:hover {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
-  background-color: white;
-  color: #699CD0;
+  background-color: #183359;
 }
 
 #addformbutton {
@@ -180,15 +199,23 @@ canvas {
   background-color: #a5d389;
 }
 
+
+
+
+
+
 .dropbtn {
-  background-color: #ddaaca;
+  background-color: #305fa0;
+  margin-top: -10px;
   color: white;
-  font-family: 'Noto Serif', serif;
-  padding: 16px;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+  font-size: 15px;
   border: none;
-  cursor: pointer;
   transition: all 0.5s;
+  border-radius: 10px;
+  width: 40%;
+
 }
 
 .dropdown {
@@ -201,10 +228,11 @@ canvas {
   padding-left: 5%;
   padding-top: 3%;
   padding-bottom: 3%;
-  margin-left: 30%;
-  margin-right: 30%;
-  background-color: #ddaaca;
+  margin-left: 35%;
+  margin-right: 35%;
+  background-color: #305fa0;
   z-index: 1;
+
 }
 
 
@@ -214,11 +242,14 @@ canvas {
   text-decoration: none;
   display: block;
   text-align: left;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 
 .dropdown:hover .dropdown-content {
   display: block;
+
 }
 
 
@@ -226,5 +257,7 @@ canvas {
 .dropdown:hover .dropbtn {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
-  background-color: #bf8eac;
+  background-color: #183359;
 }
+
+
