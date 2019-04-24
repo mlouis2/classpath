@@ -101,29 +101,37 @@ function collapseSidebar() {
 
 function addRemoveFormButton() {
 	const removeFormButton = document.getElementById("removeFormButton");
-	if (removeFormButton.classList.contains("hidden")) {
-		removeFormButton.classList.remove("hidden");
+	if (removeFormButton.classList.contains("disabled")) {
+		removeFormButton.classList.remove("disabled");
+		removeFormButton.classList.add("notDisabled");
+		removeFormButton.disabled = false;
 	}
 }
 
 function removeRemoveFormButton() {
 	const removeFormButton = document.getElementById("removeFormButton");
-	if (!removeFormButton.classList.contains("hidden")) {
-		removeFormButton.classList.add("hidden");
+	if (!removeFormButton.classList.contains("disabled")) {
+		removeFormButton.classList.add("disabled");
+		removeFormButton.classList.remove("notDisabled");
+		removeFormButton.disabled = true;
 	}
 }
 
 function addAddFormButton() {
 	const addFormButton = document.getElementById("addformbutton");
-	if (addFormButton.classList.contains("hidden")) {
-		addFormButton.classList.remove("hidden");
+	if (addFormButton.classList.contains("disabled")) {
+		addFormButton.classList.remove("disabled");
+		addFormButton.classList.add("notDisabled");
+		addFormButton.disabled = false;
 	}
 }
 
 function removeAddFormButton() {
 	const addFormButton = document.getElementById("addformbutton");
-	if (!addFormButton.classList.contains("hidden")) {
-		addFormButton.classList.add("hidden");
+	if (!addFormButton.classList.contains("disabled")) {
+		addFormButton.classList.add("disabled");
+		addFormButton.classList.remove("notDisabled");
+		addFormButton.disabled = true;
 	}
 }
 
