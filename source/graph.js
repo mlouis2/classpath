@@ -40,13 +40,6 @@ class Graph {
           }
           return null;
      }
-     vertexValidForPath(vertex, start, goal, transportationMethod) {
-          if ((transportationMethod === "bike" && !vertex.bikePath) || (transportationMethod === "drive" && !vertex.drivePath)) {
-               return false;
-          }
-          return (((vertex.vertexType === "building" || vertex.vertexType === "path") &&
-                    this.hasNeighbors(vertex)) && (vertex.accessible || (vertex === start || vertex === goal)));
-     }
      findPathAndTimes(start, goal, transportationMethod, bottomFormNumber) {
           let path;
           switch (transportationMethod) {
@@ -69,17 +62,20 @@ class Graph {
                     const closestParkingLotToStart = this.getClosestParkingLotToVertex(start);
                     const closestParkingLotToGoal = this.getClosestParkingLotToVertex(goal);
                     const pathFromStartToParkingLot = this.getBestPath(start, closestParkingLotToStart, "walk");
-                    const pathFromParkingLotToParkingLot = getBestPath(closestParkingLotToStart, closestParkingLotToGoal, "drive");
-                    const pathFromParkingLotToGoal = getBestPath(closestParkingLotToGoal, goal, "walk");
+                    const pathFromParkingLotToParkingLot = this.getBestPath(closestParkingLotToStart, closestParkingLotToGoal, "drive");
+                    const pathFromParkingLotToGoal = this.getBestPath(closestParkingLotToGoal, goal, "walk");
                     path = pathFromStartToParkingLot
                          .concat(pathFromParkingLotToParkingLot)
                          .concat(pathFromParkingLotToGoal);
-                    addTime(bottomFormNumber, retrieveTime([pathFromStartToParkingLot, pathFromParkingLotToParkingLot, pathFromParkingLotToGoal], ["walk", "drive", "walk"]));
+                    addTime(bottomFormNumber, this.retrieveTime([pathFromStartToParkingLot, pathFromParkingLotToParkingLot, pathFromParkingLotToGoal], ["walk", "drive", "walk"]));
                     break;
           }
           return path;
      }
      getBestPath(start, goal, transportationMethod) {
+          if (start === goal) {
+               return [start];
+          }
           let undoneNodes = [];
           let distances = [];
           for (let i = 0; i < this.vertices.length; i++) {
@@ -116,6 +112,33 @@ class Graph {
           path = path.reverse();
           return (path !== null) ? path : null;
      }
+     vertexValidForPath(vertex, start, goal, transportationMethod) {
+          if (vertex === start || vertex === goal) {
+               return true;
+          }
+          if (transportationMethod === "bike") {
+               if (vertex.bikePath || vertex.vertexType === "bikeRack") {
+                    if (this.hasNeighbors(vertex) && vertex.accessible) {
+                         return true;
+                    }
+               }
+               return false;
+          }
+          if (transportationMethod === "drive") {
+               if (vertex.drivePath || vertex.vertexType === "parkingLot") {
+                    if (this.hasNeighbors(vertex) && vertex.accessible) {
+                         return true;
+                    }
+               }
+               return false;
+          }
+          if ((vertex.vertexType === "building" || vertex.vertexType === "path") || (vertex.vertexType === "parkingLot" || vertex.vertexType === "bikeRack")) {
+               if (this.hasNeighbors(vertex) && vertex.accessible) {
+                    return true;
+               }
+          }
+          return false;
+     }
      getAllUndoneNeighbors(currentNode, undoneNodes) {
           let undoneNeighbors = [];
           for (let i = 0; i < undoneNodes.length; i++) {
@@ -125,6 +148,7 @@ class Graph {
           }
           return undoneNeighbors;
      }
+     //Returns the closest (by Manhattan distance) node
      findClosestUndoneNode(distances, undoneNodes) {
           let currentClosestDistance = Number.MAX_SAFE_INTEGER;
           let currentClosestNode = null;

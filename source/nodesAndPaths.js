@@ -59,10 +59,13 @@ function addAccessoryNodes() {
 				break;
 			case "cross":
 				crossNodes.push(vertex);
+				break;
 			case "parkingLot":
 				parkingLotNodes.push(vertex);
+				break;
 			case "bikeRack":
 				bikeRackNodes.push(vertex);
+				break;
 		}
 	}
 }

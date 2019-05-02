@@ -163,7 +163,8 @@ function drawEntries(buildingEntries = []) {
 	if (buildingEntries !== buildingEntriesFromHTML) {
 		buildingEntries = buildingEntriesFromHTML;
 	}
-	localStorage.setItem('entries', JSON.stringify(buildingEntries.filter(entry => entry !== null))); // Magic var
+	localStorage.setItem('entries', JSON.stringify(buildingEntries.filter(entry => entry !== null)));
+	localStorage.setItem('transportationMethod', this.returnCurrentTransportationMethod());
 	drawValidVerticesAndPaths(buildingEntries);
 }
 
@@ -182,7 +183,7 @@ function drawValidVerticesAndPaths(buildingEntries = []) {
 }
 
 function drawValidPaths(totalValidVertices) {
-	let transportationMethod = returnCurrentTransportationMethod();
+	let transportationMethod = this.returnCurrentTransportationMethod();
 	for (let i = 0; i < totalValidVertices.length - 1; i++) {
 		let locationA = classpath.returnVertexWithName(totalValidVertices[i][0].name);
 		let locationB = classpath.returnVertexWithName(totalValidVertices[i + 1][0].name);
@@ -201,6 +202,9 @@ function checkLocalStorage() {
 			if (entries[i] !== null) {
 				setSelect(i, entries[i].place);
 			}
+		}
+		if (localStorage.getItem('transportationMethod') !== null) {
+			updateTransportation(localStorage.getItem('transportationMethod'));
 		}
 		drawEntries(entries);
 	}
