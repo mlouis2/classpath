@@ -48,6 +48,7 @@ class Vertex {
                          ctx.drawImage(crossImage, this.x, this.y, 50, 50);
                          break;
                     case 'bikeRack':
+                         ctx.drawImage(bikeRackImage, this.x, this.y, 50, 50);
                          break;
                     case 'parkingLot':
                          break;

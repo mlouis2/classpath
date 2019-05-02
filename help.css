@@ -52,6 +52,7 @@ body {
 }
 
 #returnButton:hover {
-     background-color: white;
-     color: #699CD0;
+     -webkit-transition-duration: 0.4s; Safari
+     transition-duration: 0.4s;
+     background-color: #183359;
 }

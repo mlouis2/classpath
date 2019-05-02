@@ -41,6 +41,8 @@ function updateCheckboxes() {
 	drawCoffee();
 	drawStore();
 	drawReligion();
+	drawBikes();
+	drawParking();
 }
 
 function drawFood() {
@@ -75,6 +77,24 @@ function drawReligion() {
     if (religionBox.checked == true){
         crossNodes.forEach((crossNode) => {
             crossNode.draw();
+        });
+    }
+}
+
+function drawBikes() {
+    var bikesBox = document.getElementById("bikesCheck");
+    if (bikesBox.checked == true){
+        bikesNodes.forEach((bikesNode) => {
+            bikesNode.draw();
+        });
+    }
+}
+
+function drawParking() {
+    var parkingBox = document.getElementById("parkingCheck");
+    if (parkingBox.checked == true){
+        parkingNodes.forEach((parkingNode) => {
+            parkingNode.draw();
         });
     }
 }

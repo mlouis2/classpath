@@ -41,7 +41,7 @@ p {
     width: 30%;
     height: 100%;
     background-color: #699CD0;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .findYour{
@@ -52,7 +52,7 @@ p {
   font-weight: 50;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: -45px;
-  margin-top: 5%;
+  margin-top: -5%;
 }
 
 .classpath {
@@ -155,7 +155,9 @@ p {
   text-decoration: none;
   display: inline-block;
   margin-top: 8px;
-  width: 40%;
+  margin-left: 4px;
+  margin-right: 4px;
+  width: 100px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
 
@@ -222,7 +224,6 @@ canvas {
 
 .dropbtn {
   background-color: #305fa0;
-  margin-top: -10px;
   color: white;
   font-family: 'Montserrat', sans-serif;
   padding: 15px;
@@ -230,22 +231,28 @@ canvas {
   border: none;
   transition: all 0.5s;
   border-radius: 10px;
-  width: 40%;
+  width: 100%;
+  margin-top: -10px;
 
 }
 
 .dropdown {
   text-align: center;
+  margin: 0 auto;
+  width: 40%; 
 }
 
 .dropdown-content {
+  overflow: scroll;
   display: none;
   text-align: center;
-  padding-left: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  margin-left: 35%;
-  margin-right: 35%;
+  padding-left: 17px;
+  height: 47px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 7px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 0%;
   background-color: #305fa0;
   z-index: 1;
 
@@ -253,6 +260,7 @@ canvas {
 
 .dropdown-content a {
   color: white;
+  padding-top: 10px;
   margin-top: 0px;
   text-decoration: none;
   display: block;
