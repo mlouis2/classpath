@@ -74,7 +74,7 @@ p {
 
 
 #transportationIcon {
-  height: 100%;
+  height: 50px;
 }
 
 .transportation {
@@ -239,7 +239,7 @@ canvas {
 .dropdown {
   text-align: center;
   margin: 0 auto;
-  width: 40%; 
+  width: 40%;
 }
 
 .dropdown-content {

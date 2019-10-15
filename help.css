@@ -12,7 +12,7 @@ body {
      margin-left: 41%;
 }
 
-.classpath { 
+.classpath {
      color: white;
      font-family: 'Pacifico', cursive;
      font-weight: 100;
@@ -27,18 +27,45 @@ body {
 }
 
 .container, #returnButton {
-     background-color: #699CD0;
-     border-radius: 20px;
      padding-top: 1%;
      padding-bottom: 1%;
 }
 
 #classpathDescription {
-     color: white;
      font-size: 20px;
      margin-left: 5%;
      margin-right: 5%;
+}
+
+.teamPictureAndDescription {
+     text-align: center;
+}
+
+.teamPictureContainer {
+     width: 30%;
+     display: inline-block;
+}
+
+#teamPicture {
+     width: 100%;
+     height: auto;
+     padding: 20px;
+     border-radius: 20px;
+}
+
+.teamDescriptionContainer {
+     width: 65%;
+     display: inline-block;
+}
+
+#teamDescription, #classpathDescription {
      font-family: 'Montserrat', sans-serif;
+     color: white;
+}
+
+.container, #returnButton, .teamDescriptionContainer, .teamPictureContainer {
+     background-color: #699CD0;
+     border-radius: 20px;
 }
 
 #returnButton {
