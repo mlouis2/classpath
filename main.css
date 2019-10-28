@@ -93,7 +93,7 @@ p {
   border-radius: 20px;
 }
 
-.transportation:hover {
+#walk:hover {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: white;
@@ -217,11 +217,6 @@ canvas {
   background-color: #a5d389;
 }
 
-
-
-
-
-
 .dropbtn {
   background-color: #305fa0;
   color: white;
@@ -278,4 +273,14 @@ canvas {
   -webkit-transition-duration: 0.4s; Safari
   transition-duration: 0.4s;
   background-color: #183359;
+}
+
+#bike {
+  background-color: gray;
+  border-radius: 20px;
+}
+
+#drive {
+  background-color: gray;
+  border-radius: 20px;
 }

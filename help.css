@@ -1,15 +1,14 @@
 body {
      background-color: #a5d389;
+     text-align: center;
 }
 
 .header {
-     margin-top: 5%;
      text-align: center;
      color: white;
      font-family: 'Montserrat', sans-serif;
      display: inline-block;
      font-weight: 1000;
-     margin-left: 41%;
 }
 
 .classpath {
@@ -17,8 +16,6 @@ body {
      font-family: 'Pacifico', cursive;
      font-weight: 100;
      display: inline-block;
-     margin-right: -41%;
-     margin-left: .3%;
 }
 
 .container {
@@ -54,8 +51,10 @@ body {
 }
 
 .teamDescriptionContainer {
-     width: 65%;
      display: inline-block;
+     font-size: 20px;
+     margin-bottom: 5%;
+     width: 80%;
 }
 
 #teamDescription, #classpathDescription {
@@ -70,8 +69,6 @@ body {
 
 #returnButton {
      width: 10%;
-     margin-top: 20%;
-     margin-left: 45%;
      padding: 10px;
      color: white;
      text-decoration: none;
@@ -82,4 +79,8 @@ body {
      -webkit-transition-duration: 0.4s; Safari
      transition-duration: 0.4s;
      background-color: #183359;
+}
+
+#returnButtonContainer {
+     margin-top: 3%;
 }
